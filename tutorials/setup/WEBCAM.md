@@ -1,0 +1,75 @@
+# Setup connection to your webcam
+
+This is a setup guide for ingestion of webcam video into Media Server.
+
+<!-- TOC -->
+
+- [Connecting to your webcam](#connecting-to-your-webcam)
+  - [Windows](#windows)
+  - [Ubuntu](#ubuntu)
+- [Verify your connection](#verify-your-connection)
+  - [Connectivity problems](#connectivity-problems)
+    - [Plan B](#plan-b)
+
+<!-- /TOC -->
+
+## Connecting to your webcam
+
+Open the Media Server user interface [`gui`](http://127.0.0.1:14000/a=gui#/ingest) (tested in Google Chrome) then follow these steps to test connectivity to your webcam:
+
+1. Set Ingest type to "Device"
+1. Set operating system family to "Linux" or "Windows" as appropriate
+1. Enter the device connection string (see below for how to find it)
+
+![webcam-connection-test-start](./figs/webcam-connection-test-start.png)
+
+To find your webcam connection name please follow these steps:
+
+### Windows
+
+1. open Device Manager
+1. under "Imaging devices", see your device name, *e.g.* "HP HD Camera".
+
+  ![webcam-device-name](./figs/webcam-device-name.png)
+
+1. paste the string `video=HP HD Camera` into the ingest test web page.
+
+### Ubuntu
+
+1. install `v4l-utils`, then use the control tool to list available devices:
+
+  ```bsh
+  $ apt-get install v4l-utils
+  $ v4l2-ctl --list-devices
+
+  HP HD Camera (usb-0000:00:1d.0-1.4):
+          /dev/video0
+  ```
+
+1. paste the name `/dev/video0` into the ingest test web page.
+
+## Verify your connection
+
+Back on the ingest test page, click `Process`.  After a short time, and if all is well, your webcam stream will begin to play in your browser.  Media Server is re-streaming your webcam video to MJPEG, which your browser natively knows how to play.  The configuration to do this is listed on the left panel of the ingest test page.  This configuration will be more easily readable for you once you have completed the introductory tutorials.  To stop testing, click `Stop`.
+
+![webcam-connection-test-connected](./figs/webcam-connection-test-connected.png)
+
+### Connectivity problems
+
+If the video is not displayed, or you receive an error message, double check that you have set the correct camera name in the test page.
+
+If it's still not working try reinstalling your webcam drivers or, if all that fails, go to Plan B.
+
+#### Plan B
+
+If you still cannot connect to your camera, the backup plan is to download the [`france24.mp4`](http://tech-demo.idol.swinfra.net/tutorial/france24.mp4) video file and save it under `C:\MicroFocus\video`.  *N.B.* Use `Save As` to avoid opening the video in your browser.  Then throughout these tutorials, whenever you are asked to process your webcam, please process this video file instead.  *N.B.* you will need to modify the ingest section for each of the configuration files provided as follows:
+
+Comment out the `Format` setting, which looks as follows on Windows:
+
+```ini
+[MyIngest]
+Type = libav
+# Format = dshow
+```
+
+_*END*_

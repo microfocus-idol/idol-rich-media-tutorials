@@ -92,5 +92,3 @@ Type = Video
 ```
 
 These changes are marked in all webcam-targeted configuration examples, so you will only need to toggle comments on the relevant lines.
-
-_*END*_

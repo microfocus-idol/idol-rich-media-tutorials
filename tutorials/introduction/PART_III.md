@@ -239,5 +239,3 @@ In this tutorial, we have used a local `mediaserver.db` to store our trained fac
 ## PART IV - People counting: an example of app integration
 
 Start [here](PART_IV.md).
-
-_*END*_

@@ -370,5 +370,3 @@ Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=sto
 ## PART III - Face recognition
 
 Start [here](PART_III.md).
-
-_*END*_

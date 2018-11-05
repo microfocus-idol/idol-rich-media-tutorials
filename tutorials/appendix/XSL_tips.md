@@ -253,5 +253,3 @@ Now you are ready to collect any nodes you wish from this source XML.
 ## Next steps
 
 For more inspiration, see the examples under `configurations/xsl`.
-
-_*END*_

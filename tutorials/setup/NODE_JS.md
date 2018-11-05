@@ -23,5 +23,3 @@ Test `node.js` by verifying the installed version by executing the following com
 ```bsh
 node -v
 ```
-
-_*END*_

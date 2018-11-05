@@ -129,5 +129,3 @@ The admin guides for all components can be accessed from these links:
 - [IDOL documentation home page](https://www.microfocus.com/documentation/idol/)
 - [License Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/LicenseServer/Guides/html/English/)
 - [Media Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Guides/html/English/index.html)
-
-_*END*_

@@ -139,5 +139,3 @@ To trigger a new count, get your neighbor to look in your webcam or interrupt th
 ## Conclusion
 
 Over these introductory tutorials, we have built up a fundamental understanding of the inner workings of Media Server, from ingest through multiple levels of processing to transformations, encoding and output.  We have also run an application that integrates Media Server as an analytical service.  Why not try more tutorials to explore some of the other analytics available in Media Server, linked from the [main page](../README.md).
-
-_*END*_

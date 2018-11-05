@@ -31,5 +31,3 @@ Start [here](PART_IV.md).
 ## Next steps
 
 Why not try more tutorials to explore some of the other analytics available in Media Server, linked from the [main page](../README.md).
-
-_*END*_

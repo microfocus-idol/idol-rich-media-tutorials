@@ -172,5 +172,3 @@ LuaOutputPath=./output/faces1/%segment.startTime.timestamp%.lua
 ## Next steps
 
 For more inspiration, see the examples under `configurations/lua`.
-
-_*END*_

@@ -314,5 +314,3 @@ If your webcam has an indicator light, it should now switch off.
 ## PART II - More face analytics
 
 Start [here](PART_II.md).
-
-_*END*_

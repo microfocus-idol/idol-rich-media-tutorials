@@ -126,5 +126,3 @@ Many more example analysis configurations are provided with your Media Server in
 - Full administration guides are available for all IDOL products [here](https://www.microfocus.com/documentation/idol/).
 - Read more tips on working with IDOL products in [IDOL Expert](https://www.microfocus.com/documentation/idol/IDOL_12_1/IDOLServer/Guides/html/English/expert/index.html).
 - To learn more about IDOL Media Server and other products from the Micro Focus data analytics, visit [microfocus.com/information-data-analytics-idol](https://software.microfocus.com/en-us/software/information-data-analytics-idol).
-
-_*END*_

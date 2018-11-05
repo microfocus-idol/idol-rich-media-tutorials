@@ -101,20 +101,17 @@ We will introduce and use each of these sections in this tutorial.  Full details
 
 ### Ingest
 
-We will configure the Ingest engine to accept video from your webcam.  Use [this guide](../setup/WEBCAM.md) to set up connection to your webcam.
+We will configure the Ingest engine to accept video from your webcam.  Use [this guide](../setup/WEBCAM.md) to set up connection to your webcam.  If you do not have a webcam, [Plan B](../setup/WEBCAM.md#plan-b) is to use a video file instead.  For this tutorial you need a video containing faces, *e.g.* this free-to-use clip <https://videos.pexels.com/videos/people-at-the-sidewalk-858011>.
 
 The ingest configuration section to connect we will use now will look as follows:
 
 ```ini
 [Session]
-Engine0 = WebcamIngest
+Engine0 = VideoIngest
 
-[WebcamIngest]
+[VideoIngest]
 Type = Video
-# On Windows
 Format = dshow
-# On Ubuntu
-# Format = v4l2
 ```
 
 *N.B.* More options are available for the `Video`-type ingest engine.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Help/index.html#Configuration/Ingest/Libav/_Libav.htm).
@@ -197,7 +194,7 @@ Media Server writes out a number of different log files to its `logs` directory.
 
 ```ini
 05/06/2018 17:31:45 [167] 70-Error: [MTAuMTQuMTU3LjIxOjE0MDAwOlBST0NFU1M6MTUyODIxNjMwMzg5OTAxMDU4OTA4ODM5] Failed: Failed to set up 1 engine:
-05/06/2018 17:31:45 [167] 70-Error: [MTAuMTQuMTU3LjIxOjE0MDAwOlBST0NFU1M6MTUyODIxNjMwMzg5OTAxMDU4OTA4ODM5] 'WebcamIngest': File I/O: unable to open source
+05/06/2018 17:31:45 [167] 70-Error: [MTAuMTQuMTU3LjIxOjE0MDAwOlBST0NFU1M6MTUyODIxNjMwMzg5OTAxMDU4OTA4ODM5] 'VideoIngest': File I/O: unable to open source
 ```
 
 #### Display ongoing analytics in *Activity* user interface

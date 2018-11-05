@@ -136,8 +136,6 @@ You can make use of all the now familiar resources to monitor Media Server, such
 
 To trigger a new count, get your neighbor to look in your webcam or interrupt the tracking by covering your webcam.  When you're satisfied, stop the app with [`Ctrl-C`].  The app will instruct Media Server to stop processing before it exits.
 
-Next, why not try re-running with other sources?  For example an open news channel stream has been included (commented out) in the `options.js` file.  Also, you can download a recording from that news channel [`france24.mp4`](http://tech-demo.idol.swinfra.net/tutorial/france24.mp4) and save it under `C:\MicroFocus\video`.  *N.B.* Use `Save As` to download all items and avoid opening them in your browser.
-
 ## Conclusion
 
 Over these introductory tutorials, we have built up a fundamental understanding of the inner workings of Media Server, from ingest through multiple levels of processing to transformations, encoding and output.  We have also run an application that integrates Media Server as an analytical service.  Why not try more tutorials to explore some of the other analytics available in Media Server, linked from the [main page](../README.md).

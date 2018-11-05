@@ -152,11 +152,11 @@ An example configuration file based on our first process session from [PART I](.
 
 ```ini
 [Session]
-Engine0 = WebcamIngest
+Engine0 = VideoIngest
 Engine1 = FaceDetection
 Engine2 = OutputTrackedFaces
 
-[WebcamIngest]
+[VideoIngest]
 Type = Video
 Format = dshow
 

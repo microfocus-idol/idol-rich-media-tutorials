@@ -268,7 +268,7 @@ We should therefore restrict the ingest rate of the input stream with an event p
 
 ```ini
 [Session]
-Engine0 = WebcamIngest
+Engine0 = VideoIngest
 Engine1 = RateLimitedIngest
 
 ...

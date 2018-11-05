@@ -82,7 +82,7 @@ Once we have trained some faces, we are ready to run the `FaceRecognize` analysi
 
 ```ini
 [Session]
-Engine0 = WebcamIngest
+Engine0 = VideoIngest
 Engine1 = FaceDetection
 Engine2 = FaceRecognition
 

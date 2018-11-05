@@ -36,18 +36,17 @@ module.exports = {
 
 	// ingest
   /* WEBCAM */
-  // source       : 'video=HP HD Camera',
-  source       : 'video=HP Webcam HD 4310',
+  source       : 'video=HP HD Camera',
   isVideoFile  : false,
   isDevice     : true,
 
   /* STREAM */
-  // source       : 'http://english.streaming.aljazeera.net/aljazeera/english2/index2073.m3u8',
+  // source       : 'http://host:port/channel.m3u8',
   // isVideoFile  : false,
   // isDevice     : false,
 
   /* VIDEO FILE */
-  // source       : "C:\\MicroFocus\\video\\france24.mp4",
+  // source       : "C:\\video\\clip.mp4",
   // isVideoFile  : true,
   // isDevice     : false,
 
@@ -56,7 +55,7 @@ module.exports = {
 
 	// analysis
   sampleInterval : 200,       // milliseconds between analysed frames
-  numParallel    : 1,         // number of video frames to process in parallel.  Requires one CPU core for each.
+  numParallel    : 2,         // number of video frames to process in parallel.  Requires one CPU core for each.
   minSize        : 100,       // pixel width
   colorAnalysis  : true,      // set to 'true' to activate, aiming to reduce false detections
   detectTilted   : false,     // set to 'true' to activate

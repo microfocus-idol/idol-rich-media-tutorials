@@ -51,7 +51,7 @@ To find your webcam connection name please follow these steps:
 
 #### Configuration change for Linux
 
-There is one configuration difference between ingesting webcam video on Linux compared to on Windows that you will need to keep in mind when following webcam-based tutorial examples later on.  Let's look at a snipped from `introduction/faceAnalysis1.cfg` as an example:
+There is one configuration difference between ingesting webcam video on Linux compared to on Windows that you will need to keep in mind when following webcam-based tutorial examples later on.  Let's look at a snippet from `introduction/faceAnalysis1.cfg` as an example:
 
 ```diff
 [VideoIngest]
@@ -78,7 +78,7 @@ If it's still not working try reinstalling your webcam drivers or, if all that f
 
 If do not have a webcam or cannot connect to your webcam, you can simply process a video file instead.
 
-There are some configuration differences between ingesting video from webcam and a file that you will need to keep in mind when following webcam-based tutorial examples later on.  Let's look at a snipped from `introduction/faceAnalysis1.cfg` as an example:
+There are some configuration differences between ingesting video from webcam and a file that you will need to keep in mind when following webcam-based tutorial examples later on.  Let's look at a snippet from `introduction/faceAnalysis1.cfg` as an example:
 
 ```diff
 [Session]

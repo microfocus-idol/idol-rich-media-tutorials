@@ -20,7 +20,7 @@ We will:
 
 ## Exploring the app
 
-The app lives in the included `peopleCounter` folder.  Soon we will run the entry-point `app.js` file to launch the app but first, let's explore what it does and, in so doing, see some of the key features of Media Server that facilitate integration with third-party applications.
+The app lives in the included `peopleCounter` folder.  Soon we will run the entry point `app.js` file to launch the app but first, let's explore what it does and, in so doing, see some of the key features of Media Server that facilitate integration with third-party applications.
 
 These key features are:
 
@@ -30,17 +30,17 @@ These key features are:
 
 ### Runtime configuration
 
-So far in these tutorials, when launching a process action, we have defined the process configuration with `configName=<FILE_NAME>`.  This references a file stored under your `configurations` directory and is therefore fixed.  In an application, you may want to modify some settings at runtime, *e.g.* based on a user setting the minimum face size or defining a region of interest.  To provide this flexibility, Media Server also allows you to send a session configuration file in the process action, *e.g.* as a [base-64 encoded](https://en.wikipedia.org/wiki/Base64#URL_applications) string, using `config=<BASE_64_STRING>` in the process request.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Help/index.html#Actions/VideoAnalysis/Process.htm) for details.
+So far in these tutorials, when launching a process action, we have defined the process configuration with `configName=<FILE_NAME>`.  This references a file stored under your `configurations` directory and is therefore fixed.  In an application, you may want to modify some settings at runtime, *e.g.* based on a user setting the minimum face size or defining a region of interest.  To provide this flexibility, Media Server also allows you to send a session configuration file in the process action, *e.g.* as a [base-64 encoded](https://en.wikipedia.org/wiki/Base64#URL_applications) string, using `config=<BASE_64_STRING>` in the process request.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Help/index.html#Actions/VideoAnalysis/Process.htm) for details.
 
-In this app, our runtime options are defined in `options.js`.  These are used to fill in a templated process configuration file `mediaserver/peopleCounter.tmpl.cfg`, which is then base-64 encoded and sent to Media Server.  One way to achieve this in `node.js` is with standard JavaScript [templated strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), as follows:
+In this app, our runtime options are defined in `options.js`.  These are used to fill in a templated process configuration file `mediaserver/peopleCounter.tmpl.cfg`, which is then base-64 encoded and sent to Media Server.  One way to achieve this in `node.js` is with standard JavaScript [templated strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), *e.g.*:
 
 ```javascript
 const cfgTmpl = fs.readFileSync(cfgFile, 'utf8'), // read the templated config file
-  cfg = eval(`\`${cfgTmpl}\``),                   // process the template to create a standard config
+  cfg = eval(`\`${cfgTmpl}\``),                   // process the template to create a plain text config
   bsf = new Buffer(cfg).toString('base64'),       // create a base 64 encoded string
   path = '/action=process' +
     '&source=video=HP HD Camera' +
-    `&config=${encodeURIComponent(bsf)}` +        // make the string URI safe
+    `&config=${encodeURIComponent(bsf)}` +        // make the encoded string URI safe
     '&responseFormat=JSON';
 ```
 
@@ -58,7 +58,7 @@ var path = '/action=queueinfo&queueaction=STOP' +
       `&queuename=process&token=${token}`;
 ```
 
-Other queue actions are available, including `PAUSE` and `RESUME`, as well as `PROGRESS` (only relevant for sources with known length, *i.e.* files).  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Help/index.html#Actions/General/_ACI_QueueInfo.htm) for details.
+Other queue actions are available, including `PAUSE` and `RESUME`, as well as `PROGRESS` (only relevant for sources with known length, *i.e.* files).  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Help/index.html#Actions/General/_ACI_QueueInfo.htm) for details.
 
 ### Receiving alerts
 
@@ -103,7 +103,7 @@ XMLOutputPath = output/toPeopleCounter/%session.token%/%segment.type%_%segment.s
 
 ## Application logic
 
-Our people counting app can now send runtime configurations to Media Server, has the tools to monitor and manage on-going processes and will receive alerts in a tailored format.  We are now free to consider the application logic itself.
+Our people counting app can now send runtime configurations to Media Server, has the tools to monitor and manage on-going processes and will receive alerts in a tailored format.  We are now free to concentrate on the application logic itself, *i.e.* what do we want to acheive?
 
 On receipt of a face tracking event from Media Server, we want to update three quantities:
 
@@ -120,16 +120,16 @@ To launch the app, open a command prompt and execute the following instruction:
 ```bsh
 $ node app.js
 
-2018-06-26 11:36:53.696 [listener] peopleCounter has started on port 4000.
-2018-06-26 11:36:56.932 [checkProgress] Media Server process state: 'Processing'
+2019-03-29 11:36:53.696 [listener] peopleCounter has started on port 4000.
+2019-03-29 11:36:56.932 [checkProgress] Media Server process state: 'Processing'
 ```
 
 We will see counts being output to the command window:
 
 ```bsh
-2018-06-26 11:37:05.379 [count] Cumulative count: 2
-2018-06-26 11:37:05.383 [count] Tracking now: 1
-2018-06-26 11:37:05.387 [count] Average duration (seconds): 5.3
+2019-03-29 11:37:05.379 [count] Cumulative count: 2
+2019-03-29 11:37:05.383 [count] Tracking now: 1
+2019-03-29 11:37:05.387 [count] Average duration (seconds): 5.3
 ```
 
 You can make use of all the now familiar resources to monitor Media Server, such as [`/action=activity`](http://127.0.0.1:14000/a=activity).

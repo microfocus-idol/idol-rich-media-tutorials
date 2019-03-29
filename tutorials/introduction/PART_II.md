@@ -25,7 +25,7 @@ We will:
 
 ## Analysis chaining
 
-Once a face has been detected, Media Server can perform further analytics, including gender estimation and clothing color determination.
+Once a face has been detected, Media Server can perform further analytics, including gender estimation and clothing color detection.
 
 For example, to enable face demographics analysis on tracked faces, we could include the following configuration lines:
 
@@ -45,9 +45,9 @@ Type = Demographics
 Input = FaceDetection.ResultWithSource
 ```
 
-So we see that the output from one analysis engine is fed to another by setting the `Input` property of the downstream engine to one of the output tracks of the upstream engine.
+You can see that the output from one analysis engine is fed to another by setting the `Input` property of the downstream engine to one of the output tracks of the upstream engine.
 
-This is only possible if the data output from the upstream engine contains the information required by the downstream engine, *i.e.* contains the same *data types*.  To list the input and output track data types, use the [`listEngines`](http://127.0.0.1:14000/a=ListEngines) action, which returns, *e.g.* for `FaceDetect` and `Demographics`, the following information:
+This is only *allowed* if the data output from the upstream engine contains the information required by the downstream engine, *i.e.* contains the same data types.  To list the input and output track data types, use the [`listEngines`](http://127.0.0.1:14000/a=ListEngines) action, which returns, *e.g.* for `FaceDetect` and `Demographics`, the following information:
 
 ```xml
 <engine>
@@ -85,9 +85,9 @@ In out next test we will chain the following analytics together:
 
 ### Controlling event rates
 
-So back to running some analytics. We don't want to keep covering the webcam to trigger chained analytics.  To get more frequent results automatically we will tap into the `SegmentedResultWithSource` track to get updates from any ongoing tracks at intervals of `SegmentDuration`.
+So, back to running some analytics. We don't want to keep covering the webcam to trigger results.  To get more frequent output automatically we will tap into the `SegmentedResultWithSource` track to get updates from any ongoing tracks at intervals of `SegmentDuration`.
 
-To enable this, *e.g.* to limit the rate of data for demographics analysis, we could include the following:
+To enable this, *e.g.* to set the rate of data for demographics analysis to five seconds, we could include the following:
 
 ```ini
 [Session]
@@ -129,11 +129,11 @@ Type = Demographics
 Input = FaceForward.Output
 ```
 
-*N.B.* Notice that the name of the event processing output track variant is always `Output`.
+*N.B.* Notice that the name of the event processing output track variant is always `Output`, *e.g.* `FaceForward.Output`.
 
-Many logical operators are available in addition to `Filter`, which include the capability to compare or combine records from multiple tracks. See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Help/index.html#Configuration/ESP/ESP.htm) for more details.
+Many logical operators are available in addition to `Filter`, which include the capability to compare or combine records from multiple tracks. See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Help/index.html#Configuration/ESP/ESP.htm) for more details.
 
-Most of these operators provide additional flexibility through Lua scripting that allow you to create more complex logic.  Media Server ships with a number of example scripts, which can be found in the `configurations/lua` directory.  Here was have used the included `frontalFace.lua` script, which contains the following code
+Most of these operators provide additional flexibility through Lua scripts that allow you to create more complex logic.  Media Server ships with a number of example scripts that can be found in the `configurations/lua` directory.  Here was have used the out-of-the-box `frontalFace.lua` script, which contains the following code
 
 ```lua
 -- return if face is forward-facing (i.e. non-profile) and mostly within image
@@ -143,10 +143,10 @@ function pred(record)
 end
 ```
 
-, which applies the following additional filters:
+, and therefore applies the following additional filters:
 
 1. the angle of the face to the camera must be less than 90 degrees, *i.e.* the face must not be in profile,
-1. almost all of the face must be visible in the view of the frame.
+2. almost all of the face must be visible in the view of the frame.
 
 If the function `pred()` returns `true`, then this record will be kept, otherwise it will be discarded.
 
@@ -154,10 +154,10 @@ See [tips on Lua scripting](../appendix/Lua_tips.md) for more information.
 
 ### Run face and clothing analysis
 
-Copy the `faceAnalysis2.cfg` process configuration file into your `configurations/tutorials` directory as before, then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis2a.cfg` process configuration file into your `configurations/tutorials` directory as before, then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
-action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2
+action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2a
 ```
 
 Click `Test Action` to start processing.
@@ -195,7 +195,7 @@ Input = FaceDemographics.ResultWithSource
 LuaScript = draw.lua
 ```
 
-*N.B.* Lua scripts can be used to provide flexibility.  The included script `draw.lua` sets the overlay color based on the detected gender of the face:
+*N.B.* Again, Lua scripts can be used to provide flexibility.  The included script `draw.lua` sets the overlay color based on the detected gender of the face:
 
 ```lua
 ResultsProcessor = {
@@ -229,27 +229,27 @@ Engine5 = FaceDrawEncoder
 [FaceCropEncoder]
 Type = ImageEncoder
 ImageInput = FaceCrop.Output
-OutputPath = output/faces3/%record.startTime.timestamp%_crop.png
+OutputPath = output/faces2b/%record.startTime.timestamp%_crop.png
 
 [FaceDrawEncoder]
 Type = ImageEncoder
 ImageInput = FaceDraw.Output
-OutputPath = output/faces3/%record.startTime.timestamp%_overlay.png
+OutputPath = output/faces2b/%record.startTime.timestamp%_overlay.png
 ```
 
-*N.B.* We can access parameter values from the alert record using *macros* to generate the image `OutputPath`.  See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Help/index.html#Configuration/Macros.htm) for details.
+*N.B.* We can access parameter values from the alert record using *macros* to generate the image `OutputPath`.  See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Help/index.html#Configuration/Macros.htm) for details.
 
 ### Run face image encoding
 
-Copy the `faceAnalysis3.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis2b.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
-action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis3
+action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2b
 ```
 
 Click `Test Action` to start processing.
 
-Review the results with [`activity`](http://127.0.0.1:14000/a=activity), then open the folder `output/faces3` to see the encoded images. These images will be used in the face recognition module. Images will accumulate, so don't run for too long without stopping.
+Review the results with [`activity`](http://127.0.0.1:14000/a=activity), then open the folder `output/faces2b` to see the encoded images. These images will be used in the face recognition module. Images will accumulate, so don't run for too long without stopping.
 
 Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
 
@@ -259,7 +259,7 @@ We will now create a process configuration to save video from your webcam, in wh
 
 Just as we drew the overlays on images of faces, we will use a transform engine to blur faces in the video frames.  Encoding video introduces the following complications:
 
-1. we must analyse every frame that we want to encode, otherwise we risk missing faces on un-sampled video frames
+1. we must analyse every frame that we want to encode, otherwise we risk missing faces on not-analysed video frames
 1. we must combine face detection records for each frame, whether there are zero, one or many faces detected in that frame
 
 Face detection should be run at a sensible frame rate for our laptops.  This analysis rate will restrict the maximum output rate of the encoded video such that all frames can be analysed and combined.
@@ -289,7 +289,7 @@ Input = RateLimitedIngest.Output
 SampleInterval = 0
 ```
 
-To combine zero, one or many faces with the rate-limited source video, we will use an event processing `Combine` engine as follows:
+To combine detected faces with the rate-limited source video, we will use an event processing `Combine` engine as follows:
 
 ```ini
 [CombineFaces]
@@ -312,7 +312,7 @@ Finally, to encode the video to disk (in one minute segments), we will include t
 [BlurredFacesVideo]
 Type = Mpeg
 ImageInput = FaceImageBlur.Output
-OutputPath = output/faces4/%currentTime.timestamp%_blur.mp4
+OutputPath = output/faces2c/%currentTime.timestamp%_blur.mp4
 UseTempFolder = True
 Segment = True
 SegmentDuration = 1m
@@ -320,15 +320,15 @@ SegmentDuration = 1m
 
 ### Run blurred faces video encoding
 
-Copy the `faceAnalysis4.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis2c.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
-action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis4
+action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2c
 ```
 
 Click `Test Action` to start processing.
 
-Review the results with [`activity`](http://127.0.0.1:14000/a=activity), then open the folder `output/faces4` to see the encoded videos.  Let this process run for long enough to allow a few `.mp4` files to be generated.
+Review the results with [`activity`](http://127.0.0.1:14000/a=activity), then open the folder `output/faces2c` to see the encoded videos.  Let this process run for long enough to allow a few `.mp4` files to be generated.
 
 ![video-blur](./figs/video-blur.gif)
 
@@ -342,7 +342,7 @@ Media Server offers more options that just encoding video to files:
 - UDP streaming with the MPEG encoder
 - MJPEG streaming
 
-The easiest to set up and connect to is the MJPEG option.  To enable that method, you can add the following configuration:
+The easiest to set up and connect to here is the MJPEG option.  To enable that method, you can add the following configuration:
 
 ```ini
 [DrawnFacesStream]
@@ -353,10 +353,10 @@ Port = 3000
 
 ### Run MJPEG streaming
 
-Copy the `faceAnalysis5.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis2d.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
-action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis5
+action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2d
 ```
 
 Click `Test Action` to start processing.
@@ -366,6 +366,8 @@ Review the results with [`activity`](http://127.0.0.1:14000/a=activity), then op
 ![video-draw](./figs/video-draw.gif)
 
 Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
+
+*N.B.* This is exactly the same process that was used *under the hood* in [this guide](../setup/WEBCAM.md) when testing your webcam connectivity using the Media Server user interface [`gui`](http://127.0.0.1:14000/a=gui#/ingest).
 
 ## PART III - Face recognition
 

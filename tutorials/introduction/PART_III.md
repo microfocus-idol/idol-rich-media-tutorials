@@ -3,6 +3,7 @@
 We will:
 
 1. train faces and use the `FaceRecognize` analysis engine to match them
+1. match your identity from your webcam
 1. optimise analysis configuration for good performance
 
 <!-- TOC -->
@@ -22,9 +23,9 @@ We will:
 
 ## Face training
 
-Media Server can be trained to recognize faces, as well as objects, classes of object, vehicles and more.  We will now train our faces into the system and run the `FaceRecognize` analysis engine to identify ourselves from the webcam stream.
+Media Server can be trained to recognize faces, as well as specific objects, classes of object, vehicles and more.  We will now train our faces into the system and run the `FaceRecognize` analysis engine to identify ourselves from the webcam video stream.
 
-Media Server training can be performed through its web API, detailed in the  [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Help/index.html#Actions/Training/_TrainingActions.htm).  For smaller or one-off projects you may find it easier to use the [`gui`](http://127.0.0.1:14000/a=gui) web interface.
+Media Server training can be performed through its web API, detailed in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Help/index.html#Actions/Training/_TrainingActions.htm).  For smaller projects, demos and testing, you may find it easier to use the [`gui`](http://127.0.0.1:14000/a=gui) web interface.
 
 ![face-training](./figs/face-training.png)
 
@@ -35,14 +36,14 @@ Media Server training can be performed through its web API, detailed in the  [re
 Open the [`gui`](http://127.0.0.1:14000/a=gui) (tested in Google Chrome) then follow these steps to train your identity:
 
 1. at the top right, note that *Face Recognition* is the selected analytic by default
-1. in the left column, click `Add` to add a new *database* (a collection of identities)
+2. in the left column, click `Add` to add a new *database* (a collection of identities)
     - rename the database to `Workshop`
-1. in the center column, click `Add` to add a new *identity*
+3. in the center column, click `Add` to add a new *identity*
     - give your identity a name
     - (optionally) add key-value metadata
-1. in the right column, click `Add` to import images
-    - Navigate to `output/faces3` to select some of cropped images we just created
-1. click `Build` to train your identity
+4. in the right column, click `Add` to import images
+    - Navigate to `output/faces2b` to select some of cropped images we just created
+5. click `Build` to train your identity
 
 The training status for each image is indicated at its bottom left: green for trained, yellow untrained and red for failed.
 
@@ -50,13 +51,13 @@ The training status for each image is indicated at its bottom left: green for tr
 
 ### Assessing faces for training
 
-When selecting images of faces for training, we should follow the guidance given in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Guides/html/English/index.html#Training/Face_ImageGuide.htm).
+When selecting images of faces for training, we should follow the guidance given in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Guides/html/English/index.html#Training/Face_ImageGuide.htm).
 
 You can also instruct Media Server to assess training images without actually training them to warn you of any potential errors.  In the `gui`, follow these steps:
 
-1. select one or many imported images
+1. select one or more imported images
 1. on the menu bar above them, click `Assess`
-1. error and warning icons appear there there are any to report
+1. error and warning icons appear where there are any to report
 1. hover over the error/warning triangles to see the messages
 
 In this screenshot for example:
@@ -70,9 +71,9 @@ The following errors and warnings are returned:
 __*top*__ | *None* | *Error*: Image data nulled | *Error*: More than one face detected
 __*bottom*__ | *Error*: No face detected | *Warning*: Side-view face | *None*
 
-*NB1* The warning triangles are colored yellow in the `gui` to indicate that training would succeed but that matching performance will be sub optimal.  Red error triangles indicate that the image would not be trained successfully.
+*N.B.1* The warning triangles are colored yellow in the `gui` to indicate that training would succeed but that matching performance will be sub-optimal.  Red error triangles indicate that the image would not be trained successfully.
 
-*NB2* The detection of more than one face in the image does not guarantee an error.  If one face is significantly bigger than the others then it can be successfully trained, *e.g.* in the image below, where the trained face is overlayed in blue and the background faces in purple.
+*N.B.2* The detection of more than one face in the image does not guarantee an error.  If one face is significantly bigger than the others then it can be successfully trained, *e.g.* in the image below, where the trained face is overlayed in blue and the background faces in purple.
 
 ![assess-faces-zoom](./figs/assess-faces-zoom.png)
 
@@ -93,17 +94,17 @@ Type = FaceRecognize
 Input = FaceDetection.ResultWithSource
 ```
 
-*N.B.* More options are available for the `FaceRecognize` analysis engine, including restriction to a particular matching database, setting the matching threshold and allowing multiple matches to be returned.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Help/index.html#Configuration/Analysis/FaceRecognize/_FaceRecognize.htm) for details.
+*N.B.* More options are available for the `FaceRecognize` analysis engine, including restriction to a particular matching database, setting the matching threshold and allowing multiple matches to be returned.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Help/index.html#Configuration/Analysis/FaceRecognize/_FaceRecognize.htm) for details.
 
-Copy the `faceAnalysis6.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis3a.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
-action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis6
+action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis3a
 ```
 
 Click `Test Action` to start processing.
 
-Review the results with [`activity`](http://127.0.0.1:14000/a=activity).  As before, we can use the `FaceDetection.SegmentedResultWithSource` track to tap into the on-going track and give alerts at regular intervals. Interrupt the tracking by covering your webcam to trigger new entries in the `FaceRecognition.ResultWithSource` track.
+Review the results with [`activity`](http://127.0.0.1:14000/a=activity).  As before, we can use `FaceDetection.SegmentedResultWithSource` to tap into the on-going tracking and give alerts at regular intervals.
 
 Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
 
@@ -131,7 +132,7 @@ We can now configure the following process:
     BorderUnit = Percent
     ```
 
-- with event processing to filter known and unknown faces using already included Lua functions:
+- with event processing to filter known and unknown faces using out-of-the-box Lua functions:
 
     ```ini
     [KnownFace]
@@ -162,19 +163,19 @@ We can now configure the following process:
     Database = Workshop
     ```
 
-Copy the `faceAnalysis7.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis3b.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
-action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis7
+action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis3b
 ```
 
 Click `Test Action` to start processing.
 
 Review the results with [`activity`](http://127.0.0.1:14000/a=activity).  Remember we can interrupt the tracking by covering your webcam to trigger new entries in the `Result` track.
 
-To add an unknown face, ask your neighbor to look in your webcam, or hold your phone showing a photo of someone else up in front of the webcam.
+To add an unknown face, ask your neighbor to look in your webcam, or hold your phone showing a photo of someone else up in front of your webcam.
 
-View (and edit) the enrolled faces with the [`gui`](http://127.0.0.1:14000/a=graphicaluserinterface) web app.
+View the enrolled faces with the [`gui`](http://127.0.0.1:14000/a=graphicaluserinterface) web app.
 
 Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
 
@@ -184,14 +185,14 @@ Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=sto
 
 When configuring a face recognition system, it is important to quantify the performance in order to optimise your configuration options and, often more importantly, your real-world setup like camera position and frame rate.
 
-As with any performance checking, this is a process involving human validation.  We need to process a sample of footage, count and write down the following quantities:
+As with any performance checking, this procedure involves human validation.  We need to process a sample of footage, count and write down the following quantities:
 
 - (TP) true positive *or* hit
 - (TN) true negative *or* correct rejection
 - (FP) false positive *or* false alarm
 - (FN) false negative *or* miss
 
-With these quantities you can calculate a single accuracy metric wit the following [formula](https://en.wikipedia.org/wiki/Precision_and_recall):
+With these quantities you can calculate a single accuracy metric with the following [formula](https://en.wikipedia.org/wiki/Precision_and_recall):
 
 ![eqn-accuracy](./figs/accuracy.svg)
 
@@ -206,9 +207,9 @@ When recording statistics to calculate our performance metric, we should also ta
 
 *N.B.* to get more data, you can allow for multiple matches using the `MaxRecognitionResults` parameter and setting a relatively low `RecognitionThreshold`.
 
-With these values to hand, you can straightforwardly check how, *e.g.* changing the `RecognitionThreshold` or `MinSize` parameters would have effected your accuracy metric, without the need to reprocess your video.
+With these values to hand, you can straightforwardly check how, *e.g.* changing the `RecognitionThreshold` or `MinSize` parameters would have affected your accuracy metric, without the need to reprocess your sample video.
 
-*N.B.* You will find that performance will drop off sharply as faces get smaller.  We recommend a minimum face size of 150 pixels but you can work with smaller faces if you are willing to increase your recognition threshold.
+*N.B.* You will find that performance will drop off sharply as faces get smaller.  We recommend a minimum face size of 150 pixels but you can work with smaller faces if you are willing to live with reduced performance.
 
 Tuning other variables may require additional tests, *e.g.* using:
 
@@ -219,9 +220,9 @@ Tuning other variables may require additional tests, *e.g.* using:
 
 Further optimizations:
 
-- After observing a scene for some time you may know that faces typically only appear in a particular region of the screen.  If this is the case, you can reducing face detection processing by defining a `Region`.
+- After observing a scene for some time you may know that faces typically only appear in a particular region of the screen, *e.g.* the bottom left.  If this is the case, you can reduce face detection processing by defining a `Region`.
 - Sometimes background features may be misidentified as faces.  This potential source of false alerts may be reduced by enabling the `ColorAnalysis` option in `FaceDetect`.
-- If you cannot reduce your video resolution or frame rate any more and are struggling to process video at the required rate, e.g. in real-time from a CCTV camera, you can use for processing resources to run both `FaceDetect` and `FaceRecognize` in parallel.  The detection step is the most likely bottleneck unless you have a very large face database to match against.
+- If you cannot reduce your video resolution or frame rate any more and are struggling to process video at the required rate, e.g. in real-time from a shared CCTV camera, you can configure Media Server to use additioanl processing resources to run both `FaceDetect` and `FaceRecognize` in parallel.  The detection step is the most likely bottleneck unless you have a very large face database to match against.
 
 ### Hardware requirements
 
@@ -232,9 +233,9 @@ Processing requirements vary greatly, depending strongly on video resolution, fa
 - face recognition
 - video encoding (*if required*)
 
-If adding large numbers of faces to the database you will need to start considering storage and memory requirements.  Each face descriptor must be loaded into memory for matching, so you need to have enough memory on each of the machines where Media Server is running.  Each descriptor is roughly 5KB in size, so each GB of RAM can hold approximately 200,000 faces.
+When adding large numbers of faces to the database, you will need to start considering storage and memory requirements.  Each face descriptor must be loaded into memory for matching, so you need to have enough memory on each of the machines where Media Server is running.  Each descriptor is roughly 5KB in size, so each GB of RAM can hold approximately 200,000 faces.
 
-In this tutorial, we have used a local `mediaserver.db` to store our trained faces.  In production, you should configure an external database such as PostgrSQL, as described in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_1/MediaServer/Guides/html/English/index.html#Getting_Started/Configure/_TRN_Set_up_databases.htm).
+In this tutorial, we have used a local `mediaserver.db` to store our trained faces.  In production, you should configure an external database such as PostgrSQL, as described in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Guides/html/English/index.html#Getting_Started/Configure/_TRN_Set_up_databases.htm).
 
 ## PART IV - People counting: an example of app integration
 

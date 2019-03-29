@@ -2,7 +2,7 @@
 
 An introduction to Media Server, using face analysis as an example.
 
-After completing this tutorial, we will have a working end-to-end system: from ingesting video from a webcam, through multiple chained analytics, filtering, transformations and output, all integrated into a basic custom solution design.
+After completing this tutorial, we will have a working end-to-end system: from ingesting video from a webcam, through multiple chained analytics, filtering, transformations and output, all integrated into a basic custom application.
 
 ## PART I - Face detection
 
@@ -12,13 +12,13 @@ Start [here](PART_I.md).
 
 ## PART II - More face analytics
 
-Analysis chaining, event processing as well as image and video encoding.
+Analysis chaining, event processing, as well as image and video encoding.
 
 Start [here](PART_II.md).
 
 ## PART III - Face recognition
 
-Analysis training and configuration tuning for good real-world performance.
+Analysis training and how to tune your configuration for good real-world performance.
 
 Start [here](PART_III.md).
 

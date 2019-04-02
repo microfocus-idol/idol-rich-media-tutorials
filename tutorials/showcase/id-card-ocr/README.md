@@ -24,10 +24,19 @@ This guide assumes you have already completed the [introductory tutorial](../../
   - [Analysis](#analysis)
   - [Output](#output)
   - [Running our analysis](#running-our-analysis)
-- [Adding Face Recognition to correct rotations](#adding-face-recognition-to-correct-rotations)
+- [Correct rotated scans](#correct-rotated-scans)
   - [Analysis](#analysis-1)
   - [Transform](#transform)
+  - [Encoding](#encoding)
   - [Running our analysis](#running-our-analysis-1)
+- [Templated OCR](#templated-ocr)
+  - [Analysis](#analysis-2)
+  - [Transform](#transform-1)
+  - [Running our analysis](#running-our-analysis-2)
+- [Redact personal information](#redact-personal-information)
+  - [Event Processing](#event-processing)
+  - [Transform](#transform-2)
+  - [Running our analysis](#running-our-analysis-3)
 
 <!-- /TOC -->
 
@@ -120,9 +129,9 @@ Click `Test Action` to start processing.
 
 Go to Media Server's `output/idCard1` to see the results.
 
-## Adding Face Recognition to correct rotations
+## Correct rotated scans
 
-Image this document was scanned upside down.  We would like to handle these documents automatically.  For documents containing faces, we can make use of engine chaining and Face Detection in order to find the true orientation and correct it before running OCR as before.
+Imagine this document was scanned upside down.  We would like to handle these documents automatically.  For documents containing faces, we can make use of engine chaining and Face Detection in order to find the true orientation and correct it before running OCR as before.
 
 ### Analysis
 
@@ -147,7 +156,29 @@ Input = FaceDetect.ResultWithSource
 LuaScript = inverseFaceAngle.lua
 ```
 
-We are envoking an out-of-the-box Lua script to capture the angle of rotation of the detected face.  For full details on this and other available transformations, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Transform/_Transform.htm).
+We are envoking an out-of-the-box Lua script to capture the angle of rotation of the detected face:
+
+```lua
+-- returns the angle required to rotate a face upright (in degrees)
+function getAngle(record)
+	return -record.FaceData.ellipse.angle
+end
+```
+
+For full details on this and other available transformations, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Transform/_Transform.htm).
+
+### Encoding
+
+To demonstrate this rotation, we will also encode an image:
+
+```ini
+[SaveImage]
+Type = imageencoder
+ImageInput = RotateFace.Output
+OutputPath = output/idCard2/%source.filename%_rotated.png
+```
+
+For full details on image encoding options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Encoding/ImageEncoder/_ImageEncoder.htm).
 
 ### Running our analysis
 
@@ -161,6 +192,105 @@ Click `Test Action` to start processing.
 
 Go to Media Server's `output/idCard2` to see the results.
 
+## Templated OCR
 
+ID are structured data, *e.g.* showing names, dates etc.  In reading the whole scanned image, as we have done above, we have lost this structure.  In order to get it back we need to define a template for OCR.  The template consist of the following information:
+
+1. An anchor, *i.e.* some uniquely identifying feature of the ID card type, such as the top banner 
+2. A list of regions to be processed with OCR
+
+We can train a template with the following actions:
+
+- Create a database (container for templates): <http://127.0.0.1:14000/a=CreateObjectDatabase&database=IDCardTemplates>
+- Train a template.  Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), remembering to update the `imagepath` parameter to match your setup:
+
+    ```url
+    action=TrainObject&database=IDCardTemplates&imagepath=C:/MicroFocus/image/TurkishDriversLicenseHeader.png&metadata=ROIsurname:38 22 35 9,ROIfirstname:38 30 35 9,ROIdateplaceofbirth:38 38 35 9,ROIissuedate:39 46 22 9,ROIexpirydate:38 54 22 9,ROIcode5:38 62 22 9,ROIaddress:70 46 25 9,ROIcode4d:70 54 25 9,ROIvehicletypes:6 84 21 7
+    ```
+
+    Click `Test Action` to start processing.
+
+You can see the trained template using the Media Server [GUI](http://127.0.0.1:14000/a=gui):
+
+![trained_template](./figs/trained_template.png)
+
+For full details on training options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/Training/TrainObject.htm).
+
+### Analysis
+
+To identify the document anchor, we need to run Object Recognition using the following event processing configuration:
+
+```ini
+[Template]
+Type = objectrecognition
+Database = IDCardTemplates
+Geometry = SIM2
+```
+
+For full details on options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/Object/_Object.htm).
+
+### Transform
+
+To define regions in which to run OCR for the recognized template, we need to include the following transform configuration:
+
+```ini
+[TextRegion]
+Type = setrectangle
+LuaScript = getAssociatedRectanglesDemo.lua
+Input = Template.ResultWithSource
+```
+
+We are envoking a custom Lua script `getAssociatedRectanglesDemo.lua`.  Now, copy this file into Media Server's `configurations\lua` folder.
+
+### Running our analysis
+
+Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), remembering to update the `source` and `configPath` parameters to match your setup:
+
+```url
+action=process&source=C:/MicroFocus/image/Turkey1.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/showcase/id-card-ocr/idCard3.cfg
+```
+
+Click `Test Action` to start processing.
+
+Go to Media Server's `output/idCard3` to see the results.
+
+## Redact personal information
+
+This document contains personal information.  You might want to create a redacted version of the original image in order to share it in a report.  We can make use of the Blur transform engineto do this automatically for us.
+
+### Event Processing
+
+To redact all the sensitive regions, we need to combine detection information for any faces and words together using the following event processing configuration:
+
+```ini
+[ImageWithRegions]
+Type = Combine
+Input0 = FaceDetect.ResultWithSource
+Input1 = OCR.Result
+```
+
+For full details on this and other available event processing methods, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/ESP/ESP.htm).
+
+### Transform
+
+To blur those sensitive regions, we need to include the following transform configuration:
+
+```ini
+[BlurAll]
+Type = Blur
+Input = ImageWithRegions.Output
+```
+
+### Running our analysis
+
+Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), remembering to update the `source` and `configPath` parameters to match your setup:
+
+```url
+action=process&source=C:/MicroFocus/image/Turkey1.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/showcase/id-card-ocr/idCard4.cfg
+```
+
+Click `Test Action` to start processing.
+
+Go to Media Server's `output/idCard4` to see the results.
 
 _*END*_

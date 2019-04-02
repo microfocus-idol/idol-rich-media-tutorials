@@ -25,7 +25,7 @@ We will:
 
 Media Server can be trained to recognize faces, as well as specific objects, classes of object, vehicles and more.  We will now train our faces into the system and run the `FaceRecognize` analysis engine to identify ourselves from the webcam video stream.
 
-Media Server training can be performed through its web API, detailed in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Help/index.html#Actions/Training/_TrainingActions.htm).  For smaller projects, demos and testing, you may find it easier to use the [`gui`](http://127.0.0.1:14000/a=gui) web interface.
+Media Server training can be performed through its web API, detailed in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/Training/_TrainingActions.htm).  For smaller projects, demos and testing, you may find it easier to use the [`gui`](http://127.0.0.1:14000/a=gui) web interface.
 
 ![face-training](./figs/face-training.png)
 
@@ -51,7 +51,7 @@ The training status for each image is indicated at its bottom left: green for tr
 
 ### Assessing faces for training
 
-When selecting images of faces for training, we should follow the guidance given in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Guides/html/English/index.html#Training/Face_ImageGuide.htm).
+When selecting images of faces for training, we should follow the guidance given in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Guides/html/English/index.html#Training/Face_ImageGuide.htm).
 
 You can also instruct Media Server to assess training images without actually training them to warn you of any potential errors.  In the `gui`, follow these steps:
 
@@ -94,7 +94,7 @@ Type = FaceRecognize
 Input = FaceDetection.ResultWithSource
 ```
 
-*N.B.* More options are available for the `FaceRecognize` analysis engine, including restriction to a particular matching database, setting the matching threshold and allowing multiple matches to be returned.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Help/index.html#Configuration/Analysis/FaceRecognize/_FaceRecognize.htm) for details.
+*N.B.* More options are available for the `FaceRecognize` analysis engine, including restriction to a particular matching database, setting the matching threshold and allowing multiple matches to be returned.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/_FaceRecognize.htm) for details.
 
 Copy the `faceAnalysis3a.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
@@ -235,7 +235,7 @@ Processing requirements vary greatly, depending strongly on video resolution, fa
 
 When adding large numbers of faces to the database, you will need to start considering storage and memory requirements.  Each face descriptor must be loaded into memory for matching, so you need to have enough memory on each of the machines where Media Server is running.  Each descriptor is roughly 5KB in size, so each GB of RAM can hold approximately 200,000 faces.
 
-In this tutorial, we have used a local `mediaserver.db` to store our trained faces.  In production, you should configure an external database such as PostgrSQL, as described in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Guides/html/English/index.html#Getting_Started/Configure/_TRN_Set_up_databases.htm).
+In this tutorial, we have used a local `mediaserver.db` to store our trained faces.  In production, you should configure an external database such as PostgrSQL, as described in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Guides/html/English/index.html#Getting_Started/Configure/_TRN_Set_up_databases.htm).
 
 ## PART IV - People counting: an example of app integration
 

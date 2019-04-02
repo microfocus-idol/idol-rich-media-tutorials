@@ -41,15 +41,15 @@ Follow the instructions under the *Get Licensing* tab to obtain your license key
 
 #### IDOL installer (*recommended*)
 
-Under the *Get Software* tab, select `IDOLServer_12.1.0_WINDOWS_X86_64.exe` or `IDOLServer_12.1.0_LINUX_X86_64.exe` depending on your system.
+Under the *Get Software* tab, select `IDOLServer_12.2.0_WINDOWS_X86_64.exe` or `IDOLServer_12.2.0_LINUX_X86_64.exe` depending on your system.
 
 #### IDOL components ZIPs (*alternative*)
 
-Under the *Get Software* tab, select `LicenseServer_12.1.0_WINDOWS_X86_64.zip` or `LicenseServer_12.1.0_LINUX_X86_64.zip`
+Under the *Get Software* tab, select `LicenseServer_12.2.0_WINDOWS_X86_64.zip` or `LicenseServer_12.2.0_LINUX_X86_64.zip`
 
 Go back to *Product Center* > *IDOL* and request access to a Media Server license type, *e.g.* *IDOL Audio Analytics SW E-Media*.  Again you need to fill out the form to gain access.  Once complete go to the *Get Software* tab and download the following:
 
-- `MediaServer_12.1.0_WINDOWS_X86_64.zip` or `MediaServer_12.1.0_LINUX_X86_64.zip`
+- `MediaServer_12.2.0_WINDOWS_X86_64.zip` or `MediaServer_12.2.0_LINUX_X86_64.zip`
 
 ### Install
 
@@ -57,7 +57,7 @@ Go back to *Product Center* > *IDOL* and request access to a Media Server licens
 
 If you have the installer:
 
-- `IDOLServer_12.1.0_WINDOWS_X86_64.exe` or `IDOLServer_12.1.0_LINUX_X86_64.exe`
+- `IDOLServer_12.2.0_WINDOWS_X86_64.exe` or `IDOLServer_12.2.0_LINUX_X86_64.exe`
 
 You can follow the install wizard to get the required components.
 
@@ -66,8 +66,8 @@ On Windows, right click the installer and run as Administrator.
 On Linux, run from the command line:
 
 ```bsh
-chmod +x IDOLServer_12.1.0_LINUX_X86_64.exe
-./IDOLServer_12.1.0_LINUX_X86_64.exe
+chmod +x IDOLServer_12.2.0_LINUX_X86_64.exe
+./IDOLServer_12.2.0_LINUX_X86_64.exe
 ```
 
 Keep the default options except in the following cases:
@@ -83,8 +83,8 @@ Keep the default options except in the following cases:
 
 If you have the component `.zip` files:
 
-- `LicenseServer_12.1.0_WINDOWS_X86_64.zip` or `LicenseServer_12.1.0_LINUX_X86_64.zip`
-- `MediaServer_12.1.0_WINDOWS_X86_64.zip` or `MediaServer_12.1.0_LINUX_X86_64.zip`
+- `LicenseServer_12.2.0_WINDOWS_X86_64.zip` or `LicenseServer_12.2.0_LINUX_X86_64.zip`
+- `MediaServer_12.2.0_WINDOWS_X86_64.zip` or `MediaServer_12.2.0_LINUX_X86_64.zip`
 
 Installation scripts are included in this tutorial for Windows (`install.bat`) and Linux (`install.sh`).
 
@@ -104,8 +104,8 @@ Now run the `install.bat` or `install.sh` script with administrator privileges, 
 
 If you used the installer wizard or the scripts without altering them, your installed software will be in:
 
-- `C:\MicroFocus\IDOLServer-12.1.0` (Windows)
-- `~/IDOLServer-12.1.0` (Linux)
+- `C:\MicroFocus\IDOLServer-12.2.0` (Windows)
+- `~/IDOLServer-12.2.0` (Linux)
 
 Each component has its own sub-directory, which includes all required executables, dependencies and configuration files.  The primary configuration file for each shares the name of the component executable, *e.g.* `mediaserver.cfg` for `mediaserver.exe`.
 
@@ -128,4 +128,4 @@ The admin guides for all components can be accessed from these links:
 
 - [IDOL documentation home page](https://www.microfocus.com/documentation/idol/)
 - [License Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/LicenseServer/Guides/html/English/)
-- [Media Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer/Guides/html/English/index.html)
+- [Media Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Guides/html/English/index.html)

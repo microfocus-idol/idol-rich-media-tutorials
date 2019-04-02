@@ -10,7 +10,7 @@
 
 COMPONENTS=( "LicenseServer" "MediaServer" )
 
-VERSION="12.1.0"
+VERSION="12.2.0"
 INSTALL_BASE="~"
 
 SOURCE_DIR="~/Downloads"

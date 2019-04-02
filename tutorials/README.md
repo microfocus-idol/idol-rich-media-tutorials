@@ -15,10 +15,7 @@ A set of guides to introduce you to IDOL Media Server and associated components.
   - [Basic software installation](#basic-software-installation)
 - [Introduction](#introduction)
 - [Analytics showcase examples](#analytics-showcase-examples)
-  - [Object Recognition](#object-recognition)
-  - [Vehicle analysis](#vehicle-analysis)
-  - [Event Processing](#event-processing)
-  - [Speech transcription](#speech-transcription)
+  - [ID Card reading](#id-card-reading)
 - [Example configurations](#example-configurations)
 - [Appendix](#appendix)
 - [Links](#links)
@@ -84,33 +81,13 @@ __*These guides assume a familiarity with Media Server concepts.*__
 
 Dip into any of the following showcase guides to try more analytics.
 
-### Object Recognition
+### ID Card reading
 
-Find and track logos in broadcast video from a football/soccer/calcio match.
+Process a scanned image of an ID card to extact useful structured informantion.
 
-<!-- [Get started](showcase/object-recognition/README.md). -->
-__*COMING SOON*__
+[Get started](showcase/id-card-ocr/README.md).
 
-### Vehicle analysis
-
-Read number/license places.  Perform additional vehicle analytics like make recognition.
-
-<!-- [Get started](showcase/vehicle-analysis/README.md). -->
-__*COMING SOON*__
-
-### Event Processing
-
-As a simple exercise, use event processing rules to build your own *ExplosionDetector* "analytic engine" from the output of the simplest analysis engine *KeyFrame*, which identifies video frames in which the scene changes significantly from the previous frame.
-
-<!-- [Get started](showcase/event-processing/README.md). -->
-__*COMING SOON*__
-
-### Speech transcription
-
-Process audio to transcribe human speech from a news broadcast.  Search those speech transcripts to understand what's being reported on without having to watch TV!
-
-<!-- [Get started](showcase/speech-transcription/README.md). -->
-__*COMING SOON*__
+*MORE COMING SOON*
 
 ## Example configurations
 

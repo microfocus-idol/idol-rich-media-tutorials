@@ -10,7 +10,7 @@ REM ---------------------------------------------------------------------------
 
 set COMPONENTS=( LicenseServer, MediaServer )
 
-set VERSION=12.1.0
+set VERSION=12.2.0
 set INSTALL_BASE=C:\MicroFocus
 
 set SOURCE_DIR=%HOMEPATH%\Downloads

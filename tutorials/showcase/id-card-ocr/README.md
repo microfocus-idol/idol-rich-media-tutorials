@@ -37,6 +37,7 @@ This guide assumes you have already completed the [introductory tutorial](../../
   - [Event Processing](#event-processing)
   - [Transform](#transform-2)
   - [Running our analysis](#running-our-analysis-3)
+- [Next steps](#next-steps)
 
 <!-- /TOC -->
 
@@ -216,6 +217,10 @@ You can see the trained template using the Media Server [GUI](http://127.0.0.1:1
 
 For full details on training options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/Training/TrainObject.htm).
 
+These regions were defined using the Media Server [GUI](http://127.0.0.1:14000/a=gui#/ingest):
+
+![template_regions](./figs/template_regions.png)
+
 ### Analysis
 
 To identify the document anchor, we need to run Object Recognition using the following event processing configuration:
@@ -293,4 +298,6 @@ Click `Test Action` to start processing.
 
 Go to Media Server's `output/idCard4` to see the results.
 
-_*END*_
+## Next steps
+
+Why not try more tutorials to explore some of the other analytics available in Media Server, linked from the [main page](../../README.md).

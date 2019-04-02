@@ -18,6 +18,6 @@ The tutorials start [here](tutorials/README.md)!
 
 ## License
 
-Copyright 2018 Micro Focus International plc.
+Copyright 2019 Micro Focus International plc.
 
 Licensed under the MIT License (the "License"); you may not use this project except in compliance with the License.

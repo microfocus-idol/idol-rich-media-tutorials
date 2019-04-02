@@ -8,7 +8,6 @@ A set of guides to introduce you to IDOL Media Server and associated components.
   - [Minimum requirements](#minimum-requirements)
   - [Obtaining tutorial materials](#obtaining-tutorial-materials)
   - [Following this guide](#following-this-guide)
-  - [Obtaining training materials](#obtaining-training-materials)
   - [Obtaining IDOL software](#obtaining-idol-software)
     - [If you are a Micro Focus employee or partner](#if-you-are-a-micro-focus-employee-or-partner)
     - [Otherwise](#otherwise)
@@ -41,13 +40,13 @@ Get a local copy of this tutorial to give you all the configuration files you wi
 
 You can stay on GitHub to follow the steps in this and further linked README files in your browser, or if you prefer to work with the downloaded files, see [these steps](appendix/Markdown_reader.md) to turn your browser into a smart markdown viewer.
 
-### Obtaining training materials
-
-<!-- TODO - Replace with Git LFS. -->
+<!-- ### Obtaining training materials
 
 All required sample videos are available from this hosted [directory](http://tech-demo.idol.swinfra.net/tutorial/). *N.B.* Use `Save As` on the file links to avoid opening the videos in your browser.
 
 You will be instructed what to download in the guides as needed.
+
+TODO - Replace with Git LFS. -->
 
 ### Obtaining IDOL software
 

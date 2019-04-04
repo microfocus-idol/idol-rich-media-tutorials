@@ -7,17 +7,15 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 - [Getting started](#getting-started)
   - [Minimum requirements](#minimum-requirements)
   - [Obtaining tutorial materials](#obtaining-tutorial-materials)
-  - [Following this guide](#following-this-guide)
-  - [Obtaining IDOL software](#obtaining-idol-software)
-    - [If you are a Micro Focus employee or partner](#if-you-are-a-micro-focus-employee-or-partner)
-    - [Otherwise](#otherwise)
-  - [Basic software installation](#basic-software-installation)
+    - [Following this guide offline](#following-this-guide-offline)
+  - [Install IDOL Media Server](#install-idol-media-server)
 - [Introduction](#introduction)
 - [Analytics showcase examples](#analytics-showcase-examples)
   - [ID Card reading](#id-card-reading)
-- [Example configurations](#example-configurations)
-- [Appendix](#appendix)
-- [Links](#links)
+- [Further reading](#further-reading)
+  - [Example configurations](#example-configurations)
+  - [Appendix](#appendix)
+  - [Links](#links)
 
 <!-- /TOC -->
 
@@ -25,18 +23,19 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 
 ### Minimum requirements
 
-- A laptop with minimum 2 cores and 4 GB RAM, running 64-bit Windows or Linux.  These tutorials have been tested on Windows 7, Windows 10 and Ubuntu 16.04 / 16.10.
+- 2 cores, 4 GB RAM and 20GB free disk space.
+- 64-bit Windows or Linux (this guide has been most recently tested on Windows 10 and Ubuntu 18.10).
+- A text editor.
 - Administrator privileges to install software.
 - A webcam.
-- A text editor.
 
 ### Obtaining tutorial materials
 
-Get a local copy of this tutorial to give you all the configuration files you will need.  You can either clone this repository or download the `.zip`.
+Get a local copy of this tutorial to give you all the configuration files you will need.  You can either clone this repository or download the `.zip` from [GitHub](https://github.com/microfocus-idol/idol-rich-media-tutorials).
 
-<!-- Larger files such as sample videos are stored with Git LFS. -->
+![github-download](./figs/github-download.png)
 
-### Following this guide
+#### Following this guide offline
 
 You can stay on GitHub to follow the steps in this and further linked README files in your browser, or if you prefer to work with the downloaded files, see [these steps](appendix/Markdown_reader.md) to turn your browser into a smart markdown viewer.
 
@@ -48,23 +47,11 @@ You will be instructed what to download in the guides as needed.
 
 TODO - Replace with Git LFS. -->
 
-### Obtaining IDOL software
-
-#### If you are a Micro Focus employee or partner
-
-You can obtain software and a testing license from the [eSoftware/Partner portal](https://h22255.www2.hpe.com/evalportal/index.do).
-
-Under *Product Center*, select *IDOL* to view the software available to you. See the installation instructions below for details on what to download.
-
-#### Otherwise
-
-Please check with the Micro Focus contact who provided you with these tutorials to request the required software and trial license.
-
-### Basic software installation
+### Install IDOL Media Server
 
 __*Do this before starting any tutorials.*__
 
-If you do not yet have your own IDOL installation, please follow [this short guide](setup/INSTALL.md) to get your own basic setup.  You will be instructed on how to configure this setup as you follow the guides below.
+Follow [these steps](setup/SETUP.md) to install IDOL Media Server.
 
 ## Introduction
 
@@ -88,16 +75,18 @@ Process a scanned image of an ID card to extact useful structured informantion.
 
 *MORE COMING SOON*
 
-## Example configurations
+## Further reading
+
+### Example configurations
 
 Many more example analysis configurations are provided with your Media Server installation, under `configurations/examples`.  Now you know your Media Server, you can use these as inspiration for our own use cases!
 
-## Appendix
+### Appendix
 
 - Working with Lua. [Get started](appendix/Lua_tips.md).
 - Working with XSL. [Get started](appendix/XSL_tips.md).
 
-## Links
+### Links
 
 - Full administration guides are available for all IDOL products [here](https://www.microfocus.com/documentation/idol/).
 - Read more tips on working with IDOL products in [IDOL Expert](https://www.microfocus.com/documentation/idol/IDOL_12_2/IDOLServer/Guides/html/English/expert/index.html).

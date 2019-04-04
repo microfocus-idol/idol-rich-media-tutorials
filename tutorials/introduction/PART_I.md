@@ -32,7 +32,7 @@ We will:
 
 ## Setup
 
-If you have not already followed [this short guide](../setup/INSTALL.md) to install the required software, please do so now.
+If you have not already followed [this short guide](../setup/SETUP.md) to install the required software, please do so now.
 
 ## Enabling analytics
 

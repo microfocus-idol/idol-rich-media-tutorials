@@ -49,7 +49,7 @@ local oopangle = record.FaceData.outofplaneanglex
 Media Server provides a useful action to list the record data structure for your analytic of interest, in this case *Face Detection*.  Launch this action in your browser to see the structure:
 
 ```url
-http://127.0.0.1:14000/action=GetExampleRecord&EngineType=FaceDetect&Track=Result
+http://localhost:14000/action=GetExampleRecord&EngineType=FaceDetect&Track=Result
 ```
 
 , which returns the following Lua *table* (as well as an XML representation of the same record):

@@ -25,7 +25,7 @@ We will:
 
 Media Server can be trained to recognize faces, as well as specific objects, classes of object, vehicles and more.  We will now train our faces into the system and run the `FaceRecognize` analysis engine to identify ourselves from the webcam video stream.
 
-Media Server training can be performed through its web API, detailed in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/Training/_TrainingActions.htm).  For smaller projects, demos and testing, you may find it easier to use the [`gui`](http://127.0.0.1:14000/a=gui) web interface.
+Media Server training can be performed through its web API, detailed in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/Training/_TrainingActions.htm).  For smaller projects, demos and testing, you may find it easier to use the [`gui`](http://localhost:14000/a=gui) web interface.
 
 ![face-training](./figs/face-training.png)
 
@@ -33,7 +33,7 @@ Media Server training can be performed through its web API, detailed in the [ref
 
 ### Train your own face
 
-Open the [`gui`](http://127.0.0.1:14000/a=gui) (tested in Google Chrome) then follow these steps to train your identity:
+Open the [`gui`](http://localhost:14000/a=gui) (tested in Google Chrome) then follow these steps to train your identity:
 
 1. at the top right, note that *Face Recognition* is the selected analytic by default
 2. in the left column, click `Add` to add a new *database* (a collection of identities)
@@ -96,7 +96,7 @@ Input = FaceDetection.ResultWithSource
 
 *N.B.* More options are available for the `FaceRecognize` analysis engine, including restriction to a particular matching database, setting the matching threshold and allowing multiple matches to be returned.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/_FaceRecognize.htm) for details.
 
-Copy the `faceAnalysis3a.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis3a.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis3a
@@ -104,9 +104,9 @@ action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis
 
 Click `Test Action` to start processing.
 
-Review the results with [`activity`](http://127.0.0.1:14000/a=activity).  As before, we can use `FaceDetection.SegmentedResultWithSource` to tap into the on-going tracking and give alerts at regular intervals.
+Review the results with [`activity`](http://localhost:14000/a=activity).  As before, we can use `FaceDetection.SegmentedResultWithSource` to tap into the on-going tracking and give alerts at regular intervals.
 
-Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
+Stop processing with [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
 ### Auto enrollment of faces
 
@@ -163,7 +163,7 @@ We can now configure the following process:
     Database = Workshop
     ```
 
-Copy the `faceAnalysis3b.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis3b.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis3b
@@ -171,13 +171,13 @@ action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis
 
 Click `Test Action` to start processing.
 
-Review the results with [`activity`](http://127.0.0.1:14000/a=activity).  Remember we can interrupt the tracking by covering your webcam to trigger new entries in the `Result` track.
+Review the results with [`activity`](http://localhost:14000/a=activity).  Remember we can interrupt the tracking by covering your webcam to trigger new entries in the `Result` track.
 
 To add an unknown face, ask your neighbor to look in your webcam, or hold your phone showing a photo of someone else up in front of your webcam.
 
-View the enrolled faces with the [`gui`](http://127.0.0.1:14000/a=graphicaluserinterface) web app.
+View the enrolled faces with the [`gui`](http://localhost:14000/a=graphicaluserinterface) web app.
 
-Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
+Stop processing with [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
 ## Considerations for a real face recognition system
 

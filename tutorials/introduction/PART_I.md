@@ -154,15 +154,15 @@ XMLOutputPath=./output/faces1/%segment.startTime.timestamp%.xml
 A process action is started with an HTTP request of the form:
 
 ```url
-http://127.0.0.1:14000/action=process&source=<MY_SOURCE>&configName=<MY_PROCESS_CONFIG_NAME>
+http://localhost:14000/action=process&source=<MY_SOURCE>&configName=<MY_PROCESS_CONFIG_NAME>
 ```
 
 , where `source` specifies the address of the media to be processed and `configName` points to the session configuration where we define how the media should be processed.
 
-For testing, we will launch these actions through the admin interface [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) page, with which you can easily edit particular parameter values, such as `source`, to match your setup.
+For testing, we will launch these actions through the admin interface [`test-action`](http://localhost:14000/a=admin#page/console/test-action) page, with which you can easily edit particular parameter values, such as `source`, to match your setup.
 
 1. Copy the `faceAnalysis1.cfg` process configuration file into a new directory under Media Server: `configurations/tutorials` directory.
-1. Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action):
+1. Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action):
 
   ```url
   action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis1
@@ -208,7 +208,7 @@ Media Server's *Activity* user interface is a single-page web application (teste
 - [`action=getStatus&showTracksStatistics`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/Status/GetStatus_ShowTracksStatistics.htm)
 - [`action=getLatestRecord`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/VideoAnalysis/GetLatestRecord.htm)
 
-With the analysis running, point your browser to [`activity`](http://127.0.0.1:14000/a=activity) to open the web application.
+With the analysis running, point your browser to [`activity`](http://localhost:14000/a=activity) to open the web application.
 
 - Navigate the tabs to view the alerts coming through.
 - You can modify the refresh interval (milliseconds) and the number of alerts to keep per tab.
@@ -308,13 +308,13 @@ Open the folder `output/faces1` to see the `.xml` files produced with each face 
 
 ### Stop analysis
 
-To stop processing, paste the following into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) then click `Test Action` to see the response:
+To stop processing, paste the following into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) then click `Test Action` to see the response:
 
 ```url
 action=queueInfo&queueAction=stop&queueName=process
 ```
 
-Or simply click [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
+Or simply click [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
 *N.B.* If your Media Server is running multiple processes, you can supply a [token parameter](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/General/_ACI_QueueInfo_Token.htm) to the above action.
 

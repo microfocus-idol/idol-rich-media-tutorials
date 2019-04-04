@@ -47,7 +47,7 @@ Input = FaceDetection.ResultWithSource
 
 You can see that the output from one analysis engine is fed to another by setting the `Input` property of the downstream engine to one of the output tracks of the upstream engine.
 
-This is only *allowed* if the data output from the upstream engine contains the information required by the downstream engine, *i.e.* contains the same data types.  To list the input and output track data types, use the [`listEngines`](http://127.0.0.1:14000/a=ListEngines) action, which returns, *e.g.* for `FaceDetect` and `Demographics`, the following information:
+This is only *allowed* if the data output from the upstream engine contains the information required by the downstream engine, *i.e.* contains the same data types.  To list the input and output track data types, use the [`listEngines`](http://localhost:14000/a=ListEngines) action, which returns, *e.g.* for `FaceDetect` and `Demographics`, the following information:
 
 ```xml
 <engine>
@@ -154,7 +154,7 @@ See [tips on Lua scripting](../appendix/Lua_tips.md) for more information.
 
 ### Run face and clothing analysis
 
-Copy the `faceAnalysis2a.cfg` process configuration file into your `configurations/tutorials` directory as before, then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis2a.cfg` process configuration file into your `configurations/tutorials` directory as before, then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2a
@@ -164,7 +164,7 @@ Click `Test Action` to start processing.
 
 ![clothing-region](./figs/clothing-region.png)
 
-Review the results with [`activity`](http://127.0.0.1:14000/a=activity), then stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
+Review the results with [`activity`](http://localhost:14000/a=activity), then stop processing with [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
 ## Transformation and encoding
 
@@ -241,7 +241,7 @@ OutputPath = output/faces2b/%record.startTime.timestamp%_overlay.png
 
 ### Run face image encoding
 
-Copy the `faceAnalysis2b.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis2b.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2b
@@ -249,9 +249,9 @@ action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis
 
 Click `Test Action` to start processing.
 
-Review the results with [`activity`](http://127.0.0.1:14000/a=activity), then open the folder `output/faces2b` to see the encoded images. These images will be used in the face recognition module. Images will accumulate, so don't run for too long without stopping.
+Review the results with [`activity`](http://localhost:14000/a=activity), then open the folder `output/faces2b` to see the encoded images. These images will be used in the face recognition module. Images will accumulate, so don't run for too long without stopping.
 
-Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
+Stop processing with [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
 ### Producing video
 
@@ -320,7 +320,7 @@ SegmentDuration = 1m
 
 ### Run blurred faces video encoding
 
-Copy the `faceAnalysis2c.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis2c.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2c
@@ -328,11 +328,11 @@ action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis
 
 Click `Test Action` to start processing.
 
-Review the results with [`activity`](http://127.0.0.1:14000/a=activity), then open the folder `output/faces2c` to see the encoded videos.  Let this process run for long enough to allow a few `.mp4` files to be generated.
+Review the results with [`activity`](http://localhost:14000/a=activity), then open the folder `output/faces2c` to see the encoded videos.  Let this process run for long enough to allow a few `.mp4` files to be generated.
 
 ![video-blur](./figs/video-blur.gif)
 
-Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
+Stop processing with [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
 ## Alternatives for video encoding
 
@@ -353,7 +353,7 @@ Port = 3000
 
 ### Run MJPEG streaming
 
-Copy the `faceAnalysis2d.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Copy the `faceAnalysis2d.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2d
@@ -361,13 +361,13 @@ action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis
 
 Click `Test Action` to start processing.
 
-Review the results with [`activity`](http://127.0.0.1:14000/a=activity), then open your web browser (tested in Google Chrome) to <http://127.0.0.1:3000/> to watch the stream.
+Review the results with [`activity`](http://localhost:14000/a=activity), then open your web browser (tested in Google Chrome) to <http://localhost:3000/> to watch the stream.
 
 ![video-draw](./figs/video-draw.gif)
 
-Stop processing with [`stop`](http://127.0.0.1:14000/a=queueInfo&queueAction=stop&queueName=process).
+Stop processing with [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
-*N.B.* This is exactly the same process that was used *under the hood* in [this guide](../setup/WEBCAM.md) when testing your webcam connectivity using the Media Server user interface [`gui`](http://127.0.0.1:14000/a=gui#/ingest).
+*N.B.* This is exactly the same process that was used *under the hood* in [this guide](../setup/WEBCAM.md) when testing your webcam connectivity using the Media Server user interface [`gui`](http://localhost:14000/a=gui#/ingest).
 
 ## PART III - Face recognition
 

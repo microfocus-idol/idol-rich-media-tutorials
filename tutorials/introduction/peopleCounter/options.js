@@ -20,7 +20,7 @@ module.exports = {
   // server
   serverName: serverName,
   listener: {
-    host: '127.0.0.1',
+    host: 'localhost',
     port: 4000
   },
   files: {
@@ -30,7 +30,7 @@ module.exports = {
 
 	// server dependencies
 	mediaserver: {
-    host: '127.0.0.1',
+    host: 'localhost',
     port: 14000
   },
 

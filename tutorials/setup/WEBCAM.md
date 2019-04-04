@@ -16,7 +16,7 @@ This is a setup guide for ingestion of webcam video into Media Server.  If you d
 
 ## Connecting to your webcam
 
-Open the Media Server user interface [`gui`](http://127.0.0.1:14000/a=gui#/ingest) (tested in Google Chrome) then follow these steps to test connectivity to your webcam:
+Open the Media Server user interface [`gui`](http://localhost:14000/a=gui#/ingest) (tested in Google Chrome) then follow these steps to test connectivity to your webcam:
 
 1. Set Ingest type to "Device"
 1. Set operating system family to "Linux" or "Windows" as appropriate

@@ -132,7 +132,7 @@ We will see counts being output to the command window:
 2019-03-29 11:37:05.387 [count] Average duration (seconds): 5.3
 ```
 
-You can make use of all the now familiar resources to monitor Media Server, such as [`/action=activity`](http://127.0.0.1:14000/a=activity).
+You can make use of all the now familiar resources to monitor Media Server, such as [`/action=activity`](http://localhost:14000/a=activity).
 
 To trigger a new count, get your neighbor to look in your webcam or interrupt the tracking by covering your webcam.  When you're satisfied, stop the app with [`Ctrl-C`].  The app will instruct Media Server to stop processing before it exits.
 

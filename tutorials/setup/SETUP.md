@@ -94,9 +94,9 @@ Now let's start up license server:
   ./start-licenseserver.sh
   ```
 
-To ensure License Server is running, point your browser to [`action=getLicenseInfo`](http://127.0.0.1:20000/a=getlicenseinfo).
+To ensure License Server is running, point your browser to [`action=getLicenseInfo`](http://localhost:20000/a=getlicenseinfo).
 
-Next start up Media Server in the same way and verify it is also running at [`action=getStatus`](http://127.0.0.1:14000/a=getstatus).
+Next start up Media Server in the same way and verify it is also running at [`action=getStatus`](http://localhost:14000/a=getstatus).
 
 ### Further reading
 

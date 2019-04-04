@@ -36,8 +36,8 @@ In Media Server land, we use XSL extensively to customize the XML records produc
 
 XSL templates are also commonly employed across many IDOL components to reformat ACI responses.  Media Server also includes some such templates in the `acitemplates` directory.  For a simple example, compare the difference between the following two Media Server requests:
 
-- <http://127.0.0.1:14000/a=getExampleRecord&engineType=ColorCluster>
-- <http://127.0.0.1:14000/a=getExampleRecord&engineType=ColorCluster&template=getExampleRecord>
+- <http://localhost:14000/a=getExampleRecord&engineType=ColorCluster>
+- <http://localhost:14000/a=getExampleRecord&engineType=ColorCluster&template=getExampleRecord>
 
 ## People Counting app example
 

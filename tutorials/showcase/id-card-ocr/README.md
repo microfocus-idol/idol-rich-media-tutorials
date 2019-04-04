@@ -120,15 +120,9 @@ As in the introductory tutorials, we are using an XSL transform to extact the wo
 
 ### Running our analysis
 
-Let's try it. Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), remembering to update the `source` and `configPath` parameters to match your setup:
+Let's try it. Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.2.0\sample_media\Turkey1.png&configName=tutorials/idCard1.cfg).
 
-```url
-action=process&source=C:/MicroFocus/image/Turkey1.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/showcase/id-card-ocr/idCard1.cfg
-```
-
-Click `Test Action` to start processing.
-
-Go to Media Server's `output/idCard1` to see the results.
+Go to Media Server's `output/idCard1` directory to see the results.
 
 ## Correct rotated scans
 
@@ -183,15 +177,9 @@ For full details on image encoding options, please read the [reference guide](ht
 
 ### Running our analysis
 
-Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), remembering to update the `source` and `configPath` parameters to match your setup:
+Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.2.0\sample_media\Turkey2.png&configName=tutorials/idCard2.cfg).
 
-```url
-action=process&source=C:/MicroFocus/image/Turkey2.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/showcase/id-card-ocr/idCard2.cfg
-```
-
-Click `Test Action` to start processing.
-
-Go to Media Server's `output/idCard2` to see the results.
+Go to Media Server's `output/idCard2` directory to see the results.
 
 ## Templated OCR
 
@@ -202,14 +190,8 @@ ID are structured data, *e.g.* showing names, dates etc.  In reading the whole s
 
 We can train a template with the following actions:
 
-- Create a database (container for templates): <http://localhost:14000/a=CreateObjectDatabase&database=IDCardTemplates>
-- Train a template.  Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), remembering to update the `imagepath` parameter to match your setup:
-
-    ```url
-    action=TrainObject&database=IDCardTemplates&imagepath=C:/MicroFocus/image/TurkishDriversLicenseHeader.png&metadata=ROIsurname:38 22 35 9,ROIfirstname:38 30 35 9,ROIdateplaceofbirth:38 38 35 9,ROIissuedate:39 46 22 9,ROIexpirydate:38 54 22 9,ROIcode5:38 62 22 9,ROIaddress:70 46 25 9,ROIcode4d:70 54 25 9,ROIvehicletypes:6 84 21 7
-    ```
-
-    Click `Test Action` to start processing.
+- Create a database (container for templates): [`action=CreateObjectDatabase`](http://localhost:14000/a=CreateObjectDatabase&database=IDCardTemplates)
+- Train a template: [`action=TrainObject`](http://localhost:14000/a=TrainObject&database=IDCardTemplates&imagepath=C:\MicroFocus\IDOLServer-12.2.0\sample_media\TurkishDriversLicenseHeader.png&metadata=ROIsurname:38 22 35 9,ROIfirstname:38 30 35 9,ROIdateplaceofbirth:38 38 35 9,ROIissuedate:39 46 22 9,ROIexpirydate:38 54 22 9,ROIcode5:38 62 22 9,ROIaddress:70 46 25 9,ROIcode4d:70 54 25 9,ROIvehicletypes:6 84 21 7)
 
 You can see the trained template using the Media Server [GUI](http://localhost:14000/a=gui):
 
@@ -249,15 +231,9 @@ We are envoking a custom Lua script `getAssociatedRectanglesDemo.lua`.  Now, cop
 
 ### Running our analysis
 
-Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), remembering to update the `source` and `configPath` parameters to match your setup:
+Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.2.0\sample_media\Turkey1.png&configName=tutorials/idCard3.cfg).
 
-```url
-action=process&source=C:/MicroFocus/image/Turkey1.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/showcase/id-card-ocr/idCard3.cfg
-```
-
-Click `Test Action` to start processing.
-
-Go to Media Server's `output/idCard3` to see the results.
+Go to Media Server's `output/idCard3` directory to see the results.
 
 ## Redact personal information
 
@@ -288,15 +264,9 @@ Input = ImageWithRegions.Output
 
 ### Running our analysis
 
-Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), remembering to update the `source` and `configPath` parameters to match your setup:
+Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.2.0\sample_media\Turkey1.png&configName=tutorials/idCard4.cfg).
 
-```url
-action=process&source=C:/MicroFocus/image/Turkey1.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/showcase/id-card-ocr/idCard4.cfg
-```
-
-Click `Test Action` to start processing.
-
-Go to Media Server's `output/idCard4` to see the results.
+Go to Media Server's `output/idCard4` directory to see the results.
 
 ## Next steps
 

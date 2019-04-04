@@ -154,7 +154,7 @@ See [tips on Lua scripting](../appendix/Lua_tips.md) for more information.
 
 ### Run face and clothing analysis
 
-Copy the `faceAnalysis2a.cfg` process configuration file into your `configurations/tutorials` directory as before, then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2a
@@ -241,7 +241,7 @@ OutputPath = output/faces2b/%record.startTime.timestamp%_overlay.png
 
 ### Run face image encoding
 
-Copy the `faceAnalysis2b.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2b
@@ -320,7 +320,7 @@ SegmentDuration = 1m
 
 ### Run blurred faces video encoding
 
-Copy the `faceAnalysis2c.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2c
@@ -353,7 +353,7 @@ Port = 3000
 
 ### Run MJPEG streaming
 
-Copy the `faceAnalysis2d.cfg` process configuration file into `configurations/tutorials` then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis2d

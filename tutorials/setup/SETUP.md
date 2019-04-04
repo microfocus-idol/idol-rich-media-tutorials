@@ -10,7 +10,9 @@ This is a setup guide for a basic installation of IDOL rich media and associated
   - [Access IDOL software](#access-idol-software)
     - [IDOL components ZIPs (*alternative*)](#idol-components-zips-alternative)
   - [Install](#install)
-  - [Validate install](#validate-install)
+    - [Validate install](#validate-install)
+  - [Obtaining tutorial materials](#obtaining-tutorial-materials)
+    - [Following this guide offline](#following-this-guide-offline)
   - [Further reading](#further-reading)
 
 <!-- /TOC -->
@@ -76,7 +78,29 @@ Follow one of these two methods to install IDOL on your system:
 - Follow [these steps](INSTALL_WIZARD.md) to install IDOL using the graphical installer (*recommended*).
 - Follow [these steps](INSTALL_ZIPS.md) for a scripted installation of IDOL components (*advanced*).
 
-### Validate install
+### Obtaining tutorial materials
+
+Get a local copy of this tutorial to give you all the configuration files you will need.  You can either clone this repository or download the `.zip` from [GitHub](https://github.com/microfocus-idol/idol-rich-media-tutorials).
+
+![github-download](./figs/github-download.png)
+
+We will now run a script to move some of these materials into convenient locations for running the excersises later on.
+
+
+
+#### Following this guide offline
+
+You can stay on GitHub to follow the steps in this and further linked README files in your browser, or if you prefer to work with the downloaded files, see [these steps](appendix/Markdown_reader.md) to turn your browser into a smart markdown viewer.
+
+<!-- ### Obtaining training materials
+
+All required sample videos are available from this hosted [directory](http://tech-demo.idol.swinfra.net/tutorial/). *N.B.* Use `Save As` on the file links to avoid opening the videos in your browser.
+
+You will be instructed what to download in the guides as needed.
+
+TODO - Replace with Git LFS. -->
+
+#### Validate install
 
 If you used the installer wizard, or the scripts without altering them, your installed software will be in:
 

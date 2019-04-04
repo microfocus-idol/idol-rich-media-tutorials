@@ -161,7 +161,6 @@ http://localhost:14000/action=process&source=<MY_SOURCE>&configName=<MY_PROCESS_
 
 For testing, we will launch these actions through the admin interface [`test-action`](http://localhost:14000/a=admin#page/console/test-action) page, with which you can easily edit particular parameter values, such as `source`, to match your setup.
 
-1. Copy the `faceAnalysis1.cfg` process configuration file into a new directory under Media Server: `configurations/tutorials` directory.
 1. Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action):
 
   ```url

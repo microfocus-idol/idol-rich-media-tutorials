@@ -6,9 +6,7 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 
 - [Getting started](#getting-started)
   - [Minimum requirements](#minimum-requirements)
-  - [Obtaining tutorial materials](#obtaining-tutorial-materials)
-    - [Following this guide offline](#following-this-guide-offline)
-  - [Install IDOL Media Server](#install-idol-media-server)
+  - [Setup IDOL Media Server](#setup-idol-media-server)
 - [Introduction](#introduction)
 - [Analytics showcase examples](#analytics-showcase-examples)
   - [ID Card reading](#id-card-reading)
@@ -29,29 +27,11 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 - Administrator privileges to install software.
 - A webcam.
 
-### Obtaining tutorial materials
-
-Get a local copy of this tutorial to give you all the configuration files you will need.  You can either clone this repository or download the `.zip` from [GitHub](https://github.com/microfocus-idol/idol-rich-media-tutorials).
-
-![github-download](./figs/github-download.png)
-
-#### Following this guide offline
-
-You can stay on GitHub to follow the steps in this and further linked README files in your browser, or if you prefer to work with the downloaded files, see [these steps](appendix/Markdown_reader.md) to turn your browser into a smart markdown viewer.
-
-<!-- ### Obtaining training materials
-
-All required sample videos are available from this hosted [directory](http://tech-demo.idol.swinfra.net/tutorial/). *N.B.* Use `Save As` on the file links to avoid opening the videos in your browser.
-
-You will be instructed what to download in the guides as needed.
-
-TODO - Replace with Git LFS. -->
-
-### Install IDOL Media Server
+### Setup IDOL Media Server
 
 __*Do this before starting any tutorials.*__
 
-Follow [these steps](setup/SETUP.md) to install IDOL Media Server.
+Follow [these steps](setup/SETUP.md) to install IDOL Media Server and set up ready to run the tutorials.
 
 ## Introduction
 

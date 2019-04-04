@@ -96,7 +96,7 @@ Input = FaceDetection.ResultWithSource
 
 *N.B.* More options are available for the `FaceRecognize` analysis engine, including restriction to a particular matching database, setting the matching threshold and allowing multiple matches to be returned.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/_FaceRecognize.htm) for details.
 
-Copy the `faceAnalysis3a.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis3a
@@ -163,7 +163,7 @@ We can now configure the following process:
     Database = Workshop
     ```
 
-Copy the `faceAnalysis3b.cfg` process configuration file into your Media Server's `configurations/tutorials` directory then paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
+Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
 ```url
 action=process&source=video%3DHP%20HD%20Camera&configName=tutorials/faceAnalysis3b

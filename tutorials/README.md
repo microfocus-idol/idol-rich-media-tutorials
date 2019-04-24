@@ -29,13 +29,13 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 
 ### Setup IDOL Media Server
 
-__*Do this before starting any tutorials.*__
+> Do this before starting any tutorials.
 
 Follow [these steps](setup/SETUP.md) to install IDOL Media Server and set up ready to run the tutorials.
 
 ## Introduction
 
-__*Everyone should do this tutorial first.*__
+> Everyone should do this tutorial first.
 
 Get started with rich media analytics, using face analytics as a guiding example.  An end-to-end introduction taking you from your first Media Server configuration to running your own app that makes use of Media Server as an analytics service.  All you need is a webcam!
 
@@ -43,7 +43,7 @@ Get started with rich media analytics, using face analytics as a guiding example
 
 ## Analytics showcase examples
 
-__*These guides assume a familiarity with Media Server concepts.*__
+> These guides assume a familiarity with Media Server concepts.
 
 Dip into any of the following showcase guides to try more analytics.
 

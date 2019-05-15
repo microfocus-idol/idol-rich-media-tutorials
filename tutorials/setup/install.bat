@@ -3,10 +3,7 @@
 REM ===========================================================================
 REM IDOL service installer
 REM ===========================================================================
-
-REM ---------------------------------------------------------------------------
-REM Variables
-REM ---------------------------------------------------------------------------
+pushd %~dp0
 
 set COMPONENTS=( LicenseServer, MediaServer )
 
@@ -18,12 +15,6 @@ set LICENSE_KEY=licensekey.dat
 
 set SERVICE_PREFIX=MicroFocus-
 set INSTALL_DIR=%INSTALL_BASE%\IDOLServer-%VERSION%
-
-REM ---------------------------------------------------------------------------
-REM Main
-REM ---------------------------------------------------------------------------
-REM When launched by an Administrator, still run in current directory
-pushd %~dp0
 
 rd /s /q %INSTALL_DIR%
 mkdir %INSTALL_DIR%

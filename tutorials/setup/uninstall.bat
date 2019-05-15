@@ -3,10 +3,7 @@
 REM ===========================================================================
 REM IDOL service uninstaller
 REM ===========================================================================
-
-REM ---------------------------------------------------------------------------
-REM Variables
-REM ---------------------------------------------------------------------------
+pushd %~dp0
 
 set COMPONENTS=( LicenseServer, MediaServer )
 
@@ -14,12 +11,6 @@ set VERSION=12.2.0
 set INSTALL_BASE=C:\MicroFocus
 
 set INSTALL_DIR=%INSTALL_BASE%\IDOLServer-%VERSION%
-
-REM ---------------------------------------------------------------------------
-REM Main
-REM ---------------------------------------------------------------------------
-REM When launched by an Administrator, still run in current directory
-pushd %~dp0
 
 for %%i in %COMPONENTS% do (
 	echo.

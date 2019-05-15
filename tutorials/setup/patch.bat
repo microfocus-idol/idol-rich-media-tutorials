@@ -3,22 +3,13 @@
 REM ===========================================================================
 REM Patch IDOL installation with tutorial materials
 REM ===========================================================================
-
-REM ---------------------------------------------------------------------------
-REM Variables
-REM ---------------------------------------------------------------------------
+pushd %~dp0
 
 set VERSION=12.2.0
 set INSTALL_BASE=C:\MicroFocus
 
 set SERVICE_PREFIX=MicroFocus-
 set INSTALL_DIR=%INSTALL_BASE%\IDOLServer-%VERSION%
-
-REM ---------------------------------------------------------------------------
-REM Main
-REM ---------------------------------------------------------------------------
-REM When launched by an Administrator, still run in current directory
-pushd %~dp0
 
 REM ---------------------------------------------------------------------------
 echo Copying process configuration files...

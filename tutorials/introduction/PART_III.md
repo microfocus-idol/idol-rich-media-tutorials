@@ -4,7 +4,7 @@ We will:
 
 1. train faces and use the `FaceRecognize` analysis engine to match them
 1. match your identity from your webcam
-1. optimise analysis configuration for good performance
+1. optimize analysis configuration for good performance
 
 <!-- TOC -->
 
@@ -13,9 +13,18 @@ We will:
   - [Assessing faces for training](#assessing-faces-for-training)
 - [Face matching](#face-matching)
   - [Auto enrollment of faces](#auto-enrollment-of-faces)
-- [Considerations for a real face recognition system](#considerations-for-a-real-face-recognition-system)
-  - [Quantifying performance](#quantifying-performance)
-  - [Key variables to optimise](#key-variables-to-optimise)
+- [Considerations when deploying a face recognition system](#considerations-when-deploying-a-face-recognition-system)
+  - [Making it fast](#making-it-fast)
+    - [Processing images](#processing-images)
+    - [Processing video](#processing-video)
+  - [Making it accurate](#making-it-accurate)
+    - [Quantifying performance](#quantifying-performance)
+    - [Key variables to optimize performance](#key-variables-to-optimize-performance)
+    - [Tips](#tips)
+      - [Missing faces](#missing-faces)
+      - [False face detections](#false-face-detections)
+      - [False matches](#false-matches)
+    - [Working with streaming video](#working-with-streaming-video)
   - [Hardware requirements](#hardware-requirements)
 - [PART IV - People counting: an example of app integration](#part-iv---people-counting-an-example-of-app-integration)
 
@@ -179,11 +188,39 @@ View the enrolled faces with the [`gui`](http://localhost:14000/a=graphicaluseri
 
 Stop processing with [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
-## Considerations for a real face recognition system
+## Considerations when deploying a face recognition system
 
-### Quantifying performance
+We have important external factors to be aware of, as well as the configuration of the software itself.  Here are some key ideas to consider.
 
-When configuring a face recognition system, it is important to quantify the performance in order to optimise your configuration options and, often more importantly, your real-world setup like camera position and frame rate.
+### Making it fast
+
+#### Processing images
+
+Detecting faces in an image takes time.  How much processing do you really need to do with the image?
+
+- [`MinSize`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/Face/MinSize.htm): Setting a minimum expected face size can reduce processing time.  Find out the minimum size you expect a face can be, *e.g.* by using the Media Server [`gui`](http://localhost:14000/a=gui#/ingest) to ingest your source and draw rectangles around a few faces.
+- [`Region`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/Face/Region.htm): Setting a region to restrict detection to will also speed this up.  Can faces appear anywhere in an image, or always in a known region that you can restrict detection to?  Again, you can easliy use the Media Server [`gui`](http://localhost:14000/a=gui#/ingest) to define a region.
+- [`Orientation`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/Face/Orientation.htm): Will faces sometimes be seen upside down, or rotated? If not, restrict the orientation to save time.
+
+Recognizing faces also takes time. Do you always need to match against the full list?
+
+- [`Identifier`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/Identifier.htm): By selecting only one or some trained identities, the recognition step can be faster.
+- [`Database`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/Database.htm): Trained identities may be grouped into "Databases".  By selecting only one or some databases, the recognition step can be faster.
+
+#### Processing video
+
+The same as for images plus:
+
+- [`SampleInterval`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/Face/SampleInterval.htm): How many frames per second do you really need to track faces in with Face Detection?  5 or 10 fps is typically good enough to track faces at walking speed.  Don't waste time processing more frames than you need.
+- [`NumParallel`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/Face/NumParallel.htm): If you have additional processing capacity, you can use this parameter to process video frames in parallel for Face Detection.  *N.B.* A similar parameter exists for Face Recognition but Face Detection is typically the bottleneck.
+- [`Input`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/Input.htm): How many frames from a tracked face do you really need to pass on to Face Recognition for good results? If you use `ResultWithSource` as input for Face Recognition only one frame will be used for that recognition analysis. This is typically sufficient for good performance as this frame will be automatically selected from the face track as the one containing a face that is "best" for recognition, *i.e.* one that is turned most towards the camera.  Adding more recognition attempts for the tracked face by instead using `DataWithSource` or `SegmentedResultWithSource` may provide improved recognition results but will significantly take longer.
+- [`GPUNumParallel`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/GPUNumParallel.htm): Configure GPU acceleration.  Although Face Detection does not benefit from this, Face Recognition will.  Using a GPU might allow you to run recognition on many frames with a detected face, *i.e.* you could use `DataWithSource` or `SegmentedResultWithSource` as input.
+
+### Making it accurate
+
+#### Quantifying performance
+
+When configuring a face recognition system, it is important to quantify the quality of performance in order to optimize your configuration options and, often more importantly, your real-world setup like camera position and frame rate.
 
 As with any performance checking, this procedure involves human validation.  We need to process a sample of footage, count and write down the following quantities:
 
@@ -196,9 +233,9 @@ With these quantities you can calculate a single accuracy metric with the follow
 
 ![eqn-accuracy](./figs/accuracy.svg)
 
-### Key variables to optimise
+#### Key variables to optimize performance
 
-When recording statistics to calculate our performance metric, we should also take note of the main characteristics of the matched faces:
+When recording statistics to calculate our performance metric, we should also take note of the main characteristics of the matched face results:
 
 - Face width in pixels
 - Percentage of face in scene
@@ -211,18 +248,27 @@ With these values to hand, you can straightforwardly check how, *e.g.* changing 
 
 *N.B.* You will find that performance will drop off sharply as faces get smaller.  We recommend a minimum face size of 150 pixels but you can work with smaller faces if you are willing to live with reduced performance.
 
-Tuning other variables may require additional tests, *e.g.* using:
+#### Tips
 
-- additional video samples with a different camera angle and/or resolution.
-- reprocessing the same sample at different frame rate, *i.e.* by varying the `SampleInterval` parameter of the `FaceDetect` engine.
+##### Missing faces
 
-*N.B.* Video takes up a lot of bandwidth, so we want to find the minimal data rate required for good performance.  The best way to reduce data traffic is by dropping frame rate.  Don't be aggressive with cutting the encoding quality since we want to keep relatively precise images for accurate face recognition.
+If you are missing detections, try reprocessing the same sample at higher frame rate, *i.e.* by reducing the `SampleInterval` parameter of the `FaceDetect` engine. Additionally, are your region and min face size settings correct?
 
-Further optimizations:
+##### False face detections
 
-- After observing a scene for some time you may know that faces typically only appear in a particular region of the screen, *e.g.* the bottom left.  If this is the case, you can reduce face detection processing by defining a `Region`.
-- Sometimes background features may be misidentified as faces.  This potential source of false alerts may be reduced by enabling the `ColorAnalysis` option in `FaceDetect`.
-- If you cannot reduce your video resolution or frame rate any more and are struggling to process video at the required rate, e.g. in real-time from a shared CCTV camera, you can configure Media Server to use additioanl processing resources to run both `FaceDetect` and `FaceRecognize` in parallel.  The detection step is the most likely bottleneck unless you have a very large face database to match against.
+If background features are misidentified as faces.  This potential source of false alerts may be reduced by enabling the `ColorAnalysis` option in `FaceDetect`. Additionally, is there a problematic area in the view,*i.e.* from a CCTV camera, that you can ignore by setting a region or repositioning the camera?
+
+##### False matches
+
+The recognition score by itself may not always be the best guide to identify true matches.  We know that recognition scores drop with face size for example, so a system seeing smaller faces will tend to produce lower scores.
+
+Often we see that comparing scores can be a useful guide to filtering out false matches.  If the top-ranked match is false, often the second-ranked match will have a similar score.  Conversely, if the top-ranked match is true the second-ranked match tends to be significantly lower.
+
+This relative score can be used as an Event Processing filter to reduce false positives using the out-of-the-box `ambiguousFaceIdentity.lua`.  See `configurations/examples/Face/Recognize_Filtered.cfg` for example usage.
+
+#### Working with streaming video
+
+If working with streaming video, don't forget that it takes up a lot of bandwidth. We want to find the minimal data rate required for good performance.  The best way to reduce data traffic is by dropping frame rate. Don't be aggressive with cutting the encoding quality since we want to keep relatively precise images for accurate face recognition.
 
 ### Hardware requirements
 

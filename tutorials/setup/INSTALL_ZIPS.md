@@ -4,22 +4,22 @@ Use script to install IDOL Media Server from the component `.zip` files.
 
 <!-- TOC -->
 
-- [Download IDOL component `.zip`s](#download-idol-component-zips)
+- [Download IDOL components](#download-idol-component-zips)
 - [Install](#install)
   - [Windows](#windows)
   - [Ubuntu](#ubuntu)
 
 <!-- /TOC -->
 
-## Download IDOL component `.zip`s
+## Download IDOL components
 
 Download software from the [eSoftware/Partner portal](https://pdapi-web-pro.microfocus.com/evalportal/index.do).
 
 1. Select __My previous orders__ in the side menu.
 2. Click your order number for *IDOL Audio Analytics*.
 3. Under the *Get Software* tab, select and download the following files:
-   -  `LicenseServer_12.2.0_WINDOWS_X86_64.exe` or `LicenseServer_12.2.0_LINUX_X86_64.exe`.
-   -  `MediaServer_12.2.0_WINDOWS_X86_64.exe` or `MediaServer_12.2.0_LINUX_X86_64.exe`.
+   -  `LicenseServer_12.3.0_WINDOWS_X86_64.exe` or `LicenseServer_12.3.0_LINUX_X86_64.exe`.
+   -  `MediaServer_12.3.0_WINDOWS_X86_64.exe` or `MediaServer_12.3.0_LINUX_X86_64.exe`.
 
 ## Install
 

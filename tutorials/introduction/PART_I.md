@@ -73,7 +73,7 @@ VisualChannels=1
 
 *N.B.* For any changes you make in `mediaserver.cfg` to take effect you must restart Media Server.
 
-For full details on the analytics enabled by (as well as the limitations imposed by) each license type, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Channels/Channels.htm).
+For full details on the analytics enabled by (as well as the limitations imposed by) each license type, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Channels/Channels.htm).
 
 ## Processing video
 
@@ -97,7 +97,7 @@ The format of a process configuration file is typically laid out in the followin
 - Encoding
 - Output
 
-We will introduce and use each of these sections in this tutorial.  Full details of the available configuration options can be found in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/SessionConfiguration.htm).
+We will introduce and use each of these sections in this tutorial.  Full details of the available configuration options can be found in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/SessionConfiguration.htm).
 
 ### Ingest
 
@@ -116,7 +116,7 @@ Type = Video
 Format = dshow
 ```
 
-*N.B.* More options are available for the `Video`-type ingest engine.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Ingest/Libav/_Libav.htm).
+*N.B.* More options are available for the `Video`-type ingest engine.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Ingest/Libav/_Libav.htm).
 
 ### Analysis
 
@@ -130,7 +130,7 @@ Engine1 = FaceDetection
 Type = FaceDetect
 ```
 
-*N.B.* More options are available for the `FaceDetect`-type analysis engine, such as the minimum expected face size.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/Analysis/Face/_Face.htm).
+*N.B.* More options are available for the `FaceDetect`-type analysis engine, such as the minimum expected face size.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/Face/_Face.htm).
 
 ### Output
 
@@ -147,7 +147,7 @@ Input = FaceDetection.Result
 XMLOutputPath=./output/faces1/%segment.startTime.timestamp%.xml
 ```
 
-*N.B.* More output options are available, such as HTTP POST and database insert.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Configuration/OutputEngines/_Output.htm), for details.
+*N.B.* More output options are available, such as HTTP POST and database insert.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/OutputEngines/_Output.htm), for details.
 
 ## Your first analysis: run Face Detection
 
@@ -173,7 +173,7 @@ For testing, we will launch these actions through the admin interface [`test-act
 
 1. Click `Test Action` to start processing. If your webcam has an indicator light, it should come on now.
 
-*N.B.* More options are available for the *Process* action.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/VideoAnalysis/_MediaAnalysis.htm).
+*N.B.* More options are available for the *Process* action.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/VideoAnalysis/_MediaAnalysis.htm).
 
 ### Monitoring and debugging
 
@@ -204,8 +204,8 @@ Media Server's *Activity* user interface is a single-page web application (teste
 
 *N.B.* The app makes use of two Media Server calls to get the list of channels and then to get the latest record for the channel you select:
 
-- [`action=getStatus&showTracksStatistics`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/Status/GetStatus_ShowTracksStatistics.htm)
-- [`action=getLatestRecord`](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/VideoAnalysis/GetLatestRecord.htm)
+- [`action=getStatus&showTracksStatistics`](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/Status/GetStatus_ShowTracksStatistics.htm)
+- [`action=getLatestRecord`](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/VideoAnalysis/GetLatestRecord.htm)
 
 With the analysis running, point your browser to [`activity`](http://localhost:14000/a=activity) to open the web application.
 
@@ -315,7 +315,7 @@ action=queueInfo&queueAction=stop&queueName=process
 
 Or simply click [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
-*N.B.* If your Media Server is running multiple processes, you can supply a [token parameter](https://www.microfocus.com/documentation/idol/IDOL_12_2/MediaServer_12.2_Documentation/Help/index.html#Actions/General/_ACI_QueueInfo_Token.htm) to the above action.
+*N.B.* If your Media Server is running multiple processes, you can supply a [token parameter](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/General/_ACI_QueueInfo_Token.htm) to the above action.
 
 If your webcam has an indicator light, it should now switch off.
 

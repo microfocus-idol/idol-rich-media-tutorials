@@ -7,7 +7,7 @@ pushd %~dp0
 
 set COMPONENTS=( LicenseServer, MediaServer )
 
-set VERSION=12.2.0
+set VERSION=12.3.0
 set INSTALL_BASE=C:\MicroFocus
 
 set SOURCE_DIR=%HOMEPATH%\Downloads
@@ -27,14 +27,14 @@ for %%i in %COMPONENTS% do (
   ren %INSTALL_DIR%\%%i_%VERSION%_WINDOWS_X86_64 %%i
 
   echo Installing %%i runtime dependencies...
-  if exist %INSTALL_DIR%\%%i\vcredist_2013.exe (
-    %INSTALL_DIR%\%%i\vcredist_2013.exe /install /passive /norestart
+  if exist %INSTALL_DIR%\%%i\vcredist_2017.exe (
+    %INSTALL_DIR%\%%i\vcredist_2017.exe /install /passive /norestart
   )
   if exist %INSTALL_DIR%\%%i\runtime\vcredist_2010.exe (
     %INSTALL_DIR%\%%i\runtime\vcredist_2010.exe /passive /norestart
   )
-  if exist %INSTALL_DIR%\%%i\runtime\vcredist_2013.exe (
-    %INSTALL_DIR%\%%i\runtime\vcredist_2013.exe /install /passive /norestart
+  if exist %INSTALL_DIR%\%%i\runtime\vcredist_2017.exe (
+    %INSTALL_DIR%\%%i\runtime\vcredist_2017.exe /install /passive /norestart
   )
   if exist %INSTALL_DIR%\%%i\runtime\vcredist_x86_2013.exe (
     %INSTALL_DIR%\%%i\runtime\vcredist_x86_2013.exe /install /passive /norestart

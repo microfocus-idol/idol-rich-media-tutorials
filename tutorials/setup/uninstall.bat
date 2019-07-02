@@ -7,7 +7,7 @@ pushd %~dp0
 
 set COMPONENTS=( LicenseServer, MediaServer )
 
-set VERSION=12.2.0
+set VERSION=12.3.0
 set INSTALL_BASE=C:\MicroFocus
 
 set INSTALL_DIR=%INSTALL_BASE%\IDOLServer-%VERSION%

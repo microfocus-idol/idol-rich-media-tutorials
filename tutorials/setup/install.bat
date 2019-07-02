@@ -43,6 +43,7 @@ for %%i in %COMPONENTS% do (
   echo Configuring %%i as a Windows service
   %INSTALL_DIR%\%%i\%%i.exe -install
   sc config %%i DisplayName= "%SERVICE_PREFIX%%%i"
+  sc config %%i Start= demand
 
   if /i %%i==LicenseServer (
     echo Copying license key file...

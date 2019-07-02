@@ -86,6 +86,11 @@ Media Server is directed to process a video, audio or image source with a *proce
 MaximumThreads=2
 ```
 
+## GPU acceleration
+
+If you are lucky enough to have access to a supported NVIDIA graphics card, you can accelerate certain analytics (including face recognition), as well as video ingest and encoding.  For details on support and setup, please refer to the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Guides/html/English/index.html).
+
+
 ## Process configuration
 
 The format of a process configuration file is typically laid out in the following sections:

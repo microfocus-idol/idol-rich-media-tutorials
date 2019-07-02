@@ -87,8 +87,6 @@ Get a local copy of this tutorial to give you all the configuration files you wi
 
 We will now run a script to move some of these materials into convenient locations for running the excersises later on.
 
-
-
 #### Following this guide offline
 
 You can stay on GitHub to follow the steps in this and further linked README files in your browser, or if you prefer to work with the downloaded files, see [these steps](appendix/Markdown_reader.md) to turn your browser into a smart markdown viewer.

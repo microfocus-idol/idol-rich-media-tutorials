@@ -81,7 +81,7 @@ const mediaServer = {
   startProcess: (cfg, callback) => {
     logger.debug('startProcess', 'Processing ' + opts.source);
 
-  	const bsf = new Buffer(cfg).toString('base64'),
+  	const bsf = new Buffer.from(cfg).toString('base64'),
       action = 'process';
 
     let uri = '/action=' + action +
@@ -258,7 +258,6 @@ const countPeople = (requestPath, body, callback) => {
     logger.info('count', 'Cumulative count: ' + cumulative);
     logger.info('count', 'Tracking now: ' + trackingNow);
     logger.info('count', 'Average duration (seconds): ' + (averageElapsedMSec / 1000).toFixed(1));
-    logger.info('count', '< < < < < < < < < < < < < < < < < < < < < < < < < < < <');
 
   } catch (e) {
     logger.debug('count', 'Unexpected data received: ' + body);

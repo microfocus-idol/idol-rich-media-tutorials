@@ -4,16 +4,18 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 
 <!-- TOC -->
 
-- [Getting started](#getting-started)
-  - [Minimum requirements](#minimum-requirements)
-  - [Setup IDOL Media Server](#setup-idol-media-server)
-- [Introduction](#introduction)
-- [Analytics showcase examples](#analytics-showcase-examples)
-  - [ID Card reading](#id-card-reading)
-- [Further reading](#further-reading)
-  - [Example configurations](#example-configurations)
-  - [Appendix](#appendix)
-  - [Links](#links)
+- [Rich Media Tutorials](#rich-media-tutorials)
+  - [Getting started](#getting-started)
+    - [Minimum requirements](#minimum-requirements)
+    - [Setup IDOL Media Server](#setup-idol-media-server)
+  - [Introduction](#introduction)
+  - [Analytics showcase examples](#analytics-showcase-examples)
+      - [Keeping it simple](#keeping-it-simple)
+    - [ID Card reading](#id-card-reading)
+  - [Further reading](#further-reading)
+    - [Example configurations](#example-configurations)
+    - [Appendix](#appendix)
+    - [Links](#links)
 
 <!-- /TOC -->
 
@@ -27,6 +29,8 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 - Administrator privileges to install software.
 - A webcam.
 
+> Sizing Media Server for your own production tasks depends greatly on your use case, as discussed [later in these tutorials](introduction/PART__III.md#hardware-requirements).
+
 ### Setup IDOL Media Server
 
 > Do this before starting any tutorials.
@@ -37,13 +41,13 @@ Follow [these steps](setup/SETUP.md) to install IDOL Media Server and set up rea
 
 > Everyone should do this tutorial first.
 
-Get started with rich media analytics, using face analytics as a guiding example.  An end-to-end introduction taking you from your first Media Server configuration to running your own app that makes use of Media Server as an analytics service.  All you need is a webcam!
+Get started with rich media analytics, using face analytics as our guiding example.  An end-to-end setup taking you from your first Media Server configuration to running your own app that makes use of Media Server as an analytics service.  All you need is a webcam!
 
 [Get started](introduction/README.md).
 
 ## Analytics showcase examples
 
-> These guides assume a familiarity with Media Server concepts.
+> These guides assume some familiarity with Media Server concepts.
 
 Dip into any of the following showcase guides to try more analytics.
 

@@ -1,6 +1,6 @@
 # IDOL Rich Media Tutorials
 
-A set of guides to get you doing great things with IDOL Media Server!
+A set of guides to get you doing great things with IDOL Media Server 12.3!
 
 ## Target audience
 

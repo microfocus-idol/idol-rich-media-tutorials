@@ -272,7 +272,7 @@ If working with streaming video, don't forget that it takes up a lot of bandwidt
 
 ### Hardware requirements
 
-Processing requirements vary greatly, depending strongly on video resolution, fame rate, face size and number of faces.  The basic rule of thumb is that Media Server will require one CPU core to run each of the following tasks in near real-time:
+Processing requirements vary greatly, depending strongly on video resolution, frame rate, face size and number of faces.  The basic rule of thumb is that Media Server will require one CPU core to run each of the following tasks in near real-time:
 
 - video ingest
 - face detection

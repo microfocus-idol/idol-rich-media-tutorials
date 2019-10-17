@@ -2,7 +2,7 @@
 
 This is a setup guide for a basic installation of IDOL rich media and associated components.
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Useful third-party tools](#useful-third-party-tools)
 - [IDOL components](#idol-components)
@@ -10,9 +10,9 @@ This is a setup guide for a basic installation of IDOL rich media and associated
   - [Access IDOL software](#access-idol-software)
     - [IDOL components ZIPs (*alternative*)](#idol-components-zips-alternative)
   - [Install](#install)
-    - [Validate install](#validate-install)
   - [Obtaining tutorial materials](#obtaining-tutorial-materials)
     - [Following this guide offline](#following-this-guide-offline)
+    - [Validate install](#validate-install)
   - [Further reading](#further-reading)
 
 <!-- /TOC -->

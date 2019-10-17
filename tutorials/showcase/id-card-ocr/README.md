@@ -13,7 +13,7 @@ We will:
 
 This guide assumes you have already completed the [introductory tutorial](../../introduction/README.md).
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Setup](#setup)
   - [Configure the required analytics](#configure-the-required-analytics)

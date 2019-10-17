@@ -1,6 +1,6 @@
 # Lua scripting tips
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Logging](#logging)
 - [Accessing record data](#accessing-record-data)

@@ -6,7 +6,7 @@ We will:
 1. match your identity from your webcam
 1. optimize analysis configuration for good performance
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Face training](#face-training)
   - [Train your own face](#train-your-own-face)

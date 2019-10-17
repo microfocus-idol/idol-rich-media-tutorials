@@ -6,7 +6,7 @@ We will:
 1. create a template process configuration file to be customized at runtime by the app
 1. configure Media Server's output engine with XSL to send `FaceDetect` events to the app for processing
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Exploring the app](#exploring-the-app)
   - [Runtime configuration](#runtime-configuration)

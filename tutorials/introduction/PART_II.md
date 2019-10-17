@@ -7,7 +7,7 @@ We will:
 1. use the encoding engines to extract images and record video of faces
 1. train faces and use the face recognition analysis engine to match them
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Analysis chaining](#analysis-chaining)
   - [Controlling event rates](#controlling-event-rates)

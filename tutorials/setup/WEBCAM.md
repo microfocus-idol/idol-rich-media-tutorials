@@ -2,7 +2,7 @@
 
 This is a setup guide for ingestion of webcam video into Media Server.  If you do not have a webcam, go to [Plan B](#plan-b).
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Connecting to your webcam](#connecting-to-your-webcam)
   - [Windows](#windows)

@@ -1,6 +1,6 @@
 # XSL transform tips
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Introduction](#introduction)
 - [Uses with Media Server](#uses-with-media-server)

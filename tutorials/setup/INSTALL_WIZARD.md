@@ -2,7 +2,7 @@
 
 Use the IDOL installer wizard to get IDOL Media Server.
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Download the IDOL installer](#download-the-idol-installer)
 - [Install](#install)

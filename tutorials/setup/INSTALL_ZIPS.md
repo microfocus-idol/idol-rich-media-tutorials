@@ -2,9 +2,9 @@
 
 Use script to install IDOL Media Server from the component `.zip` files.
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
-- [Download IDOL components](#download-idol-component-zips)
+- [Download IDOL components](#download-idol-components)
 - [Install](#install)
   - [Windows](#windows)
   - [Ubuntu](#ubuntu)

@@ -6,7 +6,7 @@ We will:
 1. use the *FaceDetect* analysis engine to track people seen by the webcam
 1. display results in Media Server's *Activity* user interface
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Setup](#setup)
 - [Enabling analytics](#enabling-analytics)

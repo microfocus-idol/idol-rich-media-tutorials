@@ -2,19 +2,19 @@
 
 A set of guides to introduce you to IDOL Media Server and associated components.
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
-- [Rich Media Tutorials](#rich-media-tutorials)
-  - [Getting started](#getting-started)
-    - [Minimum requirements](#minimum-requirements)
-    - [Setup IDOL Media Server](#setup-idol-media-server)
-  - [Introduction](#introduction)
-  - [Analytics showcase examples](#analytics-showcase-examples)
-    - [ID Card reading](#id-card-reading)
-  - [Further reading](#further-reading)
-    - [Example configurations](#example-configurations)
-    - [Appendix](#appendix)
-    - [Links](#links)
+- [Getting started](#getting-started)
+  - [Minimum requirements](#minimum-requirements)
+  - [Setup IDOL Media Server](#setup-idol-media-server)
+- [Introduction](#introduction)
+- [Analytics showcase examples](#analytics-showcase-examples)
+  - [Speech transcription](#speech-transcription)
+  - [ID Card reading](#id-card-reading)
+- [Further reading](#further-reading)
+  - [Example configurations](#example-configurations)
+  - [Appendix](#appendix)
+  - [Links](#links)
 
 <!-- /TOC -->
 

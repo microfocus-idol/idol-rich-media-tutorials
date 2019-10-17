@@ -10,7 +10,6 @@ A set of guides to introduce you to IDOL Media Server and associated components.
     - [Setup IDOL Media Server](#setup-idol-media-server)
   - [Introduction](#introduction)
   - [Analytics showcase examples](#analytics-showcase-examples)
-      - [Keeping it simple](#keeping-it-simple)
     - [ID Card reading](#id-card-reading)
   - [Further reading](#further-reading)
     - [Example configurations](#example-configurations)

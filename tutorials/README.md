@@ -50,6 +50,12 @@ Get started with rich media analytics, using face analytics as our guiding examp
 
 Dip into any of the following showcase guides to try more analytics.
 
+### Speech transcription
+
+Process audio to transcribe human speech from a news broadcast. Search those speech transcripts to understand what's being reported on without having to watch TV!
+
+[Get started](showcase/speech-transcription/README.md).
+
 ### ID Card reading
 
 Process a scanned image of an ID card to extact useful structured informantion.

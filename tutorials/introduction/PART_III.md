@@ -38,7 +38,7 @@ Media Server training can be performed through its web API, detailed in the [ref
 
 ![face-training](./figs/face-training.png)
 
-*N.B.* These trained faces of Michael Jordan were sourced from [Labeled Faces in the Wild: A Database for Studying Face Recognition in Unconstrained Environment](http://vis-www.cs.umass.edu/lfw/lfw.pdf).
+> These trained faces of Michael Jordan were sourced from [Labeled Faces in the Wild: A Database for Studying Face Recognition in Unconstrained Environment](http://vis-www.cs.umass.edu/lfw/lfw.pdf).
 
 ### Train your own face
 
@@ -56,7 +56,7 @@ Open the [`gui`](http://localhost:14000/a=gui) (tested in Google Chrome) then fo
 
 The training status for each image is indicated at its bottom left: green for trained, yellow untrained and red for failed.
 
-*N.B.* If you are running a laptop with an AMD processor, Media Server may become unresponsive when you attempt to train a face.  In this event, to configure Media Server correctly for your system, follow [these steps](../setup/PATCH_AMD.md).
+> If you are running a laptop with an AMD processor, Media Server may become unresponsive when you attempt to train a face.  In this event, to configure Media Server correctly for your system, follow [these steps](../setup/PATCH_AMD.md).
 
 ### Assessing faces for training
 
@@ -80,9 +80,9 @@ The following errors and warnings are returned:
 __*top*__ | *None* | *Error*: Image data nulled | *Error*: More than one face detected
 __*bottom*__ | *Error*: No face detected | *Warning*: Side-view face | *None*
 
-*N.B.1* The warning triangles are colored yellow in the `gui` to indicate that training would succeed but that matching performance will be sub-optimal.  Red error triangles indicate that the image would not be trained successfully.
+> The warning triangles are colored yellow in the `gui` to indicate that training would succeed but that matching performance will be sub-optimal.  Red error triangles indicate that the image would not be trained successfully.
 
-*N.B.2* The detection of more than one face in the image does not guarantee an error.  If one face is significantly bigger than the others then it can be successfully trained, *e.g.* in the image below, where the trained face is overlayed in blue and the background faces in purple.
+> The detection of more than one face in the image does not guarantee an error.  If one face is significantly bigger than the others then it can be successfully trained, *e.g.* in the image below, where the trained face is overlayed in blue and the background faces in purple.
 
 ![assess-faces-zoom](./figs/assess-faces-zoom.png)
 
@@ -103,7 +103,7 @@ Type = FaceRecognize
 Input = FaceDetection.ResultWithSource
 ```
 
-*N.B.* More options are available for the `FaceRecognize` analysis engine, including GPU acceleration, restriction to a particular matching database, setting the matching threshold and allowing multiple matches to be returned.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/_FaceRecognize.htm) for details.
+More options are available for the `FaceRecognize` analysis engine, including GPU acceleration, restriction to a particular matching database, setting the matching threshold and allowing multiple matches to be returned.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/_FaceRecognize.htm) for details.
 
 Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the webcam name from `HP HD Camera` to match yours):
 
@@ -212,7 +212,8 @@ Recognizing faces also takes time. Do you always need to match against the full 
 The same as for images plus:
 
 - [`SampleInterval`](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/Face/SampleInterval.htm): How many frames per second do you really need to track faces in with Face Detection?  5 or 10 fps is typically good enough to track faces at walking speed.  Don't waste time processing more frames than you need.
-- [`NumParallel`](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/Face/NumParallel.htm): If you have additional processing capacity, you can use this parameter to process video frames in parallel for Face Detection.  *N.B.* A similar parameter exists for Face Recognition but Face Detection is typically the bottleneck.
+- [`NumParallel`](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/Face/NumParallel.htm): If you have additional processing capacity, you can use this parameter to process video frames in parallel for Face Detection.
+    > A similar parameter exists for Face Recognition but Face Detection is typically the bottleneck.
 - [`Input`](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/Input.htm): How many frames from a tracked face do you really need to pass on to Face Recognition for good results? If you use `ResultWithSource` as input for Face Recognition only one frame will be used for that recognition analysis. This is typically sufficient for good performance as this frame will be automatically selected from the face track as the one containing a face that is "best" for recognition, *i.e.* one that is turned most towards the camera.  Adding more recognition attempts for the tracked face by instead using `DataWithSource` or `SegmentedResultWithSource` may provide improved recognition results but will significantly take longer.
 - [`GPUNumParallel`](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/FaceRecognize/GPUNumParallel.htm): Configure GPU acceleration.  Although Face Detection does not benefit from this, Face Recognition will.  Using a GPU might allow you to run recognition on many frames with a detected face, *i.e.* you could use `DataWithSource` or `SegmentedResultWithSource` as input.
 
@@ -242,11 +243,11 @@ When recording statistics to calculate our performance metric, we should also ta
 - Face recognition confidence
 - Face match rank
 
-*N.B.* to get more data, you can allow for multiple matches using the `MaxRecognitionResults` parameter and setting a relatively low `RecognitionThreshold`.
+> To get more data, you can allow for multiple matches using the `MaxRecognitionResults` parameter and setting a relatively low `RecognitionThreshold`.
 
 With these values to hand, you can straightforwardly check how, *e.g.* changing the `RecognitionThreshold` or `MinSize` parameters would have affected your accuracy metric, without the need to reprocess your sample video.
 
-*N.B.* You will find that performance will drop off sharply as faces get smaller.  We recommend a minimum face size of 150 pixels but you can work with smaller faces if you are willing to live with reduced performance.
+> You will find that performance will drop off sharply as faces get smaller.  We recommend a minimum face size of 150 pixels but you can work with smaller faces if you are willing to live with reduced performance.
 
 #### Tips
 

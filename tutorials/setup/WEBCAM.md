@@ -22,7 +22,7 @@ Open the Media Server user interface [`gui`](http://localhost:14000/a=gui#/inges
 1. Set operating system family to "Linux" or "Windows" as appropriate
 1. Enter the device connection string (see below for how to find it)
 
-![webcam-connection-test-start](./figs/webcam-connection-test-start.png)
+    ![webcam-connection-test-start](./figs/webcam-connection-test-start.png)
 
 To find your webcam connection name please follow these steps:
 
@@ -31,7 +31,7 @@ To find your webcam connection name please follow these steps:
 1. open Device Manager
 1. under "Imaging devices", see your device name, *e.g.* "HP HD Camera".
 
-  ![webcam-device-name](./figs/webcam-device-name.png)
+   ![webcam-device-name](./figs/webcam-device-name.png)
 
 1. paste the string `video=HP HD Camera` into the ingest test web page.
 
@@ -39,13 +39,13 @@ To find your webcam connection name please follow these steps:
 
 1. install `v4l-utils`, then use the control tool to list available devices:
 
-  ```bsh
-  $ apt-get install v4l-utils
-  $ v4l2-ctl --list-devices
+    ```bsh
+    $ apt-get install v4l-utils
+    $ v4l2-ctl --list-devices
 
-  HP HD Camera (usb-0000:00:1d.0-1.4):
-          /dev/video0
-  ```
+    HP HD Camera (usb-0000:00:1d.0-1.4):
+            /dev/video0
+    ```
 
 1. paste the name `/dev/video0` into the ingest test web page.
 

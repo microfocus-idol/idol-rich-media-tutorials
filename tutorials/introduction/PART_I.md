@@ -13,6 +13,7 @@ We will:
   - [Modules](#modules)
   - [Channels](#channels)
 - [Processing video](#processing-video)
+- [GPU acceleration](#gpu-acceleration)
 - [Process configuration](#process-configuration)
   - [Ingest](#ingest)
   - [Analysis](#analysis)
@@ -71,7 +72,7 @@ To enable the face analytics required for this tutorial, you need to enable at l
 VisualChannels=1
 ```
 
-*N.B.* For any changes you make in `mediaserver.cfg` to take effect you must restart Media Server.
+> For any changes you make in `mediaserver.cfg` to take effect you must restart Media Server.
 
 For full details on the analytics enabled by (as well as the limitations imposed by) each license type, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Channels/Channels.htm).
 
@@ -79,7 +80,7 @@ For full details on the analytics enabled by (as well as the limitations imposed
 
 Media Server is directed to process a video, audio or image source with a *process* configuration file that defines how Media Server should ingest, analyze, output and otherwise manipulate the content and any resulting information.  A number of example files is included in Media Server's `configurations/examples` directory.
 
-*N.B.* Media Server can run multiple processes concurrently if licensed to do so.  The number of concurrent processes is limited in `mediaserver.cfg` by the parameter:
+Media Server can run multiple processes concurrently if licensed to do so.  The number of concurrent processes is limited in `mediaserver.cfg` by the parameter:
 
 ```ini
 [Process]
@@ -108,7 +109,7 @@ We will introduce and use each of these sections in this tutorial.  Full details
 
 We will configure the Ingest engine to accept video from your webcam.  Use [this guide](../setup/WEBCAM.md) to set up connection to your webcam.
 
-*N.B.* If you do not have a webcam, [Plan B](../setup/WEBCAM.md#plan-b) is to use a video file instead. If this applies to you, please read that section to see how you must modify the configuration files we will use later on.  For this tutorial you need a video containing faces, *e.g.* this free-to-use clip <https://videos.pexels.com/videos/people-at-the-sidewalk-858011>.
+If you do not have a webcam, [Plan B](../setup/WEBCAM.md#plan-b) is to use a video file instead. If this applies to you, please read that section to see how you must modify the configuration files we will use later on.  For this tutorial you need a video containing faces, *e.g.* this free-to-use clip <https://videos.pexels.com/videos/people-at-the-sidewalk-858011>.
 
 The ingest configuration section to connect we will use now will look as follows:
 
@@ -121,7 +122,7 @@ Type = Video
 Format = dshow
 ```
 
-*N.B.* More options are available for the `Video`-type ingest engine.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Ingest/Libav/_Libav.htm).
+More options are available for the `Video`-type ingest engine.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Ingest/Libav/_Libav.htm).
 
 ### Analysis
 
@@ -135,7 +136,7 @@ Engine1 = FaceDetection
 Type = FaceDetect
 ```
 
-*N.B.* More options are available for the `FaceDetect`-type analysis engine, such as the minimum expected face size.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/Face/_Face.htm).
+More options are available for the `FaceDetect`-type analysis engine, such as the minimum expected face size.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/Face/_Face.htm).
 
 ### Output
 
@@ -152,7 +153,7 @@ Input = FaceDetection.Result
 XMLOutputPath=./output/faces1/%segment.startTime.timestamp%.xml
 ```
 
-*N.B.* More output options are available, such as HTTP POST and database insert.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/OutputEngines/_Output.htm), for details.
+More output options are available, such as HTTP POST and database insert.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/OutputEngines/_Output.htm), for details.
 
 ## Your first analysis: run Face Detection
 
@@ -178,7 +179,7 @@ For testing, we will launch these actions through the admin interface [`test-act
 
 1. Click `Test Action` to start processing. If your webcam has an indicator light, it should come on now.
 
-*N.B.* More options are available for the *Process* action.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/VideoAnalysis/_MediaAnalysis.htm).
+More options are available for the *Process* action.  Please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/VideoAnalysis/_MediaAnalysis.htm).
 
 ### Monitoring and debugging
 
@@ -207,7 +208,7 @@ Media Server writes out a number of different log files to its `logs` directory.
 
 Media Server's *Activity* user interface is a single-page web application (tested in Google Chrome) intended for the display of running analytics on your Media Server.  This app can be useful for both testing and demonstrating Media Server.
 
-*N.B.* The app makes use of two Media Server calls to get the list of channels and then to get the latest record for the channel you select:
+The app makes use of two Media Server calls to get the list of channels and then to get the latest record for the channel you select:
 
 - [`action=getStatus&showTracksStatistics`](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/Status/GetStatus_ShowTracksStatistics.htm)
 - [`action=getLatestRecord`](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/VideoAnalysis/GetLatestRecord.htm)
@@ -219,9 +220,9 @@ With the analysis running, point your browser to [`activity`](http://localhost:1
 
 ![face-activity](./figs/activity.png)
 
-*N.B.1* The `GetLatestRecord` action is not guaranteed to show every alert but only the latest one at the time of polling Media Server.
+> The `GetLatestRecord` action is not guaranteed to show every alert but only the latest one at the time of polling Media Server.
 
-*N.B.2* `Default_Image` is the automatically assigned name of the track containing the incoming video.
+> `Default_Image` is the automatically assigned name of the track containing the incoming video.
 
 #### Track types
 
@@ -320,7 +321,7 @@ action=queueInfo&queueAction=stop&queueName=process
 
 Or simply click [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
-*N.B.* If your Media Server is running multiple processes, you can supply a [token parameter](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/General/_ACI_QueueInfo_Token.htm) to the above action.
+If your Media Server is running multiple processes, you can supply a [token parameter](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Actions/General/_ACI_QueueInfo_Token.htm) to the above action.
 
 If your webcam has an indicator light, it should now switch off.
 

@@ -28,7 +28,7 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 - Administrator privileges to install software.
 - A webcam.
 
-> Sizing Media Server for your own production tasks depends greatly on your use case, as discussed [later in these tutorials](introduction/PART__III.md#hardware-requirements).
+Sizing Media Server for your own production tasks depends greatly on your use case, as discussed [later in these tutorials](introduction/PART__III.md#hardware-requirements).
 
 ### Setup IDOL Media Server
 

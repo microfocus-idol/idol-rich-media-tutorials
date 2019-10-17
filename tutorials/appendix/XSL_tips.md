@@ -45,7 +45,7 @@ Let's walk through the XSL transform we used in the people counting app in [PART
 
 ### The XSL stylesheet
 
-XSL transforms are defined with valid XML.  They require the following minimal headers and wrapping node.  *N.B.* Media Server supports XSL version 1.0.
+XSL transforms are defined with valid XML.  They require the following minimal headers and wrapping node.
 
 ```xml
 <?xml version='1.0'?>
@@ -55,6 +55,8 @@ XSL transforms are defined with valid XML.  They require the following minimal h
 
 </xsl:stylesheet>
 ```
+
+> Media Server supports XSL version 1.0.
 
 ### Output method
 

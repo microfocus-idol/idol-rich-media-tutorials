@@ -73,7 +73,7 @@ To enable object recognition for this tutorial, you need to enable at least one 
 VisualChannels=1
 ```
 
-*N.B.* For any changes you make in `mediaserver.cfg` to take effect you must restart Media Server.
+> For any changes you make in `mediaserver.cfg` to take effect you must restart Media Server.
 
 ## Process configuration to read text
 
@@ -191,7 +191,7 @@ ID are structured data, *e.g.* showing names, dates etc.  In reading the whole s
 We can train a template with the following actions:
 
 - Create a database (container for templates): [`action=CreateObjectDatabase`](http://localhost:14000/a=CreateObjectDatabase&database=IDCardTemplates)
-- Train a template: [`action=TrainObject`](http://localhost:14000/a=TrainObject&database=IDCardTemplates&imagepath=C:\MicroFocus\IDOLServer-12.3.0\sample_media\TurkishDriversLicenseHeader.png&metadata=ROIsurname:38 22 35 9,ROIfirstname:38 30 35 9,ROIdateplaceofbirth:38 38 35 9,ROIissuedate:39 46 22 9,ROIexpirydate:38 54 22 9,ROIcode5:38 62 22 9,ROIaddress:70 46 25 9,ROIcode4d:70 54 25 9,ROIvehicletypes:6 84 21 7)
+- Train a template: [`action=TrainObject`](http://localhost:14000/action=TrainObject&database=IDCardTemplates&imagepath=C%3A%5CMicroFocus%5CIDOLServer-12.3.0%5Csample_media%5CTurkishDriversLicenseHeader.png&metadata=ROIsurname%3A38%2022%2035%209%2CROIfirstname%3A38%2030%2035%209%2CROIdateplaceofbirth%3A38%2038%2035%209%2CROIissuedate%3A39%2046%2022%209%2CROIexpirydate%3A38%2054%2022%209%2CROIcode5%3A38%2062%2022%209%2CROIaddress%3A70%2046%2025%209%2CROIcode4d%3A70%2054%2025%209%2CROIvehicletypes%3A6%2084%2021%207)
 
 You can see the trained template using the Media Server [GUI](http://localhost:14000/a=gui):
 

@@ -129,7 +129,7 @@ Type = Demographics
 Input = FaceForward.Output
 ```
 
-*N.B.* Notice that the name of the event processing output track variant is always `Output`, *e.g.* `FaceForward.Output`.
+> Notice that the name of the event processing output track variant is always `Output`, *e.g.* `FaceForward.Output`.
 
 Many logical operators are available in addition to `Filter`, which include the capability to compare or combine records from multiple tracks. See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/ESP/ESP.htm) for more details.
 
@@ -195,7 +195,7 @@ Input = FaceDemographics.ResultWithSource
 LuaScript = draw.lua
 ```
 
-*N.B.* Again, Lua scripts can be used to provide flexibility.  The included script `draw.lua` sets the overlay color based on the detected gender of the face:
+Again, Lua scripts can be used to provide flexibility.  The included script `draw.lua` sets the overlay color based on the detected gender of the face:
 
 ```lua
 ResultsProcessor = {
@@ -237,7 +237,7 @@ ImageInput = FaceDraw.Output
 OutputPath = output/faces2b/%record.startTime.timestamp%_overlay.png
 ```
 
-*N.B.* We can access parameter values from the alert record using *macros* to generate the image `OutputPath`.  See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Macros.htm) for details.
+We can access parameter values from the alert record such as `startTime` using *macros* to generate the image `OutputPath`.  See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Macros.htm) for details.
 
 ### Run face image encoding
 
@@ -367,7 +367,7 @@ Review the results with [`activity`](http://localhost:14000/a=activity), then op
 
 Stop processing with [`stop`](http://localhost:14000/a=queueInfo&queueAction=stop&queueName=process).
 
-*N.B.* This is exactly the same process that was used *under the hood* in [this guide](../setup/WEBCAM.md) when testing your webcam connectivity using the Media Server user interface [`gui`](http://localhost:14000/a=gui#/ingest).
+> This is exactly the same process that was used *under the hood* in [this guide](../setup/WEBCAM.md) when testing your webcam connectivity using the Media Server user interface [`gui`](http://localhost:14000/a=gui#/ingest).
 
 ## PART III - Face recognition
 

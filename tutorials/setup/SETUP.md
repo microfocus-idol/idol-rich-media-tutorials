@@ -41,19 +41,19 @@ You can obtain software and licenses from the [eSoftware/Partner portal](https:/
 2. Complete the web form with your details to gain access
 3. Under the *Get Licensing* tab, scroll to the bottom and click __Get License__:
 
-  ![eSoftware-getLicense](./figs/eSoftware-getLicense.png)
+    ![eSoftware-getLicense](./figs/eSoftware-getLicense.png)
 
 4. Click through the pop-ups then, scroll to the bottom and click __Activate__ next to your *IDOL # day Personal license*
 
-  ![eSoftware-activateLicense](./figs/eSoftware-activateLicense.png)
+   ![eSoftware-activateLicense](./figs/eSoftware-activateLicense.png)
 
 5. Select this license, then choose your prefered version (the latest is 12.3):
 
-  ![eSoftware-selectLicense](./figs/eSoftware-selectLicense.png)
+   ![eSoftware-selectLicense](./figs/eSoftware-selectLicense.png)
 
 6. Fill in the license details, inlcuding the MAC address and hostname of the machne where you will install IDOL License Server:
 
-  ![eSoftware-configureLicense](./figs/eSoftware-configureLicense.png)
+   ![eSoftware-configureLicense](./figs/eSoftware-configureLicense.png)
 
 7. Confirm your details the finally download your key, which is a `.dat` file.
 

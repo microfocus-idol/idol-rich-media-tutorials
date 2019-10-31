@@ -65,10 +65,10 @@ Speech transcription language packs are distributed separately from the main Med
 For this tutorial we will use the British English pack:
 
 1. go to the *Get Software* tab
-1. download the language pack `ENUK-12.3.0.zip`
-1. unzip the contents into Media Server's static data directory, to give you, e.g. `staticdata/speechtotext/ENUK`, containing files like `ver-ENUK-12.3.0*`
+1. download the language pack `ENUK-12.4.0.zip`
+1. unzip the contents into Media Server's static data directory, to give you, e.g. `staticdata/speechtotext/ENUK`, containing files like `ver-ENUK-12.4.0*`
 
-This language pack is targeted to high quality *broadband* audio.  An additional language pack is available for telephony.  Many other languages and dialects are supported.  Please refer to the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Guides/html/English/#Appendixes/SpeechLanguages.htm) for details.
+This language pack is targeted to high quality *broadband* audio.  An additional language pack is available for telephony.  Many other languages and dialects are supported.  Please refer to the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Guides/html/English/#Appendixes/SpeechLanguages.htm) for details.
 
 You can manually load the ENUK language pack with the action <http://127.0.0.1:14000/action=LoadSpeechLanguageResource&LanguagePack=ENUK>.
 
@@ -95,7 +95,7 @@ LanguagePack = ENUK
 SpeedBias = Live
 ```
 
-More options are available for the *SpeechToText* analysis engine.  Please refer to the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/SpeechToText/_SpeechToText.htm) for details.
+More options are available for the *SpeechToText* analysis engine.  Please refer to the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Analysis/SpeechToText/_SpeechToText.htm) for details.
 
 To view the results in a simple and standalone way, we will record the stream to video files and format the speech transcription output to generate subtitles for those clips.
 
@@ -147,7 +147,7 @@ XMLOutputPath = output/speechToText1/%session.token%/clip_%segment.sequence%.srt
 XslTemplate = toSRT.xsl
 ```
 
-We use using the *Bounded* output mode to bundle together all the text segments that overlap the video clip in time.  Please read the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Guides/html/English/#Operations/Outputs/IndexingModes_BoundedEvent.htm), for details.
+We use using the *Bounded* output mode to bundle together all the text segments that overlap the video clip in time.  Please read the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Guides/html/English/#Operations/Outputs/IndexingModes_BoundedEvent.htm), for details.
 
 ## Process a news channel stream
 

@@ -146,7 +146,7 @@ local width = record.FaceRecognitionResultAndImage.face.region.width
 
 ### Output Lua records
 
-Media Server provides a [Lua output engine](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/OutputEngines/Lua/_Lua.htm), which produces a Lua representation of each record that it receives, and writes it to a file on disk. You can use the output to help you to write and troubleshoot Lua scripts.
+Media Server provides a [Lua output engine](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/OutputEngines/Lua/_Lua.htm), which produces a Lua representation of each record that it receives, and writes it to a file on disk. You can use the output to help you to write and troubleshoot Lua scripts.
 
 An example configuration file based on our first process session from [PART I](../introduction/PART_I.md#run-face-detection) of the introductory tutorial:
 

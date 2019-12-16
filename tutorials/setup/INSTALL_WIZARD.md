@@ -32,7 +32,7 @@ Follow the install wizard to get the required components.
 
 Keep the default options except in the following cases:
 
-1. Accept the licese agreement.
+1. Accept the license agreement.
 2. Keep the default installation directory.
 3. Select `Custom` under *Installation Mode*.
 4. Do not choose an OEM installation

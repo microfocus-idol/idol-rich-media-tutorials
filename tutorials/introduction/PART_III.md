@@ -199,7 +199,7 @@ We have important external factors to be aware of, as well as the configuration 
 Detecting faces in an image takes time.  How much processing do you really need to do with the image?
 
 - [`MinSize`](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Analysis/Face/MinSize.htm): Setting a minimum expected face size can reduce processing time.  Find out the minimum size you expect a face can be, *e.g.* by using the Media Server [`gui`](http://localhost:14000/a=gui#/ingest) to ingest your source and draw rectangles around a few faces.
-- [`Region`](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Analysis/Face/Region.htm): Setting a region to restrict detection to will also speed this up.  Can faces appear anywhere in an image, or always in a known region that you can restrict detection to?  Again, you can easliy use the Media Server [`gui`](http://localhost:14000/a=gui#/ingest) to define a region.
+- [`Region`](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Analysis/Face/Region.htm): Setting a region to restrict detection to will also speed this up.  Can faces appear anywhere in an image, or always in a known region that you can restrict detection to?  Again, you can easily use the Media Server [`gui`](http://localhost:14000/a=gui#/ingest) to define a region.
 - [`Orientation`](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Analysis/Face/Orientation.htm): Will faces sometimes be seen upside down, or rotated? If not, restrict the orientation to save time.
 
 Recognizing faces also takes time. Do you always need to match against the full list?
@@ -282,7 +282,7 @@ Processing requirements vary greatly, depending strongly on video resolution, fr
 
 When adding large numbers of faces to the database, you will need to start considering storage and memory requirements.  Each face descriptor must be loaded into memory for matching, so you need to have enough memory on each of the machines where Media Server is running.  Each descriptor is roughly 5KB in size, so each GB of RAM can hold approximately 200,000 faces.
 
-In this tutorial, we have used a local `mediaserver.db` to store our trained faces.  In production, you should configure an external database such as PostgrSQL, as described in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Guides/html/English/index.html#Getting_Started/Configure/_TRN_Set_up_databases.htm).
+In this tutorial, we have used a local `mediaserver.db` to store our trained faces.  In production, you should configure an external database such as PostgreSQL, as described in the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Guides/html/English/index.html#Getting_Started/_SetupTrainingDatabase.htm).
 
 ## PART IV - People counting: an example of app integration
 

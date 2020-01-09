@@ -58,7 +58,7 @@ Process audio to transcribe human speech from a news broadcast. Search those spe
 
 ### ID Card reading
 
-Process a scanned image of an ID card to extact useful structured informantion.
+Process a scanned image of an ID card to extract useful structured information.
 
 [Get started](showcase/id-card-ocr/README.md).
 

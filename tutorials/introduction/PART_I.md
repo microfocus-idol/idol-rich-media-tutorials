@@ -89,7 +89,7 @@ MaximumThreads=2
 
 ## GPU acceleration
 
-If you are lucky enough to have access to a supported NVIDIA graphics card, you can accelerate certain analytics (including face recognition), as well as video ingest and encoding.  For details on support and setup, please refer to the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Guides/html/English/index.html).
+If you are lucky enough to have access to a supported NVIDIA graphics card, you can accelerate certain analytics (including face recognition), as well as video ingest and encoding.  For details on support and setup, please refer to the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Guides/html/English/index.html#Getting_Started/Install_GPU.htm).
 
 
 ## Process configuration

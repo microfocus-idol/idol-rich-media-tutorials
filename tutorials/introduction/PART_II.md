@@ -369,6 +369,8 @@ Stop processing with [`stop`](http://localhost:14000/a=queueInfo&queueAction=sto
 
 > This is exactly the same process that was used *under the hood* in [this guide](../setup/WEBCAM.md) when testing your webcam connectivity using the Media Server user interface [`gui`](http://localhost:14000/a=gui#/ingest).
 
+<!-- TODO: Set up evidential rolling buffer with HttpPost output to create clips *a la* unread-plates -->
+
 ## PART III - Face recognition
 
 Start [here](PART_III.md).

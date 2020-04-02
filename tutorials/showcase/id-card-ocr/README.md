@@ -102,7 +102,7 @@ Languages = en,tr
 WordRejectThreshold = 75
 ```
 
-We have specified two parameters that affect how the analytic: the lanagues to search for and a confidence threshold.  For full details on these and other available options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/OCR/_OCR.htm).
+We have specified two parameters that affect how the analytic: the languages to search for and a confidence threshold.  For full details on these and other available options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_3/MediaServer_12.3_Documentation/Help/index.html#Configuration/Analysis/OCR/_OCR.htm).
 
 ### Output
 
@@ -116,7 +116,7 @@ XMLOutputPath = output/idCard1/%source.filename%.txt
 XSLTemplate = toText.xsl
 ```
 
-As in the introductory tutorials, we are using an XSL transform to extact the words from the internal structured information.  In this case, using an out-of-the-box transfor included with Media Server.
+As in the introductory tutorials, we are using an XSL transform to extract the words from the internal structured information.  In this case, using an out-of-the-box transform included with Media Server.
 
 ### Running our analysis
 
@@ -127,6 +127,8 @@ Go to Media Server's `output/idCard1` directory to see the results.
 ## Correct rotated scans
 
 Imagine this document was scanned upside down.  We would like to handle these documents automatically.  For documents containing faces, we can make use of engine chaining and Face Detection in order to find the true orientation and correct it before running OCR as before.
+
+![rotated](Turkey2.png)
 
 ### Analysis
 
@@ -151,7 +153,7 @@ Input = FaceDetect.ResultWithSource
 LuaScript = inverseFaceAngle.lua
 ```
 
-We are envoking an out-of-the-box Lua script to capture the angle of rotation of the detected face:
+We are invoking an out-of-the-box Lua script to capture the angle of rotation of the detected face:
 
 ```lua
 -- returns the angle required to rotate a face upright (in degrees)
@@ -227,7 +229,7 @@ LuaScript = getAssociatedRectanglesDemo.lua
 Input = Template.ResultWithSource
 ```
 
-We are envoking a custom Lua script `getAssociatedRectanglesDemo.lua`.  Now, copy this file into Media Server's `configurations\lua` folder.
+We are invoking a custom Lua script `getAssociatedRectanglesDemo.lua`.  Now, copy this file into Media Server's `configurations\lua` folder.
 
 ### Running our analysis
 
@@ -237,7 +239,7 @@ Go to Media Server's `output/idCard3` directory to see the results.
 
 ## Redact personal information
 
-This document contains personal information.  You might want to create a redacted version of the original image in order to share it in a report.  We can make use of the Blur transform engineto do this automatically for us.
+This document contains personal information.  You might want to create a redacted version of the original image in order to share it in a report.  We can make use of the Blur transform engine to do this automatically for us.
 
 ### Event Processing
 
@@ -267,6 +269,8 @@ Input = ImageWithRegions.Output
 Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.3.0\sample_media\Turkey1.png&configName=tutorials/idCard4.cfg).
 
 Go to Media Server's `output/idCard4` directory to see the results.
+
+![redacted](Turkey2.png_redacted.png)
 
 ## Next steps
 

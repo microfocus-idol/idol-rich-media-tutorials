@@ -7,9 +7,10 @@ For a more detailed introduction to Optical Character Recognition, see the [admi
 We will:
 
 1. use the OCR analysis engine to read the text from an image of an ID card
-2. use Face Detection to identify rotated images along with a transform engine to correct them
-3. recognize a type of document in order to define OCR regions to maintain document structure
-4. encode a redacted image to hide sensitive data
+    ![id-card](Turkey1.png)
+1. use Face Detection to identify rotated images along with a transform engine to correct them
+1. recognize a type of document in order to define OCR regions to maintain document structure
+1. encode a redacted image to hide sensitive data
 
 This guide assumes you have already completed the [introductory tutorial](../../introduction/README.md).
 

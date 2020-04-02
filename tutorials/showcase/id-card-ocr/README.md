@@ -188,9 +188,10 @@ Go to Media Server's `output/idCard2` directory to see the results.
 ID are structured data, *e.g.* showing names, dates etc.  In reading the whole scanned image, as we have done above, we have lost this structure.  In order to get it back we need to define a template for OCR.  The template consist of the following information:
 
 1. An anchor, *i.e.* some uniquely identifying feature of the ID card type, such as the top banner 
-2. A list of regions to be processed with OCR
+    ![banner](TurkishDriversLicenseHeader.png)
+1. A list of regions to be processed with OCR
 
-We can train a template with the following actions:
+We can train a template using Object Recognition with the following actions:
 
 - Create a database (container for templates): [`action=CreateObjectDatabase`](http://localhost:14000/a=CreateObjectDatabase&database=IDCardTemplates)
 - Train a template: [`action=TrainObject`](http://localhost:14000/action=TrainObject&database=IDCardTemplates&imagepath=C%3A%5CMicroFocus%5CIDOLServer-12.5.0%5Csample_media%5CTurkishDriversLicenseHeader.png&metadata=ROIsurname%3A38%2022%2035%209%2CROIfirstname%3A38%2030%2035%209%2CROIdateplaceofbirth%3A38%2038%2035%209%2CROIissuedate%3A39%2046%2022%209%2CROIexpirydate%3A38%2054%2022%209%2CROIcode5%3A38%2062%2022%209%2CROIaddress%3A70%2046%2025%209%2CROIcode4d%3A70%2054%2025%209%2CROIvehicletypes%3A6%2084%2021%207)

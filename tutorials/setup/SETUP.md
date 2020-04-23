@@ -12,6 +12,7 @@ This is a setup guide for a basic installation of IDOL rich media and associated
   - [Install](#install)
   - [Obtaining tutorial materials](#obtaining-tutorial-materials)
     - [Following this guide offline](#following-this-guide-offline)
+  - [Obtaining training materials](#obtaining-training-materials)
     - [Validate install](#validate-install)
   - [Further reading](#further-reading)
 
@@ -91,13 +92,13 @@ We will now run a script to move some of these materials into convenient locatio
 
 You can stay on GitHub to follow the steps in this and further linked README files in your browser, or if you prefer to work with the downloaded files, see [these steps](appendix/Markdown_reader.md) to turn your browser into a smart markdown viewer.
 
-<!-- ### Obtaining training materials
+### Obtaining training materials
 
-All required sample videos are available from this hosted [directory](http://tech-demo.idol.swinfra.net/tutorial/). *N.B.* Use `Save As` on the file links to avoid opening the videos in your browser.
+All required sample videos are available from this hosted [directory](http://tech-demo.idol.swinfra.net/tutorial/). 
+
+> Use `Save As` to avoid opening the video in your browser.
 
 You will be instructed what to download in the guides as needed.
-
-TODO - Replace with Git LFS. -->
 
 #### Validate install
 

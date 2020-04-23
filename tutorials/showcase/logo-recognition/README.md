@@ -199,7 +199,9 @@ Input2 = ObjectRecognition.End
 
 ## Running our analysis
 
-Download the sample video [`bcnpsg.mp4`](http://tech-demo.idol.swinfra.net/tutorial/bcnpsg.mp4) and save it under `C:\MicroFocus\video`. *N.B.* Use `Save As` to avoid opening the video in your browser.
+Download the sample video [`bcnpsg.mp4`](http://tech-demo.idol.swinfra.net/tutorial/bcnpsg.mp4) and save it under `C:\MicroFocus\video`.
+
+> Use `Save As` to avoid opening the video in your browser.
 
 While testing, or if you simply wish to keep your config files in a project-specific directory outside of `configurations`, you can reference a config file path in the process action by setting the `configPath` parameter (assuming of course that Media Server can access the location where your process configuration file is stored).
 

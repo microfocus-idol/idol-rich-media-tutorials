@@ -48,11 +48,7 @@ You can obtain software and licenses from the [eSoftware/Partner portal](https:/
 
    ![eSoftware-activateLicense](./figs/eSoftware-activateLicense.png)
 
-<<<<<<< HEAD
-5. Select this license, then choose your prefered version (the latest is 12.5):
-=======
-5. Select this license, then choose your preferred version (the latest is 12.3):
->>>>>>> cc4a500... typos
+5. Select this license, then choose your preferred version (the latest is 12.5):
 
    ![eSoftware-selectLicense](./figs/eSoftware-selectLicense.png)
 

@@ -11,6 +11,7 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 - [Analytics showcase examples](#analytics-showcase-examples)
   - [Speech transcription](#speech-transcription)
   - [Logo Recognition](#logo-recognition)
+  - [Vehicle analysis](#vehicle-analysis)
   - [ID Card reading](#id-card-reading)
 - [Further reading](#further-reading)
   - [Example configurations](#example-configurations)
@@ -62,6 +63,12 @@ Process audio to transcribe human speech from a news broadcast. Search those spe
 Find and track logos in broadcast video from a football/soccer match.
 
 [Get started](showcase/logo-recognition/README.md).
+
+### Vehicle analysis
+
+Read number/license places.  Perform additional vehicle analytics to identify the make and color.
+
+[Get started](showcase/vehicle-analysis/README.md).
 
 ### ID Card reading
 

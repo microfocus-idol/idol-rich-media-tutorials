@@ -48,11 +48,15 @@ You can obtain software and licenses from the [eSoftware/Partner portal](https:/
 
    ![eSoftware-activateLicense](./figs/eSoftware-activateLicense.png)
 
+<<<<<<< HEAD
 5. Select this license, then choose your prefered version (the latest is 12.5):
+=======
+5. Select this license, then choose your preferred version (the latest is 12.3):
+>>>>>>> cc4a500... typos
 
    ![eSoftware-selectLicense](./figs/eSoftware-selectLicense.png)
 
-6. Fill in the license details, inlcuding the MAC address and hostname of the machne where you will install IDOL License Server:
+6. Fill in the license details, including the MAC address and hostname of the machine where you will install IDOL License Server:
 
    ![eSoftware-configureLicense](./figs/eSoftware-configureLicense.png)
 

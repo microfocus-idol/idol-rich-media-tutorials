@@ -5,7 +5,8 @@
 - [Useful third-party software](#useful-third-party-software)
 - [Collecting sample media](#collecting-sample-media)
   - [Video stream sources from the web](#video-stream-sources-from-the-web)
-  - [Live YouTube channels](#live-youtube-channels)
+    - [Live YouTube channels](#live-youtube-channels)
+  - [Academic datasets](#academic-datasets)
 - [Working with video sources](#working-with-video-sources)
   - [Test availability of an IP stream](#test-availability-of-an-ip-stream)
   - [Record video/audio from an IP stream](#record-videoaudio-from-an-ip-stream)
@@ -36,9 +37,9 @@ Typically, you will be able to get audio, video or image samples from your custo
 
 1. Use a webcam - see the rich media tutorials to learn how to connect
 1. Download videos from YouTube, *e.g.* as described [below](#download-a-video-from-youtube)
-1. Connect to an open online stream, *e.g.* from a news broadcaster's website.  Possible sites listed below.
-1. Make use of open data shared by the academic community. TODO
-1. Search for rights-free media on the web.
+1. Connect to an open online stream, *e.g.* from a news broadcaster's website (see below).
+1. Make use of open data shared by the academic community (see below).
+1. Search for rights-free media on the web, *e.g.* [pexels.com](https://www.pexels.com/search/videos/).
 
 ### Video stream sources from the web
 
@@ -55,7 +56,7 @@ Spanish | Milenio TV | 1280x720 | http://bcoveliveios-i.akamaihd.net/hls/live/20
 
 These streams can be directly ingested by Media Server as we do in the Speech to Text [tutorial](../showcase/speech-transcription/PART_I.md#process-a-news-channel-stream).
 
-### Live YouTube channels
+#### Live YouTube channels
 
 Increasingly, broadcasters are offering live streaming news via YouTube.  Some examples working at time of writing:
 
@@ -67,6 +68,25 @@ Ukrainian | 112 Украина | 1920x1080 (max) | https://www.youtube.com/watch
 Urdu | Geo TV | 640x360 | https://www.youtube.com/watch?v=QpoSuyXQKOs
 
 These channels also wrap HLS stream index `.m3u8` files, which can be accessed as described [below](#record-videoaudio-from-a-live-youtube-channel).
+
+### Academic datasets
+
+> Please check the license terms for these datasets.
+
+- [COCO](http://cocodataset.org/): The Common Objects in COntext dataset is a large-scale object detection, segmentation, and captioning benchmark.
+- [ImageNet](http://www.image-net.org/): ImageNet is an image dataset organized according to the WordNet hierarchy.
+- [LFW](http://vis-www.cs.umass.edu/lfw/): The University of Massachusetts Labeled Faces in the Wild dataset is a public benchmark for face verification.
+- [MS-Celeb-1M](https://github.com/EB-Dodo/C-MS-Celeb): The Microsoft Research One Million Celebrities in the Real World dataset is a benchmark for large-scale face recognition.
+- [PETS2009](http://cs.binghamton.edu/~mrldata/pets2009): The IEEE International Workshop on Performance Evaluation of Tracking and Surveillance 2009 dataset is a public benchmark for the characterization of different crowd activities.
+- [UA-DETRAC](http://detrac-db.rit.albany.edu/home): The University at Albany DEtection and TRACking dataset is a benchmark for challenging real-world multi-object detection and multi-object tracking.
+
+Both the PETS2009 and UA-DETRAC datasets contain folders of images that can be stitched together to produce videos, *e.g.* using ffmpeg as follows for one PETS2009 sequence:
+
+```bsh
+ffmpeg -r 7 -i S3/Multiple_Flow/Time_12-43/View_008/frame_%04d.jpg -c:v libx264 -vf fps=25 -pix_fmt yuv420p s3_mf_time_12-43_view_008.mp4
+```
+
+> The frame rate setting (`-r 7` in this case) was found by trial end error.
 
 ## Working with video sources
 
@@ -109,7 +129,7 @@ The free tool `youtube-dl` allows you to download video files from YouTube.
 Obtain it through your Python package manager:
 
 ```bsh
-$ pip install youtube-dl
+pip install youtube-dl
 ```
 
 You can now query a YouTube video URL for available formats:
@@ -139,7 +159,7 @@ format code extension resolution note
 I want the best available quality, which is format code 22.  I can then download that video as follows:
 
 ```bsh
-$ youtube-dl -f 22 https://www.youtube.com/watch?v=8bCM0BPwhXE
+youtube-dl -f 22 https://www.youtube.com/watch?v=8bCM0BPwhXE
 ```
 
 ### Record video/audio from a live YouTube channel
@@ -149,7 +169,7 @@ Live YouTube channels wrap standard HLS streams in their own API.  The free tool
 Obtain it through your Python package manager:
 
 ```bsh
-$ pip install youtube-dl
+pip install youtube-dl
 ```
 
 Then query a channel for available HLS streams:
@@ -174,13 +194,13 @@ format code extension resolution note
 I want the highest possible audio quality but I will throw away the video, so I'll choose the lowest available which is format code 95.  I can then record that stream continuously with ffmpeg in one-minute segments, copying the audio and dropping the video as follows:
 
 ```bsh
-$ ffmpeg -i $(youtube-dl -f 95 https://www.youtube.com/watch?v=jL8uDJJBjMA --get-url) -f segment -segment_time 60 -vn -acodec copy recording%04d.aac
+ffmpeg -i $(youtube-dl -f 95 https://www.youtube.com/watch?v=jL8uDJJBjMA --get-url) -f segment -segment_time 60 -vn -acodec copy recording%04d.aac
 ```
 
-*N.B.* to record the video and audio, I would modify that command to:
+To record the video and audio, I would modify that command to:
 
 ```bsh
-$ ffmpeg -i $(youtube-dl -f 95 https://www.youtube.com/watch?v=jL8uDJJBjMA --get-url) -f segment -segment_time 60 -c copy recording%04d.mp4
+ffmpeg -i $(youtube-dl -f 95 https://www.youtube.com/watch?v=jL8uDJJBjMA --get-url) -f segment -segment_time 60 -c copy recording%04d.mp4
 ```
 
 ### Examine the metadata of a video file

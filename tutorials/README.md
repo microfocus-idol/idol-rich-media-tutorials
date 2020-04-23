@@ -15,7 +15,7 @@ A set of guides to introduce you to IDOL Media Server and associated components.
   - [ID Card reading](#id-card-reading)
 - [Further reading](#further-reading)
   - [Example configurations](#example-configurations)
-  - [Appendix](#appendix)
+  - [Hints and Tips](#hints-and-tips)
   - [Links](#links)
 
 <!-- /TOC -->
@@ -84,10 +84,11 @@ Process a scanned image of an ID card to extract useful structured information.
 
 Many more example analysis configurations are provided with your Media Server installation, under `configurations/examples`.  Now you know your Media Server, you can use these as inspiration for our own use cases!
 
-### Appendix
+### Hints and Tips
 
-- Working with Lua. [Get started](appendix/Lua_tips.md).
-- Working with XSL. [Get started](appendix/XSL_tips.md).
+- Working with rich media data. [Read more](appendix/Media_tips.md).
+- Working with Lua. [Read more](appendix/Lua_tips.md).
+- Working with XSL. [Read more](appendix/XSL_tips.md).
 
 ### Links
 

@@ -154,13 +154,13 @@ We use using the *Bounded* output mode to bundle together all the text segments 
 We will process the open stream from *Al Jazeera English*:
 
 ``` url
-http://english.streaming.aljazeera.net/aljazeera/english2/index576.m3u8
+http://live-hls-web-aje.getaj.net/AJE/03.m3u8
 ```
 
 Copy the config file `speechToText1.cfg` from this guide into `configurations/tutorials`, then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action):
 
 ```url
-action=process&source=http://english.streaming.aljazeera.net/aljazeera/english2/index576.m3u8&configName=tutorials/speechToText1
+action=process&source=http://live-hls-web-aje.getaj.net/AJE/03.m3u8&configName=tutorials/speechToText1
 ```
 
 Click the `Test Action` button to start processing.  The video clip and srt are produced every 30 seconds based on the `SegmentDuration` parameter.

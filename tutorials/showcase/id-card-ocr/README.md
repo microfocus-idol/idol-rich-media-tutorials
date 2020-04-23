@@ -2,7 +2,7 @@
 
 Media Server includes an Optical Character Recognition (OCR) analysis engine, which can be configured to read specific scripts in images and video, such as Japanese characters or Arabic numerals.
 
-For a more detailed introduction to Optical Character Recognition, see the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Guides/html/English/index.html#Operations/Analyze/OCR_overview.htm).
+For a more detailed introduction to Optical Character Recognition, see the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Guides/html/English/index.html#Operations/Analyze/OCR_overview.htm).
 
 We will:
 
@@ -89,7 +89,7 @@ Engine0 = Source
 Type = image
 ```
 
-For full details on the options available for ingesting image sources, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Ingest/Image/_Image.htm).
+For full details on the options available for ingesting image sources, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Ingest/Image/_Image.htm).
 
 ### Analysis
 
@@ -102,7 +102,7 @@ Languages = en,tr
 WordRejectThreshold = 75
 ```
 
-We have specified two parameters that affect how the analytic: the lanagues to search for and a confidence threshold.  For full details on these and other available options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Analysis/OCR/_OCR.htm).
+We have specified two parameters that affect how the analytic: the lanagues to search for and a confidence threshold.  For full details on these and other available options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Analysis/OCR/_OCR.htm).
 
 ### Output
 
@@ -120,7 +120,7 @@ As in the introductory tutorials, we are using an XSL transform to extact the wo
 
 ### Running our analysis
 
-Let's try it. Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.4.0\sample_media\Turkey1.png&configName=tutorials/idCard1.cfg).
+Let's try it. Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.5.0\sample_media\Turkey1.png&configName=tutorials/idCard1.cfg).
 
 Go to Media Server's `output/idCard1` directory to see the results.
 
@@ -138,7 +138,7 @@ Type = FaceDetect
 Orientation = Any
 ```
 
-We have specified that faces should be looked for in any orientation.  For full details on these and other available options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Analysis/Face/_Face.htm).
+We have specified that faces should be looked for in any orientation.  For full details on these and other available options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Analysis/Face/_Face.htm).
 
 ### Transform
 
@@ -160,7 +160,7 @@ function getAngle(record)
 end
 ```
 
-For full details on this and other available transformations, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Transform/_Transform.htm).
+For full details on this and other available transformations, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Transform/_Transform.htm).
 
 ### Encoding
 
@@ -173,11 +173,11 @@ ImageInput = RotateFace.Output
 OutputPath = output/idCard2/%source.filename%_rotated.png
 ```
 
-For full details on image encoding options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Encoding/ImageEncoder/_ImageEncoder.htm).
+For full details on image encoding options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Encoding/ImageEncoder/_ImageEncoder.htm).
 
 ### Running our analysis
 
-Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.4.0\sample_media\Turkey2.png&configName=tutorials/idCard2.cfg).
+Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.5.0\sample_media\Turkey2.png&configName=tutorials/idCard2.cfg).
 
 Go to Media Server's `output/idCard2` directory to see the results.
 
@@ -191,13 +191,13 @@ ID are structured data, *e.g.* showing names, dates etc.  In reading the whole s
 We can train a template with the following actions:
 
 - Create a database (container for templates): [`action=CreateObjectDatabase`](http://localhost:14000/a=CreateObjectDatabase&database=IDCardTemplates)
-- Train a template: [`action=TrainObject`](http://localhost:14000/action=TrainObject&database=IDCardTemplates&imagepath=C%3A%5CMicroFocus%5CIDOLServer-12.4.0%5Csample_media%5CTurkishDriversLicenseHeader.png&metadata=ROIsurname%3A38%2022%2035%209%2CROIfirstname%3A38%2030%2035%209%2CROIdateplaceofbirth%3A38%2038%2035%209%2CROIissuedate%3A39%2046%2022%209%2CROIexpirydate%3A38%2054%2022%209%2CROIcode5%3A38%2062%2022%209%2CROIaddress%3A70%2046%2025%209%2CROIcode4d%3A70%2054%2025%209%2CROIvehicletypes%3A6%2084%2021%207)
+- Train a template: [`action=TrainObject`](http://localhost:14000/action=TrainObject&database=IDCardTemplates&imagepath=C%3A%5CMicroFocus%5CIDOLServer-12.5.0%5Csample_media%5CTurkishDriversLicenseHeader.png&metadata=ROIsurname%3A38%2022%2035%209%2CROIfirstname%3A38%2030%2035%209%2CROIdateplaceofbirth%3A38%2038%2035%209%2CROIissuedate%3A39%2046%2022%209%2CROIexpirydate%3A38%2054%2022%209%2CROIcode5%3A38%2062%2022%209%2CROIaddress%3A70%2046%2025%209%2CROIcode4d%3A70%2054%2025%209%2CROIvehicletypes%3A6%2084%2021%207)
 
 You can see the trained template using the Media Server [GUI](http://localhost:14000/a=gui):
 
 ![trained_template](./figs/trained_template.png)
 
-For full details on training options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Actions/Training/TrainObject.htm).
+For full details on training options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Actions/Training/TrainObject.htm).
 
 These regions were defined using the Media Server [GUI](http://localhost:14000/a=gui#/ingest):
 
@@ -214,7 +214,7 @@ Database = IDCardTemplates
 Geometry = SIM2
 ```
 
-For full details on options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Analysis/Object/_Object.htm).
+For full details on options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Analysis/Object/_Object.htm).
 
 ### Transform
 
@@ -231,7 +231,7 @@ We are envoking a custom Lua script `getAssociatedRectanglesDemo.lua`.  Now, cop
 
 ### Running our analysis
 
-Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.4.0\sample_media\Turkey1.png&configName=tutorials/idCard3.cfg).
+Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.5.0\sample_media\Turkey1.png&configName=tutorials/idCard3.cfg).
 
 Go to Media Server's `output/idCard3` directory to see the results.
 
@@ -250,7 +250,7 @@ Input0 = FaceDetect.ResultWithSource
 Input1 = OCR.Result
 ```
 
-For full details on this and other available event processing methods, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/ESP/ESP.htm).
+For full details on this and other available event processing methods, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/ESP/ESP.htm).
 
 ### Transform
 
@@ -264,7 +264,7 @@ Input = ImageWithRegions.Output
 
 ### Running our analysis
 
-Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.4.0\sample_media\Turkey1.png&configName=tutorials/idCard4.cfg).
+Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.5.0\sample_media\Turkey1.png&configName=tutorials/idCard4.cfg).
 
 Go to Media Server's `output/idCard4` directory to see the results.
 

@@ -7,7 +7,7 @@ pushd %~dp0
 
 set COMPONENTS=( LicenseServer, MediaServer )
 
-set VERSION=12.4.0
+set VERSION=12.5.0
 set INSTALL_BASE=C:\MicroFocus
 
 set SOURCE_DIR=%HOMEPATH%\Downloads

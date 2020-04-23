@@ -15,7 +15,7 @@ Download software from the [eSoftware/Partner portal](https://pdapi-web-pro.micr
 
 1. Select __My previous orders__ in the side menu.
 1. Click your order number for *IDOL Ultimate*.
-2. Under the *Get Software* tab, select and download `IDOLServer_12.4.0_WINDOWS_X86_64.exe` or `IDOLServer_12.4.0_LINUX_X86_64.exe` depending on your system.
+2. Under the *Get Software* tab, select and download `IDOLServer_12.5.0_WINDOWS_X86_64.exe` or `IDOLServer_12.5.0_LINUX_X86_64.exe` depending on your system.
 
 ## Install
 
@@ -24,8 +24,8 @@ On Windows, right click the installer and __run as Administrator__.
 On Linux, run from the command line:
 
 ```bsh
-chmod +x IDOLServer_12.4.0_LINUX_X86_64.exe
-./IDOLServer_12.4.0_LINUX_X86_64.exe
+chmod +x IDOLServer_12.5.0_LINUX_X86_64.exe
+./IDOLServer_12.5.0_LINUX_X86_64.exe
 ```
 
 Follow the install wizard to get the required components.

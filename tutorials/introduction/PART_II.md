@@ -131,7 +131,7 @@ Input = FaceForward.Output
 
 > Notice that the name of the event processing output track variant is always `Output`, *e.g.* `FaceForward.Output`.
 
-Many logical operators are available in addition to `Filter`, which include the capability to compare or combine records from multiple tracks. See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/ESP/ESP.htm) for more details.
+Many logical operators are available in addition to `Filter`, which include the capability to compare or combine records from multiple tracks. See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/ESP/ESP.htm) for more details.
 
 Most of these operators provide additional flexibility through Lua scripts that allow you to create more complex logic.  Media Server ships with a number of example scripts that can be found in the `configurations/lua` directory.  Here was have used the out-of-the-box `frontalFace.lua` script, which contains the following code
 
@@ -237,7 +237,7 @@ ImageInput = FaceDraw.Output
 OutputPath = output/faces2b/%record.startTime.timestamp%_overlay.png
 ```
 
-We can access parameter values from the alert record such as `startTime` using *macros* to generate the image `OutputPath`.  See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_4/MediaServer_12.4_Documentation/Help/index.html#Configuration/Macros.htm) for details.
+We can access parameter values from the alert record such as `startTime` using *macros* to generate the image `OutputPath`.  See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Macros.htm) for details.
 
 ### Run face image encoding
 

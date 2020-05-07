@@ -9,7 +9,7 @@ You! If you have access to IDOL software and want to analyse rich media sources,
 ## Aims
 
 - Get hands on with IDOL Media Server.  Familiarize yourself with key concepts.
-- Select from walkthroughs showcasing different analytic capabilities of IDOL Media Server, from AN/LPR to Object Classification and Speech Transcription.
+- Select from walkthroughs showcasing different analytic capabilities of IDOL Media Server, from AN/LPR to Object Recognition and Speech Transcription.
 - See how Media Server integrates with other IDOL products.
 
 ## Get started

@@ -189,15 +189,15 @@ Vehicle make identification is pre-trained.  To view the current list of support
 
 Open the training web app at [`/action=gui`](http://127.0.0.1:14000/a=gui#/train/vehicleModel(tool:select)) then follow these steps to train your identity:
 
-1. in the left column, click `Add` to create a new *database* (a collection of identities)
+1. in the left column, click `Create` to add a new *database* (a collection of identities)
     - rename the database as `vehicles`
-1. in the center column, click `Add` to add a new *identity* for each vehicle image in the `vehicles` directory of this guide
+1. in the center column, click `Create` to add a new *identity* for each vehicle image in the `vehicles` directory of this guide
     - give your identity a name
     - (*optionally*) add arbitrary key-value metadata
-1. on the right, click `+` to import images
-    - Navigate to the `vehicles` directory to select the vehicle image provided
+1. on the right, click `Import` to import images
+    - On your file system, navigate to the `vehicles` directory to select the vehicle image provided
     - select the appropriate vehicle make from the drop-up list below your image thumbnail(s).  If your make is not listed, select *Unknown*
-1. on the top right menu bar, click `Build` to train each vehicle model
+1. on the center column menu bar, click `Build` to train all vehicle models
 
 ![vehicle-training](./figs/vehicle-training.png)
 

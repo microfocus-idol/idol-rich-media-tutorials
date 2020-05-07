@@ -57,6 +57,14 @@ function setupDb(action, callback) {
   getAutnResponse(action, options, callback);
 }
 
+function removeDb(callback) {
+  setupDb('removeObjectDatabase', () => callback());
+}
+
+function createDb(callback) {
+  setupDb('createObjectDatabase', () => callback());
+}
+
 function trainObject(identifier, imagePaths, imageLabels, metadataList) {
   var action = 'trainObject',
     options = {
@@ -73,8 +81,8 @@ function trainObject(identifier, imagePaths, imageLabels, metadataList) {
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Main
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-setupDb('removeObjectDatabase', () => {
-  setupDb('createObjectDatabase', () => {
+removeDb(() => {
+  createDb(() => {
 
 		opts.objects.forEach(o => {
       const imagePaths = o.imageFiles

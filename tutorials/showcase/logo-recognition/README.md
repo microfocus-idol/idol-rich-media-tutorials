@@ -71,7 +71,9 @@ Let's use the included `trainObjects.js` script to create identities for the Obj
 node trainObjects.js
 ```
 
-We can then view the trained Objects in the training web app [`/action=gui`](http://127.0.0.1:14000/a=gui#/train/objectRec(tool:select)), as before.
+We can then view the trained Objects in the training web app [`/action=gui`](http://127.0.0.1:14000/a=gui#/train/objectRec(tool:select)).
+
+![gui](./figs/logo-training.png)
 
 Alternatively you can list the trained models by pointing your browser to [`/action=listObjects`](http://127.0.0.1:14000/a=listObjects&Database=Football).
 
@@ -90,7 +92,7 @@ Paris area | Pitch | <img src="pitch/psg-goal-01.png" height="48">
 
 These objects are all 2D, *i.e.* flat images that might be seen from different angles but will always be flat when seen.  These objects can be trained with one or more images.  
 
-> Training additional images for 2D objects is advisable.  In this case a match to the object results from a match to any of its trained images.
+> Training additional images for 2D objects is advisable.  A match to the object results from a match to any of its trained images.
 
 3D objects can also be trained; however, because a 3D object can look significantly different from different angles, multiple images from multiple angles are always required to train such an object.
 
@@ -208,12 +210,12 @@ While testing, or if you simply wish to keep your config files in a project-spec
 Let's try it. Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), remembering to update the `source` and `configPath` parameters to match your setup:
 
 ```url
-action=process&source=C:/MicroFocus/video/bcnpsg.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/showcase/logo-recognition/objectRecognition.cfg
+action=process&source=C:/MicroFocus/video/bcnpsg.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/logo-recognition/objectRecognition.cfg
 ```
 
 Click `Test Action` to start processing.
 
-Review the results with [`/action=activity`](http://127.0.0.1:14000/a=activity), then go to `output/football` to see the saved Object images.
+To review the resulting detection images, go to `output/football`, *e.g.*
 
 ![shirt-sponsor](./figs/shirt-sponsor.png)
 

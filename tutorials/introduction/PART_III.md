@@ -9,6 +9,7 @@ We will:
 <!-- TOC depthFrom:2 -->
 
 - [Face training](#face-training)
+  - [Train stock faces](#train-stock-faces)
   - [Train your own face](#train-your-own-face)
   - [Assessing faces for training](#assessing-faces-for-training)
 - [Face matching](#face-matching)
@@ -36,23 +37,34 @@ Media Server can be trained to recognize faces, as well as specific objects, cla
 
 Media Server training can be performed through its web API, detailed in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Actions/Training/_TrainingActions.htm).  For smaller projects, demos and testing, you may find it easier to use the [`gui`](http://localhost:14000/a=gui) web interface.
 
-![face-training](./figs/face-training.png)
+### Train stock faces
 
-> These trained faces of Michael Jordan were sourced from [Labeled Faces in the Wild: A Database for Studying Face Recognition in Unconstrained Environment](http://vis-www.cs.umass.edu/lfw/lfw.pdf).
+A commonly used set of stock faces is available from [Labeled Faces in the Wild: A Database for Studying Face Recognition in Unconstrained Environment](http://vis-www.cs.umass.edu/lfw/lfw.pdf).
+
+The images of three people from this database are included in these tutorial materials: David Bowie, Michael Jordan and Roger Federer.
+
+Use the included `train-faces.py` script to add them to Media Server:
+
+```bsh
+python train-faces.py
+```
+
+![face-training](./figs/face-training.png)
 
 ### Train your own face
 
-Open the [`gui`](http://localhost:14000/a=gui) (tested in Google Chrome) then follow these steps to train your identity:
+Open the Media Server [`gui`](http://localhost:14000/a=gui) (tested in Google Chrome) then follow these steps to train your identity:
 
+1. select the "Visual Training" page
 1. at the top right, note that *Face Recognition* is the selected analytic by default
-2. in the left column, click `Add` to add a new *database* (a collection of identities)
+1. in the left column, click `Add` to add a new *database* (a collection of identities)
     - rename the database to `Workshop`
-3. in the center column, click `Add` to add a new *identity*
+1. in the center column, click `Add` to add a new *identity*
     - give your identity a name
     - (optionally) add key-value metadata
-4. in the right column, click `Add` to import images
+1. in the right column, click `Add` to import images
     - Navigate to `output/faces2b` to select some of cropped images we just created
-5. click `Build` to train your identity
+1. click `Build` to train your identity
 
 The training status for each image is indicated at its bottom left: green for trained, yellow untrained and red for failed.
 

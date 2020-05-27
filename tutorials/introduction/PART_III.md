@@ -43,7 +43,7 @@ A commonly used set of stock faces is available from [Labeled Faces in the Wild:
 
 The images of three people from this database are included in these tutorial materials: David Bowie, Michael Jordan and Roger Federer.
 
-Use the included `train-faces.py` script to add them to Media Server:
+Use the included [Python 3](https://www.python.org/downloads/) script to add them to Media Server:
 
 ```bsh
 python train-faces.py

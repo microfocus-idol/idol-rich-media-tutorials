@@ -28,9 +28,12 @@ This guide assumes you have already completed the [introductory tutorial](../../
 - [Correct rotated scans](#correct-rotated-scans)
   - [Analysis](#analysis-1)
   - [Transform](#transform)
-  - [Encoding](#encoding)
+  - [Cropping each card](#cropping-each-card)
   - [Running our analysis](#running-our-analysis-1)
 - [Templated OCR](#templated-ocr)
+  - [Train an anchor image](#train-an-anchor-image)
+  - [Define the OCR regions](#define-the-ocr-regions)
+  - [Add the OCR regions](#add-the-ocr-regions)
   - [Analysis](#analysis-2)
   - [Transform](#transform-1)
   - [Running our analysis](#running-our-analysis-2)
@@ -103,7 +106,7 @@ Languages = en,tr
 WordRejectThreshold = 75
 ```
 
-We have specified two parameters that affect how the analytic: the languages to search for and a confidence threshold.  For full details on these and other available options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Analysis/OCR/_OCR.htm).
+We have specified two parameters that affect how the analytic runs, namely the languages to search for and a confidence threshold.  For full details on these and other available options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Analysis/OCR/_OCR.htm).
 
 ### Output
 
@@ -117,7 +120,7 @@ XMLOutputPath = output/idCard1/%source.filename%.txt
 XSLTemplate = toText.xsl
 ```
 
-As in the introductory tutorials, we are using an XSL transform to extract the words from the internal structured information.  In this case, using an out-of-the-box transform included with Media Server.
+As in the introductory tutorials, we are using an XSL transform to extract the words from the standard XML output.  In this case, using an out-of-the-box transform included with Media Server.  See [tips on XSL transforms](../../appendix/XSL_tips.md) for more information. 
 
 ### Running our analysis
 
@@ -127,7 +130,7 @@ Go to Media Server's `output/idCard1` directory to see the results.
 
 ## Correct rotated scans
 
-Imagine this document was scanned upside down.  We would like to handle these documents automatically.  For documents containing faces, we can make use of engine chaining and Face Detection in order to find the true orientation and correct it before running OCR as before.
+Imagine this document was scanned and the person who did it put the card in upside down or rotated to one side.  We would like to handle these documents automatically.  For documents containing faces, we can make use of engine chaining and Face Detection in order to find the true orientation and correct it before running OCR as before.
 
 ![rotated](Turkey2.png)
 
@@ -165,47 +168,109 @@ end
 
 For full details on this and other available transformations, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Transform/_Transform.htm).
 
-### Encoding
+### Cropping each card
 
-To demonstrate this rotation, we will also encode an image:
+After using the face detections to apply a rotation for each scanned card, we can also use this information to estimate a bounding rectangle for each card.  To achieve this we will use the *SetRectangle* and *Crop* engines to define an area around the face and encode an image from it:
 
 ```ini
+[IdCardRectangle]
+# Estimate the ID card boundary from the detected face region.
+Type = SetRectangle
+Input = RotateFace.Output
+LuaLine = function rectangle(x) return { left = x.RegionData.left - 1 * x.RegionData.width, top = x.RegionData.top - 1.5 * x.RegionData.height, width = 6 * x.RegionData.width, height = 4 * x.RegionData.height } end
+
+[CropIdCard]
+Type = Crop
+Input = SetRectangle.Output
+
 [SaveImage]
-Type = imageencoder
-ImageInput = RotateFace.Output
+Type = ImageEncoder
+ImageInput = CropIdCard.Output
 OutputPath = output/idCard2/%source.filename%_rotated.png
 ```
 
-For full details on image encoding options, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Encoding/ImageEncoder/_ImageEncoder.htm).
+For full details on these options, please read the reference guide sections on the [SetRectangle](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Transform/SetRectangle/_SetRectangle.htm) and [Crop](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Transform/Crop/_Crop.htm) transform engines, as well as the [ImageEncoder](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Encoding/ImageEncoder/_ImageEncoder.htm) engine.
 
 ### Running our analysis
 
 Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDOLServer-12.5.0\sample_media\Turkey2.png&configName=tutorials/idCard2.cfg).
 
-Go to Media Server's `output/idCard2` directory to see the results.
+Go to Media Server's `output/idCard2` directory to see the three resulting cropped ID card images.
 
 ## Templated OCR
 
-ID are structured data, *e.g.* showing names, dates etc.  In reading the whole scanned image, as we have done above, we have lost this structure.  In order to get it back we need to define a template for OCR.  The template consist of the following information:
+ID are structured data, *e.g.* showing names, dates etc.  In reading the whole scanned image, as we have done above, we have lost this structure.  In order to get it back we can define a template for OCR.  The template consists of the following information:
 
 1. An anchor, *i.e.* some uniquely identifying feature of the ID card type, such as the top banner 
     ![banner](TurkishDriversLicenseHeader.png)
 1. A list of regions to be processed with OCR
 
-We can train a template using Object Recognition with the following actions:
+### Train an anchor image
 
-- Create a database (container for templates): [`action=CreateObjectDatabase`](http://localhost:14000/a=CreateObjectDatabase&database=IDCardTemplates)
-- Train a template: [`action=TrainObject`](http://localhost:14000/action=TrainObject&database=IDCardTemplates&imagepath=C%3A%5CMicroFocus%5CIDOLServer-12.5.0%5Csample_media%5CTurkishDriversLicenseHeader.png&metadata=ROIsurname%3A38%2022%2035%209%2CROIfirstname%3A38%2030%2035%209%2CROIdateplaceofbirth%3A38%2038%2035%209%2CROIissuedate%3A39%2046%2022%209%2CROIexpirydate%3A38%2054%2022%209%2CROIcode5%3A38%2062%2022%209%2CROIaddress%3A70%2046%2025%209%2CROIcode4d%3A70%2054%2025%209%2CROIvehicletypes%3A6%2084%2021%207)
+We can train a template via the API or by using the Media Server [GUI](http://localhost:14000/a=gui), with the following steps:
 
-You can see the trained template using the Media Server [GUI](http://localhost:14000/a=gui):
+1. Go to the *Visual Training* page.
+1. Select *Object Recognition* from the top right dropdown menu.
+1. Create a new Database and name it `IDCardTemplates`.
+1. Create a new Identity and name it `TurkishDriversLicense`.
+1. Import the image `TurkishDriversLicenseHeader.png` from this tutorial then press the `Build` button.
 
 ![trained_template](./figs/trained_template.png)
 
 For full details on training options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Actions/Training/TrainObject.htm).
 
-These regions were defined using the Media Server [GUI](http://localhost:14000/a=gui#/ingest):
+### Define the OCR regions
 
-![template_regions](./figs/template_regions.png)
+We can make use of the Media Server [GUI](http://localhost:14000/a=gui) to define these OCR regions:
+
+1. Go to the *Ingest Test* page.
+1. Import the image file `Turkey1.png`, then click the `Ingest` button.
+1. Click the `draw regions` button:
+    
+    ![draw_regions](./figs/draw_regions.png)
+
+1. With your mouse over the image of the ID card, click and drag then release to define your regions.
+
+    > If you don't draw the region right first time, click and drag the corners to edit the shape.
+
+1. Define separate regions for each interesting area fo text to be read, *e.g.*
+
+    ![template_regions](./figs/template_regions.png)
+
+### Add the OCR regions
+
+The final step is to add our OCR region definitions to the trained template as metadata fields.
+
+1. Keeping the *Ingest Test* page open in one browser tab, open another tab with the *Visual Training* page.
+1. For each region, copy the text on screen, *e.g.*
+
+    ![copy_region_text](./figs/copy_region_text.png)
+
+1. On the *Visual Training* page, click to add Metadata to the ID card identity.
+1. Enter a label for this region, which must include the prefix `ROI`.
+1. Paste your copied region as the value or this metadata field.
+
+    > You must replace the commas between numbers with spaces.
+
+2. Repeat this process for each field and you will start to build a list of metadata like this:
+
+    ![completed_metadata](./figs/completed_metadata.png)
+  
+> As a short cut, you can add
+each OCR region as metadata by clicking each of the following links to call the API: 
+> - [`ROIsurname`](http://localhost:14000/action=AddObjectMetadata&database=IDCardTemplates&identifier=TurkishDriversLicense&key=ROIsurname&value=38%2022%2035%209)
+> - [`ROIfirstname`](http://localhost:14000/action=AddObjectMetadata&database=IDCardTemplates&identifier=TurkishDriversLicense&key=ROIfirstname&value=38%2030%2035%209)
+> - [`ROIdateplaceofbirth`](http://localhost:14000/action=AddObjectMetadata&database=IDCardTemplates&identifier=TurkishDriversLicense&key=ROIdateplaceofbirth&value=38%2038%2035%209)
+> - [`ROIissuedate`](http://localhost:14000/action=AddObjectMetadata&database=IDCardTemplates&identifier=TurkishDriversLicense&key=ROIissuedate&value=39%2046%2022%209)
+> - [`ROIexpirydate`](http://localhost:14000/action=AddObjectMetadata&database=IDCardTemplates&identifier=TurkishDriversLicense&key=ROIexpirydate&value=38%2054%2022%209)
+> - [`ROIcode5`](http://localhost:14000/action=AddObjectMetadata&database=IDCardTemplates&identifier=TurkishDriversLicense&key=ROIcode5&value=38%2062%2022%209)
+> - [`ROIaddress`](http://localhost:14000/action=AddObjectMetadata&database=IDCardTemplates&identifier=TurkishDriversLicense&key=ROIaddress&value=70%2046%2025%209)
+> - [`ROIcode4d`](http://localhost:14000/action=AddObjectMetadata&database=IDCardTemplates&identifier=TurkishDriversLicense&key=ROIcode4d&value=70%2054%2025%209)
+> - [`ROIvehicletypes`](http://localhost:14000/action=AddObjectMetadata&database=IDCardTemplates&identifier=TurkishDriversLicense&key=ROIvehicletypes&value=6%2084%2021%207)
+>
+> You may need to refresh the GUI to display these new metadata fields.
+
+For full details on the metadata API for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Actions/Training/AddObjectMetadata.htm).
 
 ### Analysis
 
@@ -213,12 +278,12 @@ To identify the document anchor, we need to run Object Recognition using the fol
 
 ```ini
 [Template]
-Type = objectrecognition
+Type = ObjectRecognition
 Database = IDCardTemplates
 Geometry = SIM2
 ```
 
-For full details on options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Analysis/Object/_Object.htm).
+Here we use the Geometry option `SIM2` to only consider 2-dimensional rotations, since we assume these ID cards are scanned.  For full details on options for Object Recognition, please read the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Analysis/Object/_Object.htm).
 
 ### Transform
 
@@ -226,7 +291,7 @@ To define regions in which to run OCR for the recognized template, we need to in
 
 ```ini
 [TextRegion]
-Type = setrectangle
+Type = SetRectangle
 LuaScript = getAssociatedRectanglesDemo.lua
 Input = Template.ResultWithSource
 ```
@@ -272,7 +337,7 @@ Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDO
 
 Go to Media Server's `output/idCard4` directory to see the results.
 
-![redacted](Turkey2.png_redacted.png)
+![redacted](Turkey_redacted.png)
 
 ## Next steps
 

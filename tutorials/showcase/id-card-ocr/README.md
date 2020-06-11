@@ -337,7 +337,7 @@ Run [`action=process`](http://localhost:14000/a=process&source=C:\MicroFocus\IDO
 
 Go to Media Server's `output/idCard4` directory to see the results.
 
-![redacted](Turkey_redacted.png)
+![redacted](./figs/Turkey_redacted.png)
 
 ## Next steps
 

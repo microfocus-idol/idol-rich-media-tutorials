@@ -5,7 +5,6 @@ We will:
 1. chain analytics, *i.e.* use the output of face detection as input to other analytics
 1. filter analysis output tracks using event processing to control the input rate to other analytics
 1. use the encoding engines to extract images and record video of faces
-1. train faces and use the face recognition analysis engine to match them
 
 <!-- TOC depthFrom:2 -->
 

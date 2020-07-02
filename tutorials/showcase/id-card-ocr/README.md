@@ -334,6 +334,8 @@ We will again make use of the Media Server [GUI](http://localhost:14000/a=gui) t
 
 #### Add the OCR regions to the template
 
+<!-- TODO: add a script to support this - it can generate the lua scripts at the same time. -->
+
 Next we will again add these regions to the trained Object Recognition anchor as metadata fields.
 
 1. Keeping the *Ingest Test* page open in one browser tab, open another tab with the *Visual Training* page.

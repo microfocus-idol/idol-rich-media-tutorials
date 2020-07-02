@@ -391,12 +391,6 @@ An added benefit of this approach is that individual OCR engines can be customiz
 
 > When you train multiple ID Card templates, you will need to additional pairs to cover any new fields those templates might specify.
 
-<!-- TODO: Add support for multiple cards per page and say: "Each read OCR region is then combined baed on the bounding box of each detected ID Card using a custom Lua script `matchIdCard.lua` before the results are output."
-
-The full process flow defined in `idCard3.cfg` is represented in the graph below:
-
-![process-flow](./figs/process-flow.png) -->
-
 As an example format for the output data, let's use a custom XSL transform `IdCard_toJSON.xsl` to convert the results into JSON.
 
 #### Run

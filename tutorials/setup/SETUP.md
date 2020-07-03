@@ -32,9 +32,9 @@ A log follower, *e.g.*:
 
 ## IDOL components
 
-### Obtain an IDOL license
+IDOL components are licensed via the IDOL License Server application, which requires a license key.
 
-IDOL components are licensed via the IDOL License Server application, which requies a license key.
+### Obtain an IDOL license
 
 You can obtain software and licenses from the [eSoftware/Partner portal](https://pdapi-web-pro.microfocus.com/evalportal/index.do).
 
@@ -60,7 +60,7 @@ You can obtain software and licenses from the [eSoftware/Partner portal](https:/
 
 ### Access IDOL software
 
-IDOL software is available under a range of license types, inlcuding the *IDOL Ultimate* that we just accessed.  To have access to all the components used in these tutorials, you need to request access to one additional license type:
+IDOL software is available under a range of license types, including the *IDOL Ultimate* that we just accessed.  To have access to all the components used in these tutorials, you need to request access to one additional license type:
 
 1. Under *Product Center*, select *IDOL*, then *IDOL Ultimate*
 2. Complete the web form with your details to gain access
@@ -86,7 +86,7 @@ Get a local copy of this tutorial to give you all the configuration files you wi
 
 ![github-download](./figs/github-download.png)
 
-We will now run a script to move some of these materials into convenient locations for running the excersises later on.
+We will now run a script to move some of these materials into convenient locations for running the exercises later on.
 
 #### Following this guide offline
 

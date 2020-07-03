@@ -28,12 +28,40 @@ To find your webcam connection name please follow these steps:
 
 ### Windows
 
+There are two methods to find this information on Windows:
+
+<details><summary>With the Device Manager application.</summary>
+
 1. open Device Manager
 1. under "Imaging devices", see your device name, *e.g.* "HP HD Camera".
 
    ![webcam-device-name](./figs/webcam-device-name.png)
 
 1. paste the string `video=HP HD Camera` into the ingest test web page.
+
+</details>
+
+<details><summary>From the command line with ffmpeg.</summary>
+
+1. List the available devices:
+
+    ```bsh
+    $ ffmpeg -list_devices true -f dshow -i dummy
+    ffmpeg version ... Copyright (c) 2000-2016 the FFmpeg developers
+      ...
+    [dshow @ 000000000050a400] DirectShow video devices (some may be both video and audio devices)
+    [dshow @ 000000000050a400]  "HP HD Webcam [Fixed]"
+    [dshow @ 000000000050a400]     Alternative name ...
+    [dshow @ 000000000050a400] DirectShow audio devices
+    [dshow @ 000000000050a400]  "Internal Microphone Array (IDT "
+    [dshow @ 000000000050a400]     Alternative name ...
+    [dshow @ 000000000050a400]  "Stereo Mix (IDT High Definition"
+    [dshow @ 000000000050a400]     Alternative name ...
+    ```
+
+1. paste the name `HP HD Webcam [Fixed]` into the ingest test web page.
+
+</details>
 
 ### Ubuntu
 

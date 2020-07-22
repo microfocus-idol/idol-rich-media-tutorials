@@ -36,7 +36,7 @@ IDOL components are licensed via the IDOL License Server application, which requ
 
 ### Obtain an IDOL license
 
-You can obtain software and licenses from the [eSoftware/Partner portal](https://pdapi-web-pro.microfocus.com/evalportal/index.do).
+You can obtain software and licenses from the [eSoftware/Partner portal](https://entitlement.microfocus.com/evalportal/index.do).
 
 1. Under *Product Center*, select *IDOL*, then *IDOL Ultimate*
 2. Complete the web form with your details to gain access

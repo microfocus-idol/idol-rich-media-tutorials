@@ -85,7 +85,7 @@ or
 LocationWithPriorities=FR:1.0,DE:0.1,BE:0.01
 ```
 
-This minimal configuration uses the following default options, which can be read about in detail in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Help/index.html#Configuration/Analysis/ANPR/_NumberPlate.htm) and are shown here grouped by their functions.
+This minimal configuration uses the following default options, which can be read about in detail in the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_6/MediaServer_12.6_Documentation/Help/index.html#Configuration/Analysis/ANPR/_NumberPlate.htm) and are shown here grouped by their functions.
 
 ```ini
 # Detection of plates
@@ -201,7 +201,7 @@ Open the training web app at [`/action=gui`](http://127.0.0.1:14000/a=gui#/train
 
 ![vehicle-training](./figs/vehicle-training.png)
 
-> Cameras that are positioned directly above the traffic are better suited for recognition because they capture images where the vehicles approach head-on.  For further recommendations about image quality, read the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_5/MediaServer_12.5_Documentation/Guides/html/English/index.html#Operations/Analyze/Vehicles_Introduction.htm).
+> Cameras that are positioned directly above the traffic are better suited for recognition because they capture images where the vehicles approach head-on.  For further recommendations about image quality, read the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_6/MediaServer_12.6_Documentation/Guides/html/English/index.html#Operations/Analyze/Vehicles_Introduction.htm).
 
 ## Processing video
 

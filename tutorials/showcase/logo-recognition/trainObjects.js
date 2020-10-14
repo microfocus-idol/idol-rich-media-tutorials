@@ -22,8 +22,7 @@ const opts = {
     { label: 'PSG',          group: 'shirt',     imageFiles: [ 'psg.png' ] },
     { label: 'Emirates',     group: 'shirt',     imageFiles: [ 'fly-emirates.jpg' ] },
     { label: 'Barca',        group: 'shirt',     imageFiles: [ 'barcelona-crest.png', 'bcnpsg009.png' ] },
-    { label: 'QatarAirways', group: 'shirt',     imageFiles: [ 'qatar-airways.jpg' ] },
-    { label: 'Goal',         group: 'pitch',     imageFiles: [ 'bcn-goal-01.png', 'bcn-goal-02.png', 'psg-goal-01.png', 'psg-goal-02.png' ] }
+    { label: 'QatarAirways', group: 'shirt',     imageFiles: [ 'qatar-airways.jpg' ] }
   ]
 };
 

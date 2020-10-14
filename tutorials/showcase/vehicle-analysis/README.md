@@ -205,9 +205,7 @@ Open the training web app at [`/action=gui`](http://127.0.0.1:14000/a=gui#/train
 
 ## Processing video
 
-Download the sample video [`vehicles.mp4`](http://tech-demo.idol.swinfra.net/tutorial/vehicles.mp4) and save it under `C:\MicroFocus\video`.
-
-> Use `Save As` to avoid opening the video in your browser.
+Use the included sample video `vehicles.mp4`. Copy it under `C:\MicroFocus\video`.
     
 Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), remembering to update the `source` parameter to match your setup:
 

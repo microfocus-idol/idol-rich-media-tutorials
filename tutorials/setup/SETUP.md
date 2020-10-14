@@ -92,14 +92,6 @@ We will now run a script to move some of these materials into convenient locatio
 
 You can stay on GitHub to follow the steps in this and further linked README files in your browser, or if you prefer to work with the downloaded files, see [these steps](appendix/Markdown_reader.md) to turn your browser into a smart markdown viewer.
 
-### Obtaining training materials
-
-All required sample videos are available from this hosted [directory](http://tech-demo.idol.swinfra.net/tutorial/). 
-
-> Use `Save As` to avoid opening the video in your browser.
-
-You will be instructed what to download in the guides as needed.
-
 #### Validate install
 
 If you used the installer wizard, or the scripts without altering them, your installed software will be in:

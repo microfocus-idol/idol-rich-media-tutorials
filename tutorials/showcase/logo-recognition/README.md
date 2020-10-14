@@ -65,7 +65,7 @@ VisualChannels=1
 
 We previously trained faces by manually importing them into the training web app at [`/action=gui`](http://127.0.0.1:14000/a=graphicaluserinterface).  It is sometimes preferable to make use of the training actions programmatically, *i.e.* if we have many identities to train, or we just wish to automate the process.
 
-Let's use the included `trainObjects.js` script to create identities for the Objects saved in our `billboard`, `pitch` and `shirt` directories by running the command in your terminal:
+Let's use the included `trainObjects.js` script to create identities for the Objects saved in our `billboard` and `shirt` directories by running the command in your terminal:
 
 ```bsh
 node trainObjects.js
@@ -87,8 +87,6 @@ PSG | Shirt | <img src="shirt/psg.png" height="48">
 Emirates | Shirt | <img src="shirt/fly-emirates.jpg" height="48">
 Barcelona | Shirt | <img src="shirt/barcelona-crest.png" height="48">
 Qatar Airways | Shirt | <img src="shirt/qatar-airways.jpg" height="48">
-Barcelona area | Pitch | <img src="pitch/bcn-goal-01.png" height="48">
-Paris area | Pitch | <img src="pitch/psg-goal-01.png" height="48">
 
 These objects are all 2D, *i.e.* flat images that might be seen from different angles but will always be flat when seen.  These objects can be trained with one or more images.  
 
@@ -201,9 +199,7 @@ Input2 = ObjectRecognition.End
 
 ## Running our analysis
 
-Download the sample video [`bcnpsg.mp4`](http://tech-demo.idol.swinfra.net/tutorial/bcnpsg.mp4) and save it under `C:\MicroFocus\video`.
-
-> Use `Save As` to avoid opening the video in your browser.
+Use the included sample video `bcnpsg.mp4`. Copy it under `C:\MicroFocus\video`.
 
 While testing, or if you simply wish to keep your config files in a project-specific directory outside of `configurations`, you can reference a config file path in the process action by setting the `configPath` parameter (assuming of course that Media Server can access the location where your process configuration file is stored).
 

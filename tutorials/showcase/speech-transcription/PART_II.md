@@ -79,9 +79,7 @@ To ingest a video file, we will update the `Ingest` and `Analysis` sections acco
 
 1. Copy the process configuration file `speechToText2.cfg` from this guide into `configurations/tutorials`.
 
-1. Download the sample video [`aljazeera.mp4`](http://tech-demo.idol.swinfra.net/tutorial/aljazeera.mp4) and save it under `C:\MicroFocus\video`. 
-
-    > Use `Save As` to avoid opening the video in your browser.
+1. Copy the sample video file `aljazeera.mp4` from this guide into `C:\MicroFocus\video`. 
 
 1. Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action):
 

@@ -16,6 +16,7 @@
   - [Extract still images from a video file](#extract-still-images-from-a-video-file)
   - [Make a video clip of an interesting section](#make-a-video-clip-of-an-interesting-section)
   - [Concatenate video clips into one video file](#concatenate-video-clips-into-one-video-file)
+  - [Ingest a sequence of videos as a playlist](#ingest-a-sequence-of-videos-as-a-playlist)
   - [Add tracks to existing media file](#add-tracks-to-existing-media-file)
   - [Strip tracks to existing media file](#strip-tracks-to-existing-media-file)
   - [Loop a video file to produce a continuous RTSP stream](#loop-a-video-file-to-produce-a-continuous-rtsp-stream)
@@ -263,6 +264,14 @@ ffmpeg -f concat -i playlist.txt -c copy output.ext
 ```
 
 For more details, read this [documentation](https://trac.ffmpeg.org/wiki/Concatenate).
+
+### Ingest a sequence of videos as a playlist
+
+IDOL Media Server can read a playlist file in order to ingest a sequence of video files in a single process action.  The easiest way to ingest a playlist file, is with the Ingest Test page:
+
+![playlist-ingest](./figs/playlist-ingest.png)
+
+> To do this, note the Video-type ingest engine requires the `Format` option to be set to `Concat`.
 
 ### Add tracks to existing media file
 

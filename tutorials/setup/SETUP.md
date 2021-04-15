@@ -118,5 +118,5 @@ Next start up Media Server in the same way and verify it is also running at [`ac
 The admin guides for all components can be accessed from these links:
 
 - [IDOL documentation home page](https://www.microfocus.com/documentation/idol/)
-- [License Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/LicenseServer_12.8_Documentation/Guides/html/English/)
-- [Media Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/English/index.html)
+- [License Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/LicenseServer_12.8_Documentation/Help/index.html)
+- [Media Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/index.html)

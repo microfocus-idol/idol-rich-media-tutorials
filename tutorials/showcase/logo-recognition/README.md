@@ -2,7 +2,7 @@
 
 Media Server includes an Object Recognition analysis engine, which can be trained to recognize specific 2-D and 3-D objects in images and video, such as a logo or painting.
 
-For a more detailed introduction to Object Recognition, see the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/English/index.html#Operations/Analyze/ObjectRecognition_Introduction.htm).
+For a more detailed introduction to Object Recognition, see the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/index.html#Operations/Analyze/ObjectRecognition_Introduction.htm).
 
 We will:
 

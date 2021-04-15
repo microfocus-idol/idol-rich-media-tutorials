@@ -51,7 +51,7 @@ Enable=...,objectrecognition,...
 
 #### Licensed channels
 
-The `Channels` section is where we instruct Media Server to request license seats from License Server.  To enable object recognition for this tutorial, you need to enable at least one channel of type *Visual*:
+The `Channels` section is where we instruct Media Server to request license seats from License Server.  To enable *Object Recognition* for this tutorial, you need to enable at least one channel of type *Visual*:
 
 ```ini
 [Channels]

@@ -12,7 +12,6 @@ This is a setup guide for a basic installation of IDOL rich media and associated
   - [Install](#install)
   - [Obtaining tutorial materials](#obtaining-tutorial-materials)
     - [Following this guide offline](#following-this-guide-offline)
-  - [Obtaining training materials](#obtaining-training-materials)
     - [Validate install](#validate-install)
   - [Further reading](#further-reading)
 
@@ -69,7 +68,7 @@ IDOL software is available under a range of license types, including the *IDOL U
 
 Under the *Get Software* tab, select `LicenseServer_12.6.0_WINDOWS_X86_64.zip` or `LicenseServer_12.6.0_LINUX_X86_64.zip`.
 
-Go back to *Product Center* > *IDOL* and request access to a Media Server license type, *e.g.* *IDOL Audio Analytics SW E-Media*.  Again you need to fill out the form to gain access.  Once complete go to the *Get Software* tab and download the following:
+Go back to *Product Center* > *IDOL* and request access to a Media Server license type, *e.g.* *IDOL Audio Analytics SW*.  Again you need to fill out the form to gain access.  Once complete go to the *Get Software* tab and download the following:
 
 - `MediaServer_12.6.0_WINDOWS_X86_64.zip` or `MediaServer_12.6.0_LINUX_X86_64.zip`
 

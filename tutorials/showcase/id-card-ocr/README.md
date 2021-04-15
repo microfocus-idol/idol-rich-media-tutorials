@@ -73,7 +73,7 @@ Enable=...,facedetect,objectrecognition,ocr,...
 1. Visual
 1. Video Management
 
-To enable object recognition for this tutorial, you need to enable at least one channel of type *Visual*:
+To enable *Face Detect* and *Object Recognition* for this tutorial, you need to enable at least one channel of type *Visual*:
 
 ```ini
 [Channels]

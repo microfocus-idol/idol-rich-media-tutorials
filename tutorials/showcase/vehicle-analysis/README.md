@@ -59,7 +59,7 @@ To enable object recognition for this tutorial, you need to enable at least one 
 VisualChannels=1
 ```
 
-*N.B.* For any changes you make in `mediaserver.cfg` to take effect you must restart Media Server.
+> *N.B.* For any changes you make in `mediaserver.cfg` to take effect you must restart Media Server.
 
 ## Process configuration
 

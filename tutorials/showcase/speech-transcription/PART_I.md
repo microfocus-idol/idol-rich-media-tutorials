@@ -59,8 +59,8 @@ AudioChannels=1
 
 Speech transcription language packs are distributed separately from the main Media Server installer.  To obtain a language pack:
 
-- Go to the [eSoftware/Partner portal](https://pdapi-web-pro.microfocus.com/evalportal/index.do).
-- Under *Product Center*, select *IDOL* to view available software.  Select *IDOL Audio Analytics SW E-Media*, then complete the form to gain access.
+- Return to the [eSoftware/Partner portal](https://pdapi-web-pro.microfocus.com/evalportal/index.do).
+- Under *Product Center*, select *IDOL* to view available software.  Select *IDOL Audio Analytics SW*, then complete the form to gain access.
 
 For this tutorial we will use the British English pack:
 

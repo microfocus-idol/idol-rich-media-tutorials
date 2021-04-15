@@ -47,7 +47,7 @@ You can obtain software and licenses from the [eSoftware/Partner portal](https:/
 
    ![eSoftware-activateLicense](./figs/eSoftware-activateLicense.png)
 
-5. Select this license, then choose your preferred version (the latest is 12.6):
+5. Select this license, then choose your preferred version (the latest is 12.8):
 
    ![eSoftware-selectLicense](./figs/eSoftware-selectLicense.png)
 
@@ -66,11 +66,11 @@ IDOL software is available under a range of license types, including the *IDOL U
 
 #### IDOL components ZIPs (*alternative*)
 
-Under the *Get Software* tab, select `LicenseServer_12.6.0_WINDOWS_X86_64.zip` or `LicenseServer_12.6.0_LINUX_X86_64.zip`.
+Under the *Get Software* tab, select `LicenseServer_12.8.0_WINDOWS_X86_64.zip` or `LicenseServer_12.8.0_LINUX_X86_64.zip`.
 
 Go back to *Product Center* > *IDOL* and request access to a Media Server license type, *e.g.* *IDOL Audio Analytics SW*.  Again you need to fill out the form to gain access.  Once complete go to the *Get Software* tab and download the following:
 
-- `MediaServer_12.6.0_WINDOWS_X86_64.zip` or `MediaServer_12.6.0_LINUX_X86_64.zip`
+- `MediaServer_12.8.0_WINDOWS_X86_64.zip` or `MediaServer_12.8.0_LINUX_X86_64.zip`
 
 ### Install
 
@@ -95,8 +95,8 @@ You can stay on GitHub to follow the steps in this and further linked README fil
 
 If you used the installer wizard, or the scripts without altering them, your installed software will be in:
 
-- `C:\MicroFocus\IDOLServer-12.6.0` (Windows)
-- `~/IDOLServer-12.6.0` (Linux)
+- `C:\MicroFocus\IDOLServer-12.8.0` (Windows)
+- `~/IDOLServer-12.8.0` (Linux)
 
 Each component has its own sub-directory, which includes all required executables, dependencies and configuration files.  The primary configuration file for each shares the name of the component executable, *e.g.* `mediaserver.cfg` for `mediaserver.exe`.
 
@@ -118,5 +118,5 @@ Next start up Media Server in the same way and verify it is also running at [`ac
 The admin guides for all components can be accessed from these links:
 
 - [IDOL documentation home page](https://www.microfocus.com/documentation/idol/)
-- [License Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_6/LicenseServer_12.6_Documentation/Guides/html/English/)
-- [Media Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_6/MediaServer_12.6_Documentation/Guides/html/English/index.html)
+- [License Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/LicenseServer_12.8_Documentation/Guides/html/English/)
+- [Media Server administration guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/English/index.html)

@@ -18,8 +18,8 @@ Download software from the [eSoftware/Partner portal](https://pdapi-web-pro.micr
 1. Select __My previous orders__ in the side menu.
 2. Click your order number for *IDOL Audio Analytics*.
 3. Under the *Get Software* tab, select and download the following files:
-   -  `LicenseServer_12.6.0_WINDOWS_X86_64.exe` or `LicenseServer_12.6.0_LINUX_X86_64.exe`.
-   -  `MediaServer_12.6.0_WINDOWS_X86_64.exe` or `MediaServer_12.6.0_LINUX_X86_64.exe`.
+   -  `LicenseServer_12.8.0_WINDOWS_X86_64.exe` or `LicenseServer_12.8.0_LINUX_X86_64.exe`.
+   -  `MediaServer_12.8.0_WINDOWS_X86_64.exe` or `MediaServer_12.8.0_LINUX_X86_64.exe`.
 
 ## Install
 

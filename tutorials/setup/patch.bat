@@ -5,7 +5,7 @@ REM Patch IDOL installation with tutorial materials
 REM ===========================================================================
 pushd %~dp0
 
-set VERSION=12.6.0
+set VERSION=12.8.0
 set INSTALL_BASE=C:\MicroFocus
 
 set SERVICE_PREFIX=MicroFocus-

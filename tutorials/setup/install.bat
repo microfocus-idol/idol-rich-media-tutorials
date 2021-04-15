@@ -7,7 +7,7 @@ pushd %~dp0
 
 set COMPONENTS=( LicenseServer, MediaServer )
 
-set VERSION=12.6.0
+set VERSION=12.8.0
 set INSTALL_BASE=C:\MicroFocus
 
 set SOURCE_DIR=%HOMEPATH%\Downloads
@@ -30,14 +30,11 @@ for %%i in %COMPONENTS% do (
   if exist %INSTALL_DIR%\%%i\vcredist_2017.exe (
     %INSTALL_DIR%\%%i\vcredist_2017.exe /install /passive /norestart
   )
-  if exist %INSTALL_DIR%\%%i\runtime\vcredist_2010.exe (
-    %INSTALL_DIR%\%%i\runtime\vcredist_2010.exe /passive /norestart
-  )
   if exist %INSTALL_DIR%\%%i\runtime\vcredist_2017.exe (
     %INSTALL_DIR%\%%i\runtime\vcredist_2017.exe /install /passive /norestart
   )
-  if exist %INSTALL_DIR%\%%i\runtime\vcredist_x86_2013.exe (
-    %INSTALL_DIR%\%%i\runtime\vcredist_x86_2013.exe /install /passive /norestart
+  if exist %INSTALL_DIR%\%%i\runtime\vcredist_2019.exe (
+    %INSTALL_DIR%\%%i\runtime\vcredist_2019.exe /install /passive /norestart
   )
 
   echo Configuring %%i as a Windows service

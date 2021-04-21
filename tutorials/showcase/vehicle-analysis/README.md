@@ -201,7 +201,7 @@ Open the training web app at [`/action=gui`](http://127.0.0.1:14000/a=gui#/train
 
 ![vehicle-training](./figs/vehicle-training.png)
 
-> Cameras that are positioned directly above the traffic are better suited for recognition because they capture images where the vehicles approach head-on.  For further recommendations about image quality, read the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/index.html#Operations/Analyze/Vehicles_Introduction.htm).
+> Cameras that are positioned directly above the traffic are better suited for recognition because they capture images where the vehicles approach head-on.  For further recommendations about image quality, and for instructions to collect your own vehicle model training images, read the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/index.html#Operations/Analyze/Vehicle_Model_Training.htm).
 
 ## Processing video
 

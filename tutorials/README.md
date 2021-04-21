@@ -9,6 +9,7 @@ A set of guides to introduce you to IDOL Media Server and associated components.
   - [Setup IDOL Media Server](#setup-idol-media-server)
 - [Introduction](#introduction)
 - [Analytics showcase examples](#analytics-showcase-examples)
+  - [Surveillance analytics](#surveillance-analytics)
   - [Speech transcription](#speech-transcription)
   - [Logo Recognition](#logo-recognition)
   - [Vehicle analysis](#vehicle-analysis)
@@ -52,6 +53,9 @@ Get started with rich media analytics, using face analytics as our guiding examp
 
 Dip into any of the following showcase guides to try more analytics.
 
+### Surveillance analytics
+
+Process CCTV video to track people and vehicles.  Learn how to use Media Server's GUI to easily configure scenario-based alerts to capture events such as loitering, wrong way driving and illegal turning.  Let's keep the roads safe! [Get started](showcase/surveillance/README.md).
 
 ### Speech transcription
 

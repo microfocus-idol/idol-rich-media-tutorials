@@ -29,7 +29,7 @@ This guide assumes you have already completed the [introductory tutorial](../../
       - [Pre-trained models](#pre-trained-models)
   - [Process configuration](#process-configuration)
   - [Run a process configuration](#run-a-process-configuration)
-  - [Build a configurations in the GUI](#build-a-configurations-in-the-gui)
+  - [Build configurations in the GUI](#build-configurations-in-the-gui)
   - [Next steps](#next-steps)
 
 <!-- /TOC -->
@@ -135,7 +135,7 @@ You will use an example configuration to generate a video clip with overlays for
 Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (remembering to update the path to your local copy of this repository and test video `pets2009.mp4`):
 
 ```url
-action=process&source=C:/Code/idol-rich-mnow edia-tutorials/tutorials/showcase/surveillance/pets2009.mp4&configPath=C:/Code/idol-rich-media-tutorials/tutorials/showcase/surveillance/Overlay_VideoTracking.cfg
+action=process&source=C:/MicroFocus/idol-rich-mnow edia-tutorials/tutorials/showcase/surveillance/pets2009.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/surveillance/Overlay_VideoTracking.cfg
 ```
 
 Click `Test Action` to start processing.
@@ -144,11 +144,13 @@ To review the resulting video clip, go to `output/surveillance`:
 
 ![tracking](./figs/tracking.png)
 
-## Build a configurations in the GUI
+## Build configurations in the GUI
 
 Please watch this demo video from IDOL's YouTube playlist to see the easy setup process for tracking vehicles in the road scene:
 
 [![surveillance-training](https://img.youtube.com/vi/XjKjIxlKy9I/2.jpg)](https://www.youtube.com/watch?v=XjKjIxlKy9I&list=PLlUdEXI83_Xoq5Fe2iUnY8fjV9PuX61FA)
+
+Now have a go yourself - it's easy!
 
 ## Next steps
 

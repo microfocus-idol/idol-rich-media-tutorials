@@ -77,17 +77,13 @@ To ingest a video file, we will update the `Ingest` and `Analysis` sections acco
 
 ## Process our news clip
 
-1. Copy the process configuration file `speechToText2.cfg` from this guide into `configurations/tutorials`.
+Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
-1. Copy the sample video file `aljazeera.mp4` from this guide into `C:\MicroFocus\video`. 
+```url
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/speech-transcription/aljazeera.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/speech-transcription/speechToText2.cfg
+```
 
-1. Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action):
-
-    ```url
-    action=process&source=C:\MicroFocus\video\aljazeera.mp4&configName=tutorials/speechToText2
-    ```
-
-1. Click the `Test Action` button to start processing.
+Click the `Test Action` button to start processing.
 
 Review the results as they are produced with [`/action=GetLatestRecord`](http://127.0.0.1:14000/a=getlatestrecord). The final text transcript will be produced after the whole video clip has been processed.  Navigate to `output/speechToText2` and open the transcript file to read the results.
 
@@ -133,16 +129,13 @@ CustomLanguageModel = LibyaTerms:0.3
 SpeedBias = 3
 ```
 
-Then follow the same steps to reprocess:
+Then, paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
-1. Copy the process configuration file `speechToText3.cfg` from this guide into `configurations/tutorials`.
-1. Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action):
+```url
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/speech-transcription/aljazeera.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/speech-transcription/speechToText3.cfg
+```
 
-    ```url
-    action=process&source=C:\MicroFocus\video\aljazeera.mp4&configName=tutorials/speechToText3
-    ```
-
-1. Click the `Test Action` button to start processing.
+Click the `Test Action` button to start processing.
 
 The new text transcript will be produced after the whole video clip has been processed in the directory `output/speechToText3`.
 

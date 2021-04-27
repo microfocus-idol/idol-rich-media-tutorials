@@ -81,11 +81,11 @@ Follow one of these two methods to install IDOL on your system:
 
 ### Obtaining tutorial materials
 
-Get a local copy of this tutorial to give you all the configuration files you will need.  You can either clone this repository or download the `.zip` from [GitHub](https://github.com/microfocus-idol/idol-rich-media-tutorials).
+Get a local copy of this tutorial to give you all the configuration files and sample media you will need.  You can either clone this repository or download the `.zip` from [GitHub](https://github.com/microfocus-idol/idol-rich-media-tutorials).
 
 ![github-download](./figs/github-download.png)
 
-We will now run a script to move some of these materials into convenient locations for running the exercises later on.
+In the following tutorials, we will assume these materials are stored under `C:\MicroFocus`.
 
 #### Following this guide offline
 

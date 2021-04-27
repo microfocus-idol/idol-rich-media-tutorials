@@ -199,14 +199,12 @@ Input2 = ObjectRecognition.End
 
 ## Running our analysis
 
-Use the included sample video `bcnpsg.mp4`. Copy it under `C:\MicroFocus\video`.
-
 While testing, or if you simply wish to keep your config files in a project-specific directory outside of `configurations`, you can reference a config file path in the process action by setting the `configPath` parameter (assuming of course that Media Server can access the location where your process configuration file is stored).
 
-Let's try it. Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), remembering to update the `source` and `configPath` parameters to match your setup:
+Let's try it. Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
 ```url
-action=process&source=C:/MicroFocus/video/bcnpsg.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/logo-recognition/objectRecognition.cfg
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/logo-recognition/bcnpsg.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/logo-recognition/objectRecognition.cfg
 ```
 
 Click `Test Action` to start processing.

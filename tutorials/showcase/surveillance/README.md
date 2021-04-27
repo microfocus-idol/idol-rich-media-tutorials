@@ -130,12 +130,14 @@ AlertWithSource | The same as the Alert track, but each record also includes the
 
 ## Run a process configuration
 
-You will use an example configuration to generate a video clip with overlays for each tracked person and vehicle in a test video.  You can look at the the included config file `Overlay_VideoTracking.cfg` in detail to get a sense of the process.
+You will use an example configuration to generate a video clip with overlays for each tracked person and vehicle in the test video `pets2009.mp4`[^1].  You can look at the the included config file `Overlay_VideoTracking.cfg` in detail to get a sense of the process.
 
-Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (remembering to update the path to your local copy of this repository and test video `pets2009.mp4`):
+[^1]: From the [PETS 2009 benchmark data set](http://cs.binghamton.edu/~mrldata/pets2009).
+
+Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
 ```url
-action=process&source=C:/MicroFocus/idol-rich-mnow edia-tutorials/tutorials/showcase/surveillance/pets2009.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/surveillance/Overlay_VideoTracking.cfg
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/surveillance/pets2009.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/surveillance/Overlay_VideoTracking.cfg
 ```
 
 Click `Test Action` to start processing.

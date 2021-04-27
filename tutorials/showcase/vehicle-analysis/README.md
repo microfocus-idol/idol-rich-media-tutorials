@@ -205,12 +205,10 @@ Open the training web app at [`/action=gui`](http://127.0.0.1:14000/a=gui#/train
 
 ## Processing video
 
-Use the included sample video `vehicles.mp4`. Copy it under `C:\MicroFocus\video`.
-    
-Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), remembering to update the `source` parameter to match your setup:
+Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
 ```url
-action=process&source=C:/MicroFocus/video/vehicles.mp4&configName=examples/VehicleModel/WithColor2
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/vehicle-analysis/vehicles.mp4&configName=examples/VehicleModel/WithColor2
 ```
 
 Click `Test Action` to start processing.

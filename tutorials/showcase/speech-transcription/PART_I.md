@@ -157,10 +157,10 @@ We will process the open stream from *Al Jazeera English*:
 http://live-hls-web-aje.getaj.net/AJE/03.m3u8
 ```
 
-Copy the config file `speechToText1.cfg` from this guide into `configurations/tutorials`, then paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action):
+Paste the following parameters into [`test-action`](http://127.0.0.1:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
 ```url
-action=process&source=http://live-hls-web-aje.getaj.net/AJE/03.m3u8&configName=tutorials/speechToText1
+action=process&source=http://live-hls-web-aje.getaj.net/AJE/03.m3u8&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/speech-transcription/speechToText1.cfg
 ```
 
 Click the `Test Action` button to start processing.  The video clip and srt are produced every 30 seconds based on the `SegmentDuration` parameter.

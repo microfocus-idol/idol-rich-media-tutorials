@@ -130,10 +130,10 @@ As in the introductory tutorials, we are using an XSL transform to extract the w
 
 ### Running our analysis
 
-Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (remembering to update the file locations to match your system):
+Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
 ```url
-action=process&source=C:\MicroFocus\sample_media\Turkey1.png&configName=tutorials/idCard1.cfg
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/Turkey1.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/idCard1.cfg
 ```
 
 Click `Test Action` to start processing.
@@ -232,10 +232,10 @@ Finally we can crop to that region and encode an image for each card.  See the i
 
 #### Run
 
-Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the file locations to match your system):
+Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
 ```url
-action=process&source=C:\MicroFocus\sample_media\Turkey2.png&configName=tutorials/idCard2.cfg
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/Turkey2.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/idCard2.cfg
 ```
 
 Click `Test Action` to start processing.
@@ -298,10 +298,10 @@ This script reads the metadata fields from the Object Recognition result and use
 
 First, copy the included file `getIdCardBoundary.lua` into Media Server's `configurations\lua` folder.
 
-Now, paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the file locations to match your system):
+Now, paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
 ```url
-action=process&source=C:\MicroFocus\sample_media\Turkey2.png&configName=tutorials/idCard2a.cfg
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/Turkey2.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/idCard2a.cfg
 ```
 
 Click `Test Action` to start processing.
@@ -401,10 +401,10 @@ First, copy the included set of Lua scripts `getIdCardOCR_*.lua` into Media Serv
 
 Next, copy the included XSL transform `IdCard_toJSON.xsl` into Media Server's `configurations\xml` folder.
 
-Now, paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the file locations to match your system):
+Now, paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
 ```url
-action=process&source=C:\MicroFocus\sample_media\Turkey1.png&configName=tutorials/idCard3.cfg
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/Turkey1.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/idCard3.cfg
 ```
 
 Click `Test Action` to start processing.
@@ -452,10 +452,10 @@ Input = CombineFaces.Output
 
 First, copy the additional Lua scripts `redactIdCard.lua` and `getIdCardRegion_VehicleType.lua` into Media Server's `configurations\lua` folder.
 
-Now, paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action) (again remembering to update the file locations to match your system):
+Now, paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
 ```url
-action=process&source=C:\MicroFocus\sample_media\Turkey1.png&configName=tutorials/idCard4.cfg
+action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/Turkey1.png&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/id-card-ocr/idCard4.cfg
 ```
 
 Click `Test Action` to start processing.

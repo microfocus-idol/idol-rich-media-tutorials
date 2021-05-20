@@ -55,23 +55,33 @@ Dip into any of the following showcase guides to try more analytics.
 
 ### Surveillance analytics
 
-Process CCTV video to track people and vehicles.  Learn how to use Media Server's GUI to easily configure scenario-based alerts to capture events such as loitering, wrong way driving and illegal turning.  Let's keep the roads safe! [Get started](showcase/surveillance/README.md).
+Process CCTV video to track people and vehicles.  Learn how to use Media Server's GUI to easily configure scenario-based alerts to capture events such as loitering, wrong way driving and illegal turning.  Let's keep the roads safe!
+
+[Get started](showcase/surveillance/README.md).
 
 ### Speech transcription
 
-Process audio to transcribe human speech from a news broadcast. Search those speech transcripts to understand what's being reported on without having to watch TV! [Get started](showcase/speech-transcription/README.md).
+Process audio to transcribe human speech from a news broadcast. Search those speech transcripts to understand what's being reported on without having to watch TV!
+
+[Get started](showcase/speech-transcription/README.md).
 
 ### Logo Recognition
 
-Find and track logos in broadcast video from a football/soccer match. [Get started](showcase/logo-recognition/README.md).
+Find and track logos in broadcast video from a football/soccer match.
+
+[Get started](showcase/logo-recognition/README.md).
 
 ### Vehicle analysis
 
-Read number/license places.  Perform additional vehicle analytics to identify the make and color. [Get started](showcase/vehicle-analysis/README.md).
+Read number/license places.  Perform additional vehicle analytics to identify the make and color.
+
+[Get started](showcase/vehicle-analysis/README.md).
 
 ### ID Card reading
 
-Process a scanned image of an ID card to extract useful structured information. [Get started](showcase/id-card-ocr/README.md).
+Process a scanned image of an ID card to extract useful structured information.
+
+[Get started](showcase/id-card-ocr/README.md).
 
 ## Further reading
 

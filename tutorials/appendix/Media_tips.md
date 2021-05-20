@@ -28,7 +28,7 @@
 - A text editor, *e.g.* [VS Code](https://code.visualstudio.com/download), [Notepad++](https://notepad-plus-plus.org/)
 - A video player, *e.g.* [VLC](http://www.videolan.org/vlc/), [ffmpeg](https://ffmpeg.org/download.html)
 - A video editor, *e.g.* [ffmpeg](https://ffmpeg.org/download.html)
-- A screen recorder, *e.g.* [Microsoft Expression Encoder 4 Screen Capture](https://www.microsoft.com/en-gb/download/details.aspx?id=27870), [ffmpeg](https://ffmpeg.org/download.html)
+- A screen recorder, *e.g.* with the [Xbox Game Bar](https://support.xbox.com/en-GB/help/friends-social-activity/share-socialize/record-game-clips-game-bar-windows-10) included with Windows 10, or [ffmpeg](https://ffmpeg.org/download.html)
 - A scripting language, *e.g.* [node.js](https://nodejs.org/), [python](https://www.python.org/downloads/)
 - A better terminal for Windows, *e.g.* [GitBash](https://gitforwindows.org/) (even better with [Cmder](http://cmder.net/))
 
@@ -40,7 +40,7 @@ Typically, you will be able to get audio, video or image samples from your custo
 1. Download videos from YouTube, *e.g.* as described [below](#download-a-video-from-youtube)
 1. Connect to an open online stream, *e.g.* from a news broadcaster's website (see below).
 1. Make use of open data shared by the academic community (see below).
-1. Search for rights-free media on the web, *e.g.* [pexels.com](https://www.pexels.com/search/videos/).
+1. Search for rights-free media on the web, *e.g.* [pexels.com](https://www.pexels.com/).
 
 ### Video stream sources from the web
 
@@ -51,9 +51,9 @@ Language | Broadcaster | Resolution | Link
 Arabic | France 24 | 1024x576 | http://f24hls-i.akamaihd.net/hls/live/221148/F24_AR_HI_HLS/master_2000.m3u8
 English | Al Jazeera | 960x540 | http://live-hls-web-aje.getaj.net/AJE/03.m3u8
 French | France 24 | 1024x576 | http://f24hls-i.akamaihd.net/hls/live/221146/F24_FR_HI_HLS/master_2000.m3u8
-German | DW | 720x400 | https://dwstream6-lh.akamaihd.net/i/dwstream6_live@123962/index_1_av-b.m3u8
+German | DW | 720x400 | http://dwstream6-lh.akamaihd.net/i/dwstream6_live@123962/index_1_av-p.m3u8
 Italian | Rai News 24 | 704x396 | http://rainews1-live.akamaized.net/hls/live/598326/rainews1/rainews1/rainews_1800/chunklist.m3u8
-Spanish | Milenio TV | 1280x720 | http://bcoveliveios-i.akamaihd.net/hls/live/201661/57828478001/milenio_center_512k@51752.m3u8
+Spanish | RTVe Canal 24 | 1024x576 | http://rtvelivestream.akamaized.net/24h_main_dvr_576.m3u8
 
 These streams can be directly ingested by Media Server as we do in the Speech to Text [tutorial](../showcase/speech-transcription/PART_I.md#process-a-news-channel-stream).
 
@@ -120,7 +120,7 @@ ffmpeg -i rtsp://host:port/channel -f segment -segment_time 300 -an -vcodec copy
 From the command line, *e.g.* to record from a CCTV camera's MJPEG stream in five minute chunks, with a workaround to estimate frame timestamps (for which transcoding is required):
 
 ```bsh
-ffmpeg -use_wallclock_as_timestamps 1 -i http://host:port/ -f segment -segment_time 300 -an -vcodec h264 clip%04d.mp4
+ffmpeg -use_wallclock_as_timestamps 1 -i http://localhost:port/ -f segment -segment_time 300 -an -vcodec h264 clip%04d.mp4
 ```
 
 ### Download a video from YouTube

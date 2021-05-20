@@ -109,7 +109,7 @@ We will introduce and use each of these sections in this tutorial.  Full details
 
 We will configure the Ingest engine to accept video from your webcam.  Use [this guide](../setup/WEBCAM.md) to set up connection to your webcam.
 
-If you do not have a webcam, [Plan B](../setup/WEBCAM.md#plan-b) is to use a video file instead. If this applies to you, please read that section to see how you must modify the configuration files we will use later on.  For this tutorial you need a video containing faces, *e.g.* this free-to-use clip <https://videos.pexels.com/videos/people-at-the-sidewalk-858011>.
+If you do not have a webcam, [Plan B](../setup/WEBCAM.md#plan-b) is to use a video file instead. If this applies to you, please read that section to see how you must modify the configuration files we will use later on.  For this tutorial you need a video containing faces, *e.g.* this recording from [France 24](http://tech-demo.idol.swinfra.net/tutorial/france24.mp4).
 
 The ingest configuration section to connect we will use now will look as follows:
 

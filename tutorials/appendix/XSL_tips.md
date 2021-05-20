@@ -216,7 +216,7 @@ You can go to this directory and copy one of those files, *e.g.* `pre_2_20180626
 
 ### Test running XSL transforms
 
-To make iterative testing faster, you can avoid the need to keep reprocessing your source with Media Server, *e.g.* on Windows by using a free command line tool from [msxsl.exe](https://www.microsoft.com/en-gb/download/details.aspx?id=21714) from Microsoft.
+To make iterative testing faster, you can avoid the need to keep reprocessing your source with Media Server, *e.g.* on Windows by using a free command line tool `msxsl.exe` from Microsoft, and included in the folder next to this README.
 
 To run the transformation from your `introduction/peopleCounter` folder, download the command line tool and copy it here, then do:
 

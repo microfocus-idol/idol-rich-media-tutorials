@@ -172,7 +172,7 @@ To create one, open your favorite image editing software and crop out a section 
 
 ![trained_template](./TurkishDriversLicenseHeader.png)
 
-We can now train this image via the [API](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Actions/Training/TrainObject.htm) or by using the Media Server [GUI](http://localhost:14000/a=gui), with the following steps:
+We can now train this image via the API or by using the Media Server [GUI](http://localhost:14000/a=gui), with the following steps:
 
 1. Go to the *Visual Training* page.
 1. Select *Object Recognition* from the top right dropdown menu.

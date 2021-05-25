@@ -2,6 +2,7 @@
 
 <!-- TOC depthFrom:2 -->
 
+- [Introduction](#introduction)
 - [Logging](#logging)
 - [Accessing record data](#accessing-record-data)
   - [Example records](#example-records)
@@ -10,11 +11,25 @@
 
 <!-- /TOC -->
 
+## Introduction
+
 For an introduction to the Lua language, look no further than [lua.org](https://www.lua.org/pil/contents.html).
+
+In Media Server we use Lua to apply custom logic.  This provides an enormous flexibility that makes complex requirements easy to deliver:
+
+- Preparing a recording of a telephone call for a court hearing, you want to detect when a specific person's name is mentioned and bleep it out.
+- If running license plate recognition in Mexico City, you want alert on plates ending in "5" or "6" on Mondays, when they are [forbidden from being out on the road](https://en.wikipedia.org/wiki/Hoy_No_Circula).
+- When monitoring cars at a junction, you want to detect when a number plate crossed the stop line within a specific time interval after you detect the traffic light changes to red.
+- While monitoring a building entrance, you want to produce a face recognition alert when a person comes into view, but if they move out of the scene and then come back within a specified time, you do not want to be alerted again.
+- When exporting a video to show people-tracking in a crowded scene, you want to overlay each person with a different colored box.
+
+Media Server includes many example Lua scripts, which you can see under `configurations/lua`.  
+
+To support writing your own Lua scripts, Media Server also provides helper functions.  See the [reference guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Lua/LuaFunctions.htm) for more details.
 
 ## Logging
 
-When developing your own Lua scripts, it is obviously useful to be able to log values to check your logic.  Media Server provides a logging function to do just that, which is used as follows:
+When developing your own Lua scripts, it is obviously very useful to be able to log values to check your logic.  Media Server provides a logging helper function to do just that, which is used as follows:
 
 ```lua
 function pred(record)
@@ -35,6 +50,8 @@ To enable this logging, the following section needs to be included in the `media
 LogFile=lua.log
 LogTypeCSVs=lua
 ```
+
+> For any changes you make in `mediaserver.cfg` to take effect you must restart Media Server.
 
 ## Accessing record data
 
@@ -113,7 +130,7 @@ http://localhost:14000/action=GetExampleRecord&EngineType=FaceDetect&Track=Resul
 }
 ```
 
-You will notice that the table structure contains some repetition.  The following keys reference sub-tables which mirror the structure seen in the XML:
+You will notice that the table structure contains some repetition.  The following keys reference sub-tables which mirror the structure you will be familiar with from the XML:
 
 - trackname
 - timestamp
@@ -171,4 +188,4 @@ LuaOutputPath=./output/faces1/%segment.startTime.timestamp%.lua
 
 ## Next steps
 
-For more inspiration, see the examples under `configurations/lua`.
+Why not try some tutorials to explore some of the analytics available in Media Server, linked from the [main page](../../README.md).

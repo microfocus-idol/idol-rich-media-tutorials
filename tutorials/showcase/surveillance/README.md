@@ -72,7 +72,7 @@ VisualChannels=1
 
 #### Pre-trained models
 
-Pre-trained *Object Class Recognition* recognizers (as well as *Image Classification* classifiers) are distributed separately from the main Media Server installer.  To obtain the training pack:
+Pre-trained *Object Class Recognition* recognizers are distributed separately from the main Media Server installer.  To obtain the training pack:
 
 - Return to the [eSoftware/Partner portal](https://pdapi-web-pro.microfocus.com/evalportal/index.do).
 - Under *Product Center*, select *IDOL* to view available software.  Select a Media Server license type, *e.g.* *IDOL Surveillance Analytics SW*, then complete the form to gain access, then:
@@ -94,18 +94,22 @@ Pre-trained *Object Class Recognition* recognizers (as well as *Image Classifica
 
         ![rename-pretrained-recognizer](./figs/rename-pretrained-recognizer.png)
 
-> *N.B.* You have imported six classes: bicycle, bus, car, motorcycle, person and truck.  Each one contains metadata fields defining the expected real-world object dimensions.  These scales turn all detected objects into "standard candles", enabling the camera perspective to be estimated by the [Perspective](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Utilities/Perspective/_Perspective.htm) engine.
+> *N.B.* You have imported six classes: bicycle, bus, car, motorcycle, person and truck.  Each one contains metadata fields defining the expected real-world object dimensions.  These scales turn all detected objects into "standard candles", enabling the camera perspective to be estimated.  Read about conversion to real-world coordinates [here](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/index.html#Advanced/Perspective.htm).
 
 ## Process configuration
 
-Media Server configurations for Surveillance combine the base *Object Class Recognition* engine, which finds and tracks the objects, with one or more *Alert* and *Utility* engines to define scenario-based rules.  These engines are:
+Media Server configurations for Surveillance combine the base *Object Class Recognition* engine, which finds and tracks the objects, with one or more *Alert* and *Utility* engines to define scenario-based rules.  These engines include:
 
 - [Path Alert](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Analysis/AlertPath/_AlertPath.htm): Generates an alert when an object follows a specified path through the scene.
 - [Region Alert](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Analysis/AlertRegion/_AlertRegion.htm): Generates an alert when an object is present within a specified region for a specified amount of time.
 - [Stationary Alert](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Analysis/AlertStationary/_AlertStationary.htm): Generates an alert when an object is stationary for a specified amount of time.
 - [Tripwire Alert](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Analysis/AlertTripwire/_AlertTripWires.htm): Generates an alert when an object crosses a tripwire.
 - [Traffic Lights](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Analysis/TrafficLight/_TrafficLight.htm): Determines the state of traffic lights, so that you can detect vehicles failing to stop for a red light.
-- [Scene Filter](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Utilities/SceneFilter/_SceneFilter.htm): Filters out records, and therefore stops analysis, when a PTZ-capable CCTV camera has been moved away from a trained scene by the operator.
+- [Scene Filter](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Utilities/SceneFilter/_SceneFilter.htm): Filters out source video frames, and therefore stops analysis, when a PTZ-capable CCTV camera has been moved away from a trained scene by the operator.
+- [Lua Filter](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/ESP/Filter/_Filter.htm): Filters out records based on your custom logic defined using the Lua scripting language.  See [tips on working with Lua](../../appendix/Lua_tips.md) for more information.
+  > The detector schedule option in the Surveillance configuration builder is actually just a Lua filter:
+  > <table><tr><td style="vertical-align: top"><img src="./figs/schedule-gui.png"/></td><td style="vertical-align: top"><img src="./figs/schedule-cfg.png"/></td></tr></table>
+
 - [Perspective](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Utilities/Perspective/_Perspective.htm): Combines sizes and movement of people, buses, cars, *etc.* to estimate the perspective from which the camera views the scene. This allows Media Server to convert a position in a video frame into real-world 3D coordinates.
 - [Count](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Utilities/Count/_Count.htm): Counts the number of objects that are present within the scene or a specified region of the scene.
 - [Heatmap](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Utilities/Heatmap/_Heatmap.htm): Creates an image that shows the paths of objects through the scene and identifies areas with the most activity. As objects move through the same part of the scene, their paths overlap and the heatmap turns from blue, to green, and then to red.
@@ -130,9 +134,11 @@ AlertWithSource | The same as the Alert track, but each record also includes the
 
 ## Run a process configuration
 
-You will use an example configuration to generate a video clip with overlays for each tracked person and vehicle in the test video `pets2009.mp4`[^1].  You can look at the the included config file `Overlay_VideoTracking.cfg` in detail to get a sense of the process.
+You will use an example configuration to generate a video clip with overlays for each tracked person and vehicle in the test video `pets2009.mp4`.  
 
-[^1]: From the [PETS 2009 benchmark data set](http://cs.binghamton.edu/~mrldata/pets2009).
+> From the [PETS 2009 benchmark data set](http://cs.binghamton.edu/~mrldata/pets2009).
+
+You can look at the the included config file `Overlay_VideoTracking.cfg` in detail to get a sense of the process.
 
 Paste the following parameters into [`test-action`](http://localhost:14000/a=admin#page/console/test-action), which assume you have downloaded a local copy of these tutorial materials as described [here](../../setup/SETUP.md#obtaining-tutorial-materials):
 
@@ -140,9 +146,11 @@ Paste the following parameters into [`test-action`](http://localhost:14000/a=adm
 action=process&source=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/surveillance/pets2009.mp4&configPath=C:/MicroFocus/idol-rich-media-tutorials/tutorials/showcase/surveillance/Overlay_VideoTracking.cfg
 ```
 
-Click `Test Action` to start processing.
+On that page, click `Test Action` to start processing.
 
-To review the resulting video clip, go to `output/surveillance`:
+To review the resulting video clip, go to your `output/surveillance` folder.
+
+This frame from the output video shows the overlayed people and vehicles:
 
 ![tracking](./figs/tracking.png)
 
@@ -150,7 +158,7 @@ To review the resulting video clip, go to `output/surveillance`:
 
 Please watch this demo video from IDOL's YouTube playlist to see the easy setup process for tracking vehicles in the road scene:
 
-[![surveillance-training](https://img.youtube.com/vi/XjKjIxlKy9I/2.jpg)](https://www.youtube.com/watch?v=XjKjIxlKy9I&list=PLlUdEXI83_Xoq5Fe2iUnY8fjV9PuX61FA)
+[![surveillance-training](https://img.youtube.com/vi/XjKjIxlKy9I/maxres2.jpg)](https://www.youtube.com/watch?v=XjKjIxlKy9I&list=PLlUdEXI83_Xoq5Fe2iUnY8fjV9PuX61FA)
 
 Now have a go yourself - it's easy!
 

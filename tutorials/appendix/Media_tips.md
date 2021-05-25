@@ -20,6 +20,7 @@
   - [Add tracks to existing media file](#add-tracks-to-existing-media-file)
   - [Strip tracks to existing media file](#strip-tracks-to-existing-media-file)
   - [Loop a video file to produce a continuous RTSP stream](#loop-a-video-file-to-produce-a-continuous-rtsp-stream)
+- [Next steps](#next-steps)
 
 <!-- /TOC -->
 
@@ -315,4 +316,6 @@ To process this stream with Media Server, do:
 
 , where setting `persist=true` instructs Media Server to wait out any short term interruptions in the incoming video stream that can occur due to network latency.
 
-__*Good luck with your projects!*__
+## Next steps
+
+Why not try some tutorials to explore some of the analytics available in Media Server, linked from the [main page](../../README.md).

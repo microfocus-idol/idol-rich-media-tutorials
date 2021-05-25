@@ -254,4 +254,4 @@ Now you are ready to collect any nodes you wish from this source XML.
 
 ## Next steps
 
-For more inspiration, see the examples under `configurations/xsl`.
+Why not try some tutorials to explore some of the analytics available in Media Server, linked from the [main page](../../README.md).

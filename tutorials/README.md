@@ -14,6 +14,7 @@ A set of guides to introduce you to IDOL Media Server and associated components.
   - [Logo Recognition](#logo-recognition)
   - [Vehicle analysis](#vehicle-analysis)
   - [ID Card reading](#id-card-reading)
+  - [Cluster Faces](#cluster-faces)
 - [Further reading](#further-reading)
   - [Example configurations](#example-configurations)
   - [Hints and Tips](#hints-and-tips)
@@ -82,6 +83,12 @@ Read number/license places.  Perform additional vehicle analytics to identify th
 Process a scanned image of an ID card to extract useful structured information.
 
 [Get started](showcase/id-card-ocr/README.md).
+
+### Cluster Faces
+
+Automatically organize unsorted pictures of people into unique identities using Face Recognition clustering.
+
+[Watch](https://www.youtube.com/watch?v=FlnAqKKrQYw&list=PLlUdEXI83_Xoq5Fe2iUnY8fjV9PuX61FA).
 
 ## Further reading
 

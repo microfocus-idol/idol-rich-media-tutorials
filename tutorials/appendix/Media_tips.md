@@ -6,6 +6,7 @@
 - [Collecting sample media](#collecting-sample-media)
   - [Video stream sources from the web](#video-stream-sources-from-the-web)
     - [Live YouTube channels](#live-youtube-channels)
+  - [CCTV camera streams](#cctv-camera-streams)
   - [Academic datasets](#academic-datasets)
 - [Working with video sources](#working-with-video-sources)
   - [Test availability of an IP stream](#test-availability-of-an-ip-stream)
@@ -37,11 +38,11 @@
 
 Typically, you will be able to get audio, video or image samples from your customer. If not you have (at least) three choice:
 
-1. Use a webcam - see the rich media tutorials to learn how to connect
-1. Download videos from YouTube, *e.g.* as described [below](#download-a-video-from-youtube)
 1. Connect to an open online stream, *e.g.* from a news broadcaster's website (see below).
-1. Make use of open data shared by the academic community (see below).
+1. Use a webcam - see the setup guide to learn how to [connect](../setup/WEBCAM.md).
+1. Make use of open data shared by the academic community, see [below](#academic-datasets).
 1. Search for rights-free media on the web, *e.g.* [pexels.com](https://www.pexels.com/).
+1. Download video files or stream video from YouTube, *e.g.* as described [below](#download-a-video-from-youtube).
 
 ### Video stream sources from the web
 
@@ -71,6 +72,35 @@ Urdu | Geo TV | 640x360 | https://www.youtube.com/watch?v=QpoSuyXQKOs
 
 These channels also wrap HLS stream index `.m3u8` files, which can be accessed as described [below](#record-videoaudio-from-a-live-youtube-channel).
 
+### CCTV camera streams
+
+Media Server can connect directly to live streams from most CCTV camera brands.  To find the stream details you will usually need to consult the operating manual for the particular camera.  
+
+Most modern cameras will offer an [RTSP](https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) stream, which looks like `rtsp://<user>:<password>@<IP>:<port>/<channel>`, where `IP` is the IP address (or hostname) of the camera.  If the port is not specified, the default is `554` for RTSP.  The channel part of the URL is optional.  The username and password can be added as shown and are required if security has been enabled on the camera.  Some examples from common brands:
+
+Manufacturer | RTSP
+--- | ---
+Arecont | `rtsp://<IP>/media/video1`
+Axis | `rtsp://<IP>/axis-media/media.amp`
+Bosch | `rtsp://<IP>/video?inst=1&h26x=4`
+D-Link | `rtsp://<IP>/live1.sdp`
+Flir | `rtsp://<IP>/avc`
+Geovision | `rtsp://<IP>/CH001.sdp`
+Hikvision | `rtsp://<IP>/Streaming/Channels/101/`
+IndigoVision | `rtsp://<IP>/`
+Pelco | `rtsp://<IP>/stream1`
+
+> If you cannot find a manual for your camera, or your manual does not include RTSP connection details (which is not uncommon), there are a number of websites that aggregate camera connection details.  I have found this one to be useful: <https://community.geniusvision.net/platform/cprndr/manurtsplist>.
+
+As with the Bosch connection example above, some cameras also expose configuration parameters in the URL.Most cameras will need to be configured via an embedded web configuration UI, similar to what you have on your internet router at home.  This UI will be accessible at `http://<IP>:80/`, where `IP` is again the IP address (or hostname) of the camera.
+
+Media Server can connect directly to these RTSP streams if you configure the multi-purpose [Video](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Ingest/Libav/_Libav.htm) type ingest engine.  Media Server also includes the following additional ingest engines to support alternative stream types:
+
+- [MJPEG](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Ingest/MJPEG/_MJPEG.htm): for cameras supporting motion Jpeg streaming
+- [MxPEG](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Ingest/MXPEG/_MXPEG.htm): for [Mobotix](https://www.mobotix.com/en/mxpeg) cameras
+- [Genetec](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Ingest/Genetec/_Genetec.htm): to connect to any camera already integrated into the Genetec Security Center Video Management System (VMS)
+- [Milestone](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Ingest/Milestone/_Milestone.htm): to connect to any camera already integrated into the Milestone XProtect VMS
+
 ### Academic datasets
 
 > Please check the license terms for these datasets.
@@ -80,15 +110,18 @@ These channels also wrap HLS stream index `.m3u8` files, which can be accessed a
 - [LFW](http://vis-www.cs.umass.edu/lfw/): The University of Massachusetts Labeled Faces in the Wild dataset is a public benchmark for face verification.
 - [MS-Celeb-1M](https://github.com/EB-Dodo/C-MS-Celeb): The Microsoft Research One Million Celebrities in the Real World dataset is a benchmark for large-scale face recognition.
 - [PETS2009](http://cs.binghamton.edu/~mrldata/pets2009): The IEEE International Workshop on Performance Evaluation of Tracking and Surveillance 2009 dataset is a public benchmark for the characterization of different crowd activities.
+
+    > The PETS2009 dataset is provided as folders of stills.  To concatenate them into videos, use the ffmpeg command:
+    > ```bsh
+    > ffmpeg -r 7 -i S3/Multiple_Flow/Time_12-43/View_008/frame_%04d.jpg -c:v libx264 -vf fps=25 -pix_fmt yuv420p S3_MF_Time_12-43_View_008.mp4
+    > ```
+
 - [UA-DETRAC](http://detrac-db.rit.albany.edu/home): The University at Albany DEtection and TRACking dataset is a benchmark for challenging real-world multi-object detection and multi-object tracking.
 
-Both the PETS2009 and UA-DETRAC datasets contain folders of images that can be stitched together to produce videos, *e.g.* using ffmpeg as follows for one PETS2009 sequence:
-
-```bsh
-ffmpeg -r 7 -i S3/Multiple_Flow/Time_12-43/View_008/frame_%04d.jpg -c:v libx264 -vf fps=25 -pix_fmt yuv420p s3_mf_time_12-43_view_008.mp4
-```
-
-> The frame rate setting (`-r 7` in this case) was found by trial end error.
+    > The UA-DETRAC dataset is provided as folders of stills.  To concatenate them into videos, use the ffmpeg command:
+    > ```bsh
+    > ffmpeg -r 25 -i ./MVI_40864/img%05d.jpg -c:v libx264 -vf fps=25 -pix_fmt yuv420p MVI_40864.mp4
+    > ```
 
 ## Working with video sources
 

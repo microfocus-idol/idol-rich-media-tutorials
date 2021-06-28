@@ -42,9 +42,9 @@ Follow [these steps](setup/SETUP.md) to install IDOL Media Server and get ready 
 
 ## Introduction
 
-> Everyone should do this tutorial first.
+> Everyone should do this tutorial.
 
-Get started with rich media analytics, using face analytics as our guiding example.  An end-to-end setup taking you from your first Media Server configuration to running your own app that makes use of Media Server as an analytics service.  All you need is a webcam!
+Make a serious start with rich media analytics, using face analytics as our guiding example.  This end-to-end course takes you from your first Media Server configuration to running your own app, which makes use of Media Server as an analytics service.  All you need is a webcam (and a few hours of your time)!
 
 [Get started](introduction/README.md).
 

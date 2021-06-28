@@ -1,6 +1,6 @@
 # Install IDOL Media Server
 
-Use script to install IDOL Media Server from the component `.zip` files.
+Use a script to install IDOL Media Server from the component `.zip` files.
 
 <!-- TOC depthFrom:2 -->
 

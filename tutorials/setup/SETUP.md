@@ -7,9 +7,7 @@ This is a setup guide for a basic installation of IDOL rich media and associated
 - [Useful third-party tools](#useful-third-party-tools)
 - [IDOL components](#idol-components)
   - [Obtain an IDOL license](#obtain-an-idol-license)
-  - [Access IDOL software](#access-idol-software)
-    - [IDOL components ZIPs (*alternative*)](#idol-components-zips-alternative)
-  - [Install](#install)
+  - [Install IDOL software](#install-idol-software)
   - [Obtaining tutorial materials](#obtaining-tutorial-materials)
     - [Following this guide offline](#following-this-guide-offline)
     - [Validate install](#validate-install)
@@ -57,24 +55,9 @@ You can obtain software and licenses from the [eSoftware/Partner portal](https:/
 
 7. Confirm your details the finally download your key, which is a `.dat` file.
 
-### Access IDOL software
+### Install IDOL software
 
-IDOL software is available under a range of license types, including the *IDOL Ultimate* that we just accessed.  To have access to all the components used in these tutorials, you need to request access to one additional license type:
-
-1. Under *Product Center*, select *IDOL*, then *IDOL Ultimate*
-2. Complete the web form with your details to gain access
-
-#### IDOL components ZIPs (*alternative*)
-
-Under the *Get Software* tab, select `LicenseServer_12.8.0_WINDOWS_X86_64.zip` or `LicenseServer_12.8.0_LINUX_X86_64.zip`.
-
-Go back to *Product Center* > *IDOL* and request access to a Media Server license type, *e.g.* *IDOL Audio Analytics SW*.  Again you need to fill out the form to gain access.  Once complete go to the *Get Software* tab and download the following:
-
-- `MediaServer_12.8.0_WINDOWS_X86_64.zip` or `MediaServer_12.8.0_LINUX_X86_64.zip`
-
-### Install
-
-Follow one of these two methods to install IDOL on your system:
+Follow one of these two methods to obtain and install IDOL software on your system:
 
 - Follow [these steps](INSTALL_WIZARD.md) to install IDOL using the graphical installer (*recommended*).
 - Follow [these steps](INSTALL_ZIPS.md) for a scripted installation of IDOL components (*advanced*).
@@ -89,7 +72,7 @@ In the following tutorials, we will assume these materials are stored under `C:\
 
 #### Following this guide offline
 
-You can stay on GitHub to follow the steps in this and further linked README files in your browser, or if you prefer to work with the downloaded files, see [these steps](appendix/Markdown_reader.md) to turn your browser into a smart markdown viewer.
+You can stay on GitHub to follow the steps in this and further linked README files in your browser or, if you prefer to work with the downloaded files, see [these steps](appendix/Markdown_reader.md) for some convenient offline reading options.
 
 #### Validate install
 
@@ -98,7 +81,7 @@ If you used the installer wizard, or the scripts without altering them, your ins
 - `C:\MicroFocus\IDOLServer-12.8.0` (Windows)
 - `~/IDOLServer-12.8.0` (Linux)
 
-Each component has its own sub-directory, which includes all required executables, dependencies and configuration files.  The primary configuration file for each shares the name of the component executable, *e.g.* `mediaserver.cfg` for `mediaserver.exe`.
+Each installed IDOL component will have its own sub-directory, which includes all required executables, dependencies and configuration files.  The primary configuration file for each shares the name of the component executable, *e.g.* `mediaserver.cfg` for `mediaserver.exe`.
 
 Now let's start up license server:
 
@@ -109,9 +92,9 @@ Now let's start up license server:
   ./start-licenseserver.sh
   ```
 
-To ensure License Server is running, point your browser to [`action=getLicenseInfo`](http://localhost:20000/a=getlicenseinfo).
+To ensure IDOL License Server is running, point your browser to [`action=getLicenseInfo`](http://localhost:20000/a=getlicenseinfo).
 
-Next start up Media Server in the same way and verify it is also running at [`action=getStatus`](http://localhost:14000/a=getstatus).
+Next start up IDOL Media Server in the same way and verify it is also running at [`action=getStatus`](http://localhost:14000/a=getstatus).
 
 ### Further reading
 

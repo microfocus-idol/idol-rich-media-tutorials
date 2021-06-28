@@ -1,0 +1,4 @@
+*.log
+*.todo
+tutorials/showcase/face-clustering/*
+tutorials/showcase/image-classification/*

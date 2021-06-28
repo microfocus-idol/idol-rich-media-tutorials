@@ -4,7 +4,7 @@
 
 - [Useful third-party software](#useful-third-party-software)
 - [Collecting sample media](#collecting-sample-media)
-  - [Video stream sources from the web](#video-stream-sources-from-the-web)
+  - [Video file and streamed sources from the web](#video-file-and-streamed-sources-from-the-web)
     - [Live YouTube channels](#live-youtube-channels)
   - [CCTV camera streams](#cctv-camera-streams)
   - [Academic datasets](#academic-datasets)
@@ -36,17 +36,23 @@
 
 ## Collecting sample media
 
-Typically, you will be able to get audio, video or image samples from your customer. If not you have (at least) three choice:
+Typically, you will be able to get audio, video or image samples from your customer. If not you have (at least) these choice:
 
-1. Connect to an open online stream, *e.g.* from a news broadcaster's website (see below).
 1. Use a webcam - see the setup guide to learn how to [connect](../setup/WEBCAM.md).
 1. Make use of open data shared by the academic community, see [below](#academic-datasets).
 1. Search for rights-free media on the web, *e.g.* [pexels.com](https://www.pexels.com/).
 1. Download video files or stream video from YouTube, *e.g.* as described [below](#download-a-video-from-youtube).
+1. Connect to a video file or stream embedded in a website, *e.g.* from a news broadcaster's website, as described [below](#video-stream-sources-from-the-web).
 
-### Video stream sources from the web
+### Video file and streamed sources from the web
 
-There exist many free news streams on the web that you can connect to.  Often news websites include a "Live" page where you can view the channel in your browser.  Under the hood, the page is typically requesting an HLS stream index `.m3u8` file.  We can identify these files by manually inspecting websites, *i.e.* by pressing `F12` and filtering on files downloaded in the Network tab. The following streams were working at time of writing.
+There exist many free news streams on the web that you can connect to.  Often news websites include a "Live" page where you can view the channel in your browser.  Under the hood, the page is often requesting an HLS stream index `.m3u8` file.  We can identify these files by manually inspecting websites, *i.e.* by pressing `F12` and filtering on files downloaded in the Network tab. 
+
+![m3u8.png](./figs/m3u8.png)
+
+> While Media Server's Video ingest engine does support `https` on Windows, *it does not on Linux*.  Luckily, you can often change the URL protocol to `http` and it will still work, *e.g.* <https://live-hls-web-aje.getaj.net/AJE/03.m3u8> seen in the above screenshot can be safely changed to <http://live-hls-web-aje.getaj.net/AJE/03.m3u8>, as listed in the table below.
+
+The following streams were working at time of writing.
 
 Language | Broadcaster | Resolution | Link
 --- | --- | --- | ---
@@ -57,7 +63,7 @@ German | DW | 720x400 | http://dwstream6-lh.akamaihd.net/i/dwstream6_live@123962
 Italian | Rai News 24 | 704x396 | http://rainews1-live.akamaized.net/hls/live/598326/rainews1/rainews1/rainews_1800/chunklist.m3u8
 Spanish | RTVe Canal 24 | 1024x576 | http://rtvelivestream.akamaized.net/24h_main_dvr_576.m3u8
 
-These streams can be directly ingested by Media Server as we do in the Speech to Text [tutorial](../showcase/speech-transcription/PART_I.md#process-a-news-channel-stream).
+These streams can be directly ingested by Media Server using the the multi-purpose [Video](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Help/index.html#Configuration/Ingest/Libav/_Libav.htm) type ingest engine, as we do in the Speech to Text [tutorial](../showcase/speech-transcription/PART_I.md#process-a-news-channel-stream).
 
 #### Live YouTube channels
 

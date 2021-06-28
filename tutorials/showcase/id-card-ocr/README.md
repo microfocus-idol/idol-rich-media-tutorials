@@ -7,7 +7,9 @@ For a detailed introduction to Optical Character Recognition, see the [admin gui
 We will:
 
 1. use the OCR analysis engine to read the text from an image of an ID card
+
     ![id-card](Turkey1.png)
+    
 1. use Object Recognition to recognize a specific document type
 1. define a document type template in order to maintain document structure after OCR
 1. encode a redacted version of the ID card image to hide sensitive data

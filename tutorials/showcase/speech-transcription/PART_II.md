@@ -4,7 +4,7 @@ The language models that ship with Media Server cover a broad vocabulary, reflec
 
 Media Server enables us to build custom language models, which can be used to improve the quality of a transcribed speech related to a specific domain.
 
-We will:
+In this tutorial we will:
 
 1. transcribe text from a news clip discussing political affairs in Libya
 1. build a custom language model from news articles about Libyan politicians and cities

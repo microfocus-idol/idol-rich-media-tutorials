@@ -1,6 +1,6 @@
 # PART IV - People counting: an example of app integration
 
-We will:
+In this tutorial we will:
 
 1. run a simple *people counting* application (using `node.js`) that makes use of Media Server as an analytical service
 1. create a template process configuration file to be customized at runtime by the app

@@ -4,7 +4,7 @@ Media Server includes an Object Recognition analysis engine, which can be traine
 
 For a more detailed introduction to Object Recognition, see the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/index.html#Operations/Analyze/ObjectRecognition_Introduction.htm).
 
-We will:
+In this tutorial we will:
 
 1. use the Object Recognition analysis engine to train Objects and identify them in a video from a football match
 1. use transform and image encoding engines to save cropped images of the Objects we find

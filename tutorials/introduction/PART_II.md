@@ -1,6 +1,6 @@
 # PART II - More face analytics
 
-We will:
+In this tutorial we will:
 
 1. chain analytics, *i.e.* use the output of face detection as input to other analytics
 1. filter analysis output tracks using event processing to control the input rate to other analytics

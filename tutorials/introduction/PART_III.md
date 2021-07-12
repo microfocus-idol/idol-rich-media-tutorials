@@ -1,6 +1,6 @@
 # PART III - Face recognition
 
-We will:
+In this tutorial we will:
 
 1. train faces and use the `FaceRecognize` analysis engine to match them
 1. match your identity from your webcam

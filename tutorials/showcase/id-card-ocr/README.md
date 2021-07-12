@@ -4,7 +4,7 @@ Media Server includes an Optical Character Recognition (OCR) analysis engine, wh
 
 For a detailed introduction to Optical Character Recognition, see the [admin guide](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/index.html#Operations/Analyze/OCR_overview.htm).
 
-We will:
+In this tutorial we will:
 
 1. use the OCR analysis engine to read the text from an image of an ID card
 

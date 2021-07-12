@@ -1,6 +1,6 @@
 # PART I - Getting started with face detection
 
-We will:
+In this tutorial we will:
 
 1. connect to and ingest video from a webcam
 1. use the *FaceDetect* analysis engine to track people seen by the webcam

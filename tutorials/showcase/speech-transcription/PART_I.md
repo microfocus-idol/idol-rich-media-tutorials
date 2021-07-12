@@ -2,7 +2,7 @@
 
 Media Server can be used to perform audio analytics, including speech transcription (often called Speech-to-Text), speaker identification and language identification.  We will configure Media Server to support a simple use case of this speech transcription capability: to record video clips from on a live news broadcast stream and automatically generate subtitles for those clips.
 
-We will:
+In this tutorial we will:
 
 1. configure a speech language pack and run speech transcription
 1. record video clips from a live stream

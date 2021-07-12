@@ -11,7 +11,7 @@ Alert rules can be built to analyse the location and movement of these detected 
 - Illegal turning
 - *and many more*.
 
-We will:
+In this tutorial we will:
 
 1. use the Media Server GUI to import pre-trained models to enable recognition of common surveillance objects,
 1. run a process action to create a video with overlayed tracking information for people and vehicles, and
@@ -19,7 +19,7 @@ We will:
 
 This guide assumes you have already completed the [introductory tutorial](../../README.md#introduction).
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
 - [Surveillance analysis](#surveillance-analysis)
   - [Setup](#setup)

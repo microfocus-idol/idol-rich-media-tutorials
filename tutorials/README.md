@@ -10,6 +10,7 @@ A set of guides to introduce you to IDOL Media Server and associated components.
 - [Introduction](#introduction)
 - [Analytics showcase examples](#analytics-showcase-examples)
   - [Surveillance analytics](#surveillance-analytics)
+  - [Milestone integration](#milestone-integration)
   - [Speech transcription](#speech-transcription)
   - [Logo Recognition](#logo-recognition)
   - [Vehicle analysis](#vehicle-analysis)
@@ -59,6 +60,12 @@ Dip into any of the following showcase guides to try more analytics.
 Process CCTV video to track people and vehicles.  Learn how to use Media Server's GUI to easily configure scenario-based alerts to capture events such as loitering, wrong way driving and illegal turning.  Let's keep the roads safe!
 
 [Get started](showcase/surveillance/README.md).
+
+### Milestone integration
+
+Integrate Media Server as an analytics "plug-in" for the Milestone XProtect video management system.  Set up a trial version of Milestone XProtect Corporate (in case you don't already have one), then learn how to ingest video from it send alert results back for viewing.
+
+[Get started](showcase/milestone-integration/README.md).
 
 ### Speech transcription
 

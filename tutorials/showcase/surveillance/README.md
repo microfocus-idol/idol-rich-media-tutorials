@@ -21,16 +21,15 @@ This guide assumes you have already completed the [introductory tutorial](../../
 
 <!-- TOC depthFrom:2 -->
 
-- [Surveillance analysis](#surveillance-analysis)
-  - [Setup](#setup)
-    - [Train object class recognition](#train-object-class-recognition)
-      - [Enabled modules](#enabled-modules)
-      - [Licensed channels](#licensed-channels)
-      - [Pre-trained models](#pre-trained-models)
-  - [Process configuration](#process-configuration)
-  - [Run a process configuration](#run-a-process-configuration)
-  - [Build configurations in the GUI](#build-configurations-in-the-gui)
-  - [Next steps](#next-steps)
+- [Setup](#setup)
+  - [Train object class recognition](#train-object-class-recognition)
+    - [Enabled modules](#enabled-modules)
+    - [Licensed channels](#licensed-channels)
+    - [Pre-trained models](#pre-trained-models)
+- [Process configuration](#process-configuration)
+- [Run a process configuration](#run-a-process-configuration)
+- [Build configurations in the GUI](#build-configurations-in-the-gui)
+- [Next steps](#next-steps)
 
 <!-- /TOC -->
 
@@ -72,29 +71,32 @@ VisualChannels=1
 
 #### Pre-trained models
 
-Pre-trained *Object Class Recognition* recognizers are distributed separately from the main Media Server installer.  To obtain the training pack:
+Pre-trained *Object Class Recognition* recognizers are distributed separately from the main Media Server installer.  To obtain the training pack, return to the [Software Licensing and Downloads](https://sld.microfocus.com/mysoftware/index) portal, then:
 
-- Return to the [eSoftware/Partner portal](https://pdapi-web-pro.microfocus.com/evalportal/index.do).
-- Under *Product Center*, select *IDOL* to view available software.  Select a Media Server license type, *e.g.* *IDOL Surveillance Analytics SW*, then complete the form to gain access, then:
-    1. go to the *Get Software* tab
-    1. download and extract the training pack `MediaServerPretrainedModels_12.8.0_COMMON.zip`
+1. Under the *Downloads* tab, select your product, product name and version from the dropdowns:
 
-- Next, to load the surveillance recognizer, open the Media Server GUI at [`/action=gui`](http://127.0.0.1:14000/a=gui#/train/objectClassRec(tool:select)) then follow these steps:
+    ![get-software](../../setup/figs/get-software.png)
 
-    1. in the left column, click `Import`
-    1. navigate to your extracted training pack and select `ObjectClassRecognizer_Gen2_Surveillance.dat`
+1. From the list of available files, select and download `MediaServerPretrainedModels_12.8.0_COMMON.zip`.
 
-        ![select-pretrained-recognizer](./figs/select-pretrained-recognizer.png)
+    ![get-pretrained-zip](./figs/get-pretrained-zip.png)
 
-    1. a notification will pop-up to tell you the model is uploading, then processing:
+Extract the training pack `.zip` then, to load the surveillance recognizer, open the Media Server GUI at [`/action=gui`](http://127.0.0.1:14000/a=gui#/train/objectClassRec(tool:select)) and follow these steps:
 
-        ![processing-pretrained-recognizer](./figs/processing-pretrained-recognizer.png)
+1. in the left column, click `Import`
+1. navigate to your extracted training pack and select `ObjectClassRecognizer_Gen2_Surveillance.dat`
 
-    1. (__*Important!*__) once imported, rename the recognizer to "surveillance":
+    ![select-pretrained-recognizer](./figs/select-pretrained-recognizer.png)
 
-        ![rename-pretrained-recognizer](./figs/rename-pretrained-recognizer.png)
+1. a notification will pop-up to tell you the model is uploading, then processing:
 
-> *N.B.* You have imported six classes: bicycle, bus, car, motorcycle, person and truck.  Each one contains metadata fields defining the expected real-world object dimensions.  These scales turn all detected objects into "standard candles", enabling the camera perspective to be estimated.  Read about conversion to real-world coordinates [here](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/index.html#Advanced/Perspective.htm).
+    ![processing-pretrained-recognizer](./figs/processing-pretrained-recognizer.png)
+
+1. (__*Important!*__) once imported, rename the recognizer to "surveillance":
+
+    ![rename-pretrained-recognizer](./figs/rename-pretrained-recognizer.png)
+
+> You have imported six classes: bicycle, bus, car, motorcycle, person and truck.  Each one contains metadata fields defining the expected real-world object dimensions.  These scales turn all detected objects into "standard candles", enabling the camera perspective to be estimated.  Read about conversion to real-world coordinates [here](https://www.microfocus.com/documentation/idol/IDOL_12_8/MediaServer_12.8_Documentation/Guides/html/index.html#Advanced/Perspective.htm).
 
 ## Process configuration
 

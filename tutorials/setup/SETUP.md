@@ -31,31 +31,27 @@ A log follower, *e.g.*:
 
 IDOL components are licensed via the IDOL License Server application, which requires a license key.
 
-> The process to obtain software and licenses are changing.  This section will be updated once the new process is confirmed.
-
 ### Obtain an IDOL license
 
-You can obtain software and licenses from the [eSoftware/Partner portal](https://entitlement.microfocus.com/evalportal/index.do).
+You can obtain software and licenses from the [Software Licensing and Downloads](https://sld.microfocus.com/mysoftware/index) portal.
 
-1. Under *Product Center*, select *IDOL*, then *IDOL Ultimate*
-2. Complete the web form with your details to gain access
-3. Under the *Get Licensing* tab, scroll to the bottom and click __Get License__:
+1. Under the *Entitlements* tab, search for *IDOL*
+1. Select from your available environment types:
+1. Scroll to the bottom and click `Activate` next to your *IDOL SW license*
 
-    ![eSoftware-getLicense](./figs/eSoftware-getLicense.png)
-
-4. Click through the pop-ups then, scroll to the bottom and click __Activate__ next to your *IDOL # day Personal license*
-
-   ![eSoftware-activateLicense](./figs/eSoftware-activateLicense.png)
-
-5. Select this license, then choose your preferred version (the latest is 12.8):
+    ![get-license](./figs/get-license.png)
+ 
+1. On the "License Activation" screen, at the bottom, select the check box, choose your preferred version (the latest is 12.8), then fill in the quantity to activate:
 
    ![eSoftware-selectLicense](./figs/eSoftware-selectLicense.png)
 
-6. Fill in the license details, including the MAC address and hostname of the machine where you will install IDOL License Server:
+1. Above this section, fill in the requested details, including the MAC address and hostname of the machine where you will install IDOL License Server:
 
    ![eSoftware-configureLicense](./figs/eSoftware-configureLicense.png)
 
-7. Confirm your details the finally download your key, which is a `.dat` file.
+    > IDOL License Server listens for HTTP requests from other IDOL components to provide them license seats.  The default port is `20000` but you are free to change this.
+
+1. Click "Next", then confirm your details and click "Submit".  You will soon received your key, which is a `.dat` file, by email.
 
 ### Install IDOL software
 

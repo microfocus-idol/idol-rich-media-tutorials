@@ -11,11 +11,15 @@ Use the IDOL installer wizard to get IDOL Media Server.
 
 ## Download the IDOL installer
 
-Download software from the [eSoftware/Partner portal](https://pdapi-web-pro.microfocus.com/evalportal/index.do).
+Download software from the [Software Licensing and Downloads](https://sld.microfocus.com/mysoftware/index) portal.
 
-1. Select __My previous orders__ in the side menu.
-1. Click your order number for *IDOL Ultimate*.
-2. Under the *Get Software* tab, select and download `IDOLServer_12.8.0_WINDOWS_X86_64.exe` or `IDOLServer_12.8.0_LINUX_X86_64.exe` depending on your system.
+1. Under the *Downloads* tab, select your product, product name and version from the dropdowns:
+
+    ![get-software](./figs/get-software.png)
+
+1. From the list of available files, select and download `IDOLServer_12.8.0_WINDOWS_X86_64.exe` or `IDOLServer_12.8.0_LINUX_X86_64.exe` depending on your operating system.
+
+    ![get-idol-installer](./figs/get-idol-installer.png)
 
 ## Install
 

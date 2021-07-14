@@ -31,6 +31,8 @@ A log follower, *e.g.*:
 
 IDOL components are licensed via the IDOL License Server application, which requires a license key.
 
+> The process to obtain software and licenses are changing.  This section will be updated once the new process is confirmed.
+
 ### Obtain an IDOL license
 
 You can obtain software and licenses from the [eSoftware/Partner portal](https://entitlement.microfocus.com/evalportal/index.do).
